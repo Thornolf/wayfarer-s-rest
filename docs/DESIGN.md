@@ -50,6 +50,13 @@ change.
   partie entendue comme la partie silencieuse.
 - La nuit est générée jusqu'à l'heure du réveil, puis coupée au moment où l'app est rouverte. Une
   fois le son arrêté, l'app n'a donc plus besoin de tourner en arrière-plan.
+- **Un fond sonore continu** joue du début à la fin du son : un bruit rose ou brun très doux, ou un
+  vrai son (vent lointain, feu), au volume réglable dans l'admin. Le son ne coupe donc jamais,
+  même entre deux scènes ou au point de boucle d'une ambiance, et iOS garde l'app active tant
+  qu'il joue.
+- **Formats envoyés à l'iPhone** : les boucles d'ambiance en **ALAC** (sans perte, pas de trou au
+  point de boucle), les sons courts en **AAC**. Le Pi garde toujours les originaux. Le test de
+  l'étape 1 confirme à l'oreille ; si l'AAC boucle sans trou, tout passe en AAC.
 - **Variation procédurale** : un même son ne doit jamais sonner deux fois pareil. À chaque lecture,
   le moteur tire au hasard, dans des fourchettes réglables par son ou par catégorie dans l'admin :
   - la variante, parmi les fichiers de la même catégorie (sans rejouer la précédente) ;

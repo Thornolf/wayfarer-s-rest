@@ -43,5 +43,7 @@ Ces réponses passent avant les plans, et sont reportées dans `docs/DESIGN.md`.
 - **Le perso** : nom et genre choisis à la création, dans l'app (plans 2 et 5).
 - **Le matériel** : iPhone 14 Pro, dernière version d'iOS ; Pi avec SSD, les données vont sur le SSD
   (plans 1 et 3).
-- **Format des boucles d'ambiance** : encore ouvert, le test de l'étape 1 tranche entre AAC et un
-  format sans perte.
+- **Un fond sonore continu** (bruit rose ou brun très doux, réglable) joue pendant tout le son, pour
+  qu'il ne coupe jamais et qu'iOS garde l'app active (plans 1, 2 et 5).
+- **Formats** : boucles d'ambiance en ALAC, sons courts en AAC, originaux gardés sur le Pi. Le test
+  de l'étape 1 confirme (plans 1 et 3).
