@@ -38,8 +38,24 @@ change.
 - **Météo** qui change lentement, **jour et nuit**.
 - **Intensité** qui baisse au fil de la minuterie : moins de combats, plus de marche, puis l'auberge
   ou le feu de camp, et un fondu final. Pas de son brutal : volume max par catégorie, fondus.
-- **Minuterie** : 30 min, 1 h, 2 h, toute la nuit. L'XP et le butin ne comptent **que pour le temps
-  réellement joué**.
+- **Minuteur du son** : 15 min, 30 min, 1 h ou 2 h. À la fin, le son s'arrête en fondu, mais
+  **l'aventure continue en silence jusqu'au réveil** : l'heure du réveil réglée dans l'app, ou
+  l'ouverture de l'app si elle arrive avant. Toute l'aventure compte pour l'XP et le butin, la
+  partie entendue comme la partie silencieuse.
+- La nuit est générée jusqu'à l'heure du réveil, puis coupée au moment où l'app est rouverte. Une
+  fois le son arrêté, l'app n'a donc plus besoin de tourner en arrière-plan.
+- **Variation procédurale** : un même son ne doit jamais sonner deux fois pareil. À chaque lecture,
+  le moteur tire au hasard, dans des fourchettes réglables par son ou par catégorie dans l'admin :
+  - la variante, parmi les fichiers de la même catégorie (sans rejouer la précédente) ;
+  - le volume (par exemple ±20 %) ;
+  - la hauteur et la vitesse (par exemple ±8 %, `playbackRate` sans correction de hauteur) ;
+  - le point de départ dans une boucle d'ambiance ;
+  - le rythme des ponctuels (délai aléatoire entre deux, en rafales parfois : trois oiseaux d'un
+    coup, puis rien) ;
+  - des couches d'ambiance qui vont et viennent lentement (le vent monte, la pluie faiblit) ;
+  - la durée des fondus entre les scènes.
+  `expo-audio` (Expo Go) permet le volume, la vitesse et la position. Le panoramique gauche-droite
+  n'y est pas : à reconsidérer si on passe un jour à un build de développement.
 - **Son manquant** : on prend un son de secours de la catégorie générale (sinon juste l'ambiance), et
   la vérification de l'admin signale le trou.
 
@@ -47,8 +63,8 @@ change.
 
 - Un **résumé écrit** de la nuit, fait de phrases à trous éditables dans l'admin, avec assez de
   variantes pour ne pas se répéter (pas d'IA en v1).
-- Affiché à la prochaine ouverture de l'app, et annoncé par une **notification locale** le matin, à
-  une heure réglable.
+- Affiché à la prochaine ouverture de l'app, et annoncé par une **notification locale** à l'heure du
+  réveil, qui marque aussi la fin de l'aventure.
 - Un **journal de toutes les nuits** (« Chroniques »), dans l'app et dans l'admin.
 
 ## L'admin
@@ -78,7 +94,7 @@ change.
   ```
 
 - Pour chaque son : couche, catégorie, lieux autorisés, boucle ou non, volume, poids (fréquence),
-  actif ou non.
+  fourchettes de variation (volume, hauteur), actif ou non.
 
 ## Architecture
 
@@ -105,7 +121,7 @@ change.
 ## Ordre de construction
 
 1. **Test audio sur l'iPhone** : trois couches en même temps, écran verrouillé, pendant une heure,
-   dans Expo Go. Si ça ne passe pas, on revoit le plan.
+   dans Expo Go, avec les variations de volume et de vitesse. Si ça ne passe pas, on revoit le plan.
 2. **Le générateur** : schéma, monde de départ, « simuler une nuit » en ligne de commande.
 3. **Le serveur sur le Pi** : contenu, sons, import en lot, conversion.
 4. **L'admin web** : éditeurs, mapping des sons, vérification, simulation.
