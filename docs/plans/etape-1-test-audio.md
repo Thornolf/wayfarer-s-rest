@@ -244,6 +244,35 @@ Si on change de plan, DESIGN.md (« Ordre de construction » et « Sur l'iPhone 
    retire une fois le moteur en place ?
 7. Quel modèle de Pi ? Ça compte pour le temps de rendu du plan de repli 3.
 
+## 7. Ce qui a été codé, et les écarts au plan
+
+L'écran est dans `apps/mobile/src/audio-test/`, ouvert par le bouton « Test audio » de l'accueil.
+Là où le code s'écarte des sections 3 et 4, c'est cette section qui décrit ce qui existe.
+
+- **ALAC à la place du WAV** pour la boucle sans perte (`rain-alac.m4a`), comme le veut DESIGN : l'A/B
+  de couture compare `AAC` et `ALAC`. Le scénario « Boucle de pluie seule » joue la pluie sans rien
+  d'autre ni variation, et affiche la position dans la boucle : la couture, c'est le retour à zéro.
+- **Le fond sonore continu** (`bed-alac.m4a`, bruit brun très doux) a son propre lecteur : c'est lui
+  qui garde l'app active et qui porte la carte de l'écran verrouillé. Le pool compte donc 8
+  lecteurs : fond, 2 d'ambiance, 2 d'action, 3 de ponctuels.
+- **Sous-ambiance** : les deux lecteurs d'ambiance jouent la pluie (le fond) et un vent
+  (`wind-alac.m4a`) qui monte et retombe tout seul. Les trois boucles durent 19, 30 et 23 s.
+- **Variantes** : `bird-02`, `bird-03`, `steps-02` et `mining-02` sont dérivés des sons d'essai,
+  pour que le sac mélangé ait quelque chose à mélanger. Tous les fichiers ajoutés se refont avec
+  `apps/mobile/scripts/make-test-sounds.sh`.
+- **Durées** : 5, 15, 30, 60 et 120 min. **Scènes** de 20 s à 2 min, **ding de quête** à 1 min puis
+  toutes les 5 min (l'issue #2 demandait des changements plus fréquents que le plan).
+- **Bouton pause de l'écran verrouillé = Arrêter.** iOS ne propose pas de bouton « stop », et la pause
+  n'agit que sur le lecteur de la carte : le scénario voit le fond en pause pendant que la pluie joue
+  encore, et arrête tout en fondu court. L'essai T11 devient : « la carte s'affiche-t-elle, et pause
+  arrête-t-il bien tout ? ».
+- **Metro** : les sons sont copiés sur le téléphone au démarrage du test (`expo-asset`), sinon
+  `replace()` irait les chercher sur le PC et l'essai T4 échouerait pour une mauvaise raison.
+- **Le journal** : un fichier `audio-test-*.jsonl` par test dans les documents de l'app, écrit à
+  chaque battement ; les 10 derniers sont gardés. Un son demandé est compté « lancé » seulement si
+  le lecteur l'a vraiment joué ; sinon une ligne `playFailed` donne l'état du lecteur.
+- **Test de charge** : 10 lecteurs de plus, un nouveau son chacun toutes les secondes, pendant 1 min.
+
 ## Sources
 
 [expogo-plist]: https://github.com/expo/expo/blob/sdk-58/apps/expo-go/ios/Exponent/Supporting/Info.plist

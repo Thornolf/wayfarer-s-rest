@@ -1,11 +1,24 @@
 import "./src/i18n";
 import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { AudioTestScreen } from "./src/audio-test/AudioTestScreen";
 
 // A placeholder home screen: the real one (adventure, playback, morning summary) comes later.
+// No router yet: the audio test of step 1 is the only other screen.
 export default function App() {
   const { t } = useTranslation();
+  const [audioTestOpen, setAudioTestOpen] = useState(false);
+
+  if (audioTestOpen) {
+    return (
+      <>
+        <AudioTestScreen onClose={() => setAudioTestOpen(false)} />
+        <StatusBar style="light" />
+      </>
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -15,6 +28,9 @@ export default function App() {
         <Text style={styles.buttonText}>{t("home.adventure")}</Text>
       </Pressable>
       <Text style={styles.hint}>{t("home.comingSoon")}</Text>
+      <Pressable style={styles.secondaryButton} onPress={() => setAudioTestOpen(true)}>
+        <Text style={styles.secondaryButtonText}>{t("home.audioTest")}</Text>
+      </Pressable>
       <StatusBar style="light" />
     </View>
   );
@@ -40,4 +56,13 @@ const styles = StyleSheet.create({
   },
   buttonText: { color: "#15110d", fontSize: 20, fontWeight: "700" },
   hint: { color: "#7d705c", marginTop: 12 },
+  secondaryButton: {
+    marginTop: 40,
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: "#5a4d3a",
+  },
+  secondaryButtonText: { color: "#d9c9a8", fontSize: 16 },
 });

@@ -3,6 +3,89 @@
     "title": "Wayfarer's Rest",
     "subtitle": "Ton aventurier part à l'aventure, toi tu t'endors.",
     "adventure": "Aventure",
-    "comingSoon": "Bientôt disponible"
+    "comingSoon": "Bientôt disponible",
+    "audioTest": "Test audio"
+  },
+  "audioTest": {
+    "title": "Test audio",
+    "back": "Retour",
+    "intro": "Démarre, verrouille l'écran et écoute. Au retour, regarde le plus long trou du battement : il dit si l'app a continué de tourner.",
+    "duration": "Durée",
+    "minutes": "{{count}} min",
+    "loop": "Boucle de pluie",
+    "loopFormat": {
+      "alac": "ALAC (sans perte)",
+      "aac": "AAC"
+    },
+    "otherApps": "Musique des autres apps",
+    "mode": {
+      "doNotMix": "La couper",
+      "mixWithOthers": "Se mélanger"
+    },
+    "lockScreenCard": "Carte sur l'écran verrouillé",
+    "yes": "Oui",
+    "no": "Non",
+    "cardNeedsExclusive": "La carte n'existe que si on coupe la musique des autres apps.",
+    "lockScreen": {
+      "title": "Wayfarer's Rest",
+      "subtitle": "Test audio · pause pour arrêter"
+    },
+    "start": "Démarrer",
+    "stop": "Arrêter",
+    "resume": "Reprendre le son",
+    "loadTest": "Test de charge (1 min)",
+    "stopLoadTest": "Arrêter le test de charge",
+    "share": "Partager le journal",
+    "noLog": "Aucun journal à partager : lance d'abord un test.",
+    "shareUnavailable": "Le partage n'est pas disponible sur cet appareil.",
+    "shareFailed": "Le partage a échoué.",
+    "phase": {
+      "preparing": "Préparation…",
+      "playing": "En cours",
+      "fading": "Fondu final",
+      "done": "Terminé"
+    },
+    "endReason": {
+      "timer": "fin du minuteur",
+      "user": "arrêté à la main",
+      "lockScreen": "arrêté depuis l'écran verrouillé",
+      "error": "erreur au démarrage"
+    },
+    "paused": "Le son est en pause (appel, Siri, écouteurs retirés…).",
+    "elapsed": "Temps écoulé",
+    "scene": "Scène en cours",
+    "sceneKind": {
+      "walk": "Marche",
+      "mine": "Minage",
+      "none": "Rien"
+    },
+    "maxBeatGap": "Plus long trou du battement",
+    "expectedBeat": "(normal : 10 s)",
+    "stalls": "Blocages de plus de 3 s",
+    "scenes": "Scènes sonores lancées",
+    "sceneChanges": "Changements de scène",
+    "oneShots": "Ponctuels lancés",
+    "startedOfAsked": "{{started}} sur {{asked}}",
+    "questDings": "Dings de quête",
+    "interruptions": "Interruptions",
+    "problems": "Erreurs",
+    "battery": "Batterie",
+    "postEndBeatGap": "Plus long trou après la fin",
+    "seconds": "{{value}} s",
+    "percent": "{{value}} %",
+    "unknown": "?",
+    "load": {
+      "title": "Test de charge",
+      "playing": "Lecteurs qui jouent (sur 10)",
+      "replaces": "Sons relancés",
+      "maxTickGap": "Plus long écart entre deux tours"
+    },
+    "scenario": "Scénario",
+    "scenarioKind": {
+      "full": "Complet",
+      "loopOnly": "Boucle de pluie seule"
+    },
+    "loopOnlyHint": "Pour écouter la couture : la pluie joue seule, sans variation, et la boucle repart quand la position revient à zéro (la première fois au bout de 6 s).",
+    "loopPosition": "Position dans la boucle"
   }
 }
