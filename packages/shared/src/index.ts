@@ -1,15 +1,11 @@
 // Code shared by the app, the admin and the server: the content schema, its types and the night
-// generator. Empty for now; see docs/DESIGN.md for what goes here.
+// generator. Pure TypeScript: it must run in Expo Go, in a browser and in Node alike.
+//
+// The starter world is not exported from here, so that the app does not bundle it: import it from
+// "@wayfarers-rest/shared/starter".
 
-/** Languages the content can be written in. French is required and is the fallback. */
-export const LOCALES = ["fr", "en"] as const;
-export type Locale = (typeof LOCALES)[number];
-export const DEFAULT_LOCALE: Locale = "fr";
-
-/** A piece of text written in the admin, one value per language; `fr` is always there. */
-export type LocalizedText = { fr: string } & Partial<Record<Locale, string>>;
-
-/** Picks the text for a language, falling back to French when it has no translation yet. */
-export function localize(text: LocalizedText, locale: Locale): string {
-  return text[locale] ?? text.fr;
-}
+export * from "./locale";
+export * from "./rng";
+export * from "./schema";
+export * from "./text/french";
+export * from "./text/template";
