@@ -159,14 +159,24 @@ export class ShuffleBag<T> {
     this.last = options.state?.last ?? null;
   }
 
-  next(): T {
-    let candidates = this.candidates();
+  /**
+   * The next item. With `allowed`, the next item that passes it: the others stay in the bag, which
+   * refills when it holds nothing allowed. Throws when no item at all is allowed.
+   */
+  next(allowed: (item: T) => boolean = () => true): T {
+    let candidates = this.candidates(allowed);
     if (candidates.length === 0) {
       this.refill();
-      candidates = this.candidates();
+      candidates = this.candidates(allowed);
     }
-    // Still nothing: the bag holds a single item, which may then repeat.
-    const index = candidates.length > 0 ? this.rng.pick(candidates) : 0;
+    let index: number;
+    if (candidates.length > 0) {
+      index = this.rng.pick(candidates);
+    } else {
+      // Nothing but the item drawn last is allowed: it may then repeat.
+      index = this.remaining.findIndex(allowed);
+      if (index < 0) throw new RangeError("ShuffleBag: no allowed item");
+    }
     const item = this.remaining[index] as T;
     this.remaining.splice(index, 1);
     this.last = item;
@@ -177,11 +187,11 @@ export class ShuffleBag<T> {
     return { remaining: [...this.remaining], last: this.last };
   }
 
-  /** The positions in the bag that can come out now: everything but the item drawn last. */
-  private candidates(): number[] {
+  /** The positions in the bag that can come out now: the allowed items, but not the one drawn last. */
+  private candidates(allowed: (item: T) => boolean): number[] {
     const positions: number[] = [];
     this.remaining.forEach((item, position) => {
-      if (item !== this.last) positions.push(position);
+      if (item !== this.last && allowed(item)) positions.push(position);
     });
     return positions;
   }
@@ -192,4 +202,11 @@ export class ShuffleBag<T> {
       return Array.from({ length: count }, () => item);
     });
   }
+}
+
+/** Whole copies for a shuffle bag from free-form weights: the lightest item gets one, the others in proportion. */
+export function copiesByWeight<T>(weights: ReadonlyMap<T, number>, maxCopies = 8): (item: T) => number {
+  const positive = [...weights.values()].filter((weight) => weight > 0);
+  const lightest = positive.length > 0 ? Math.min(...positive) : 1;
+  return (item) => Math.min(maxCopies, Math.max(1, Math.round((weights.get(item) ?? lightest) / lightest)));
 }

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { Rng, ShuffleBag, createRng, cyrb128 } from "./rng";
+import { Rng, ShuffleBag, copiesByWeight, createRng, cyrb128 } from "./rng";
 
 const draws = (rng: Rng, count: number) => Array.from({ length: count }, () => rng.float());
 
@@ -153,4 +153,28 @@ test("two shuffle bags on the same stream give the same order", () => {
     return Array.from({ length: 12 }, () => bag.next());
   };
   assert.deepEqual(order("x"), order("x"));
+});
+
+test("a shuffle bag can be asked for an allowed item only; the others wait in the bag", () => {
+  const items = ["a", "b", "c", "d"];
+  const bag = new ShuffleBag(items, createRng("allowed"));
+  const vowels = Array.from({ length: 6 }, () => bag.next((item) => item === "a"));
+  assert.deepEqual(vowels, ["a", "a", "a", "a", "a", "a"], "a single allowed item may repeat");
+
+  const mixed = new ShuffleBag(items, createRng("mixed"));
+  let previous: string | null = null;
+  for (let i = 0; i < 300; i++) {
+    const onlyTwo = i % 2 === 0;
+    const item = mixed.next(onlyTwo ? (candidate) => candidate === "a" || candidate === "b" : undefined);
+    if (onlyTwo) assert.ok(item === "a" || item === "b");
+    assert.notEqual(item, previous, `repeat of ${item} at draw ${i}`);
+    previous = item;
+  }
+  assert.throws(() => mixed.next(() => false), RangeError);
+});
+
+test("weights become whole copies: one for the lightest, the others in proportion, within a limit", () => {
+  const copies = copiesByWeight(new Map([["light", 0.5], ["plain", 1], ["heavy", 2.4], ["huge", 50], ["never", 0]]));
+  assert.deepEqual(["light", "plain", "heavy", "huge", "never", "unknown"].map(copies), [1, 2, 5, 8, 1, 1]);
+  assert.equal(copiesByWeight(new Map<string, number>())("x"), 1);
 });
