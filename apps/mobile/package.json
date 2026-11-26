@@ -5,9 +5,13 @@
   "dependencies": {
     "expo": "~58.1.0",
     "expo-audio": "~58.0.12",
+    "expo-localization": "~58.0.5",
     "expo-status-bar": "~58.0.5",
+    "i18next": "^27.2.9",
     "react": "19.3.0",
-    "react-native": "0.88.1"
+    "react-i18next": "^18.0.3",
+    "react-native": "0.88.1",
+    "@wayfarers-rest/shared": "*"
   },
   "devDependencies": {
     "@types/react": "~19.3.0",
