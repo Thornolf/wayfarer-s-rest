@@ -20,6 +20,8 @@ change.
 - **Groupes** : parfois une quête de groupe, avec des **compagnons nommés** définis dans l'admin, qui
   reviennent d'une nuit à l'autre.
 - Un seul perso pour l'instant ; les classes et plusieurs persos plus tard.
+- À la première ouverture, on **crée le perso** : son nom et son genre (pour accorder le résumé :
+  « il est parti », « elle est partie »).
 
 ## La nuit
 
@@ -31,7 +33,11 @@ change.
   - des **scènes** à durée aléatoire (marcher 30 s à 2 min, combattre, miner…) tirées selon des
     **tables d'événements** pondérées, réglables dans l'admin.
 - **Trois couches sonores** :
-  - **ambiance** en boucle, donnée par le lieu (forêt, taverne, grotte, pluie…) ;
+  - **ambiance** en boucle, donnée par le lieu (forêt, taverne, grotte, pluie…). Une ambiance est
+    faite de **sous-ambiances** qui se superposent et vont et viennent : la forêt, c'est le fond
+    des feuillages, plus le vent, plus une rivière proche, plus des grillons la nuit ; la taverne,
+    c'est le brouhaha, plus le feu, plus un barde. Chaque sous-ambiance a ses sons, son volume, ses
+    conditions (météo, jour ou nuit) et sa probabilité d'être là ;
   - **action**, la scène en cours (pas sur l'herbe, sur du bois, combat, minage…) ;
   - **ponctuels**, au hasard, avec un délai minimum entre deux (oiseaux, tonnerre, voix…).
 - **Transitions** sonores : porte, monture, « ding » de quête, level-up.
@@ -59,7 +65,13 @@ change.
 - **Son manquant** : on prend un son de secours de la catégorie générale (sinon juste l'ambiance), et
   la vérification de l'admin signale le trou.
 
+- **Les autres apps** : lancer une aventure **coupe la musique** des autres apps (mode audio
+  exclusif), et l'écran verrouillé affiche une carte Wayfarer's Rest avec un bouton pour arrêter.
+
 ## Le réveil
+
+- **Ouvrir l'app en pleine nuit** ne termine pas l'aventure d'office : l'app demande « Terminer
+  l'aventure ? ». Si on refuse, l'aventure continue jusqu'à l'heure du réveil.
 
 - Un **résumé écrit** de la nuit, fait de phrases à trous éditables dans l'admin, avec assez de
   variantes pour ne pas se répéter (pas d'IA en v1).
@@ -69,6 +81,9 @@ change.
 
 ## L'admin
 
+- **Un bouton « Publier »** : les modifications restent en brouillon dans l'admin, et l'iPhone ne
+  reçoit le contenu qu'une fois publié. L'admin montre ce qui a changé depuis la dernière
+  publication.
 - Une app web séparée (React + Vite), servie par le serveur du Pi, protégée par un mot de passe en
   plus de Tailscale.
 - Des **éditeurs générés depuis le schéma** du contenu (comme l'admin de Valdorne) : chaque
@@ -100,6 +115,8 @@ change.
 
 - **Monorepo npm, TypeScript partout** : `apps/mobile` (Expo), `apps/admin` (React + Vite),
   `apps/server` (Node, sur le Pi), `packages/shared` (schéma, types, générateur).
+- **Le matériel** : un iPhone 14 Pro sous la dernière version d'iOS, et un Raspberry Pi avec un
+  SSD (les données et les sons vont sur le SSD, pas sur la carte SD).
 - **Le serveur sur le Pi**, joint en Tailscale : il stocke le contenu et les sons, et reçoit les
   rapports.
 - **Synchro** :

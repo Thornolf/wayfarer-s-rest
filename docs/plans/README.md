@@ -29,11 +29,19 @@ Les plans ont été écrits en parallèle. Là où ils se contredisent, c'est ce
 - **Les noms tirés de WoW** (Elwynn, Northshire, Hogger…) sont voulus par le propriétaire : la
   question du plan 5 à ce sujet est réglée.
 
-## Questions ouvertes qui reviennent dans plusieurs plans
+## Réponses du propriétaire
 
-- **Un bouton « Publier »** dans l'admin, pour que l'iPhone ne reçoive pas un contenu à moitié édité
-  (plans 3 et 4).
-- **Mélanger avec la musique des autres apps, ou l'interrompre** avec une carte sur l'écran
-  verrouillé (plans 1 et 5).
-- **AAC ou un format sans perte pour les boucles d'ambiance**, si l'AAC laisse un petit trou à la
-  boucle (plans 1 et 3) : le test de l'étape 1 tranche.
+Ces réponses passent avant les plans, et sont reportées dans `docs/DESIGN.md`.
+
+- **Ouvrir l'app en pleine nuit** : l'app demande « Terminer l'aventure ? » (plan 5).
+- **Les autres apps** : l'aventure coupe leur musique (mode exclusif, `doNotMix`), avec une carte et
+  un bouton Arrêter sur l'écran verrouillé (plans 1 et 5).
+- **Sous-ambiances** : une ambiance est faite de plusieurs sous-ambiances superposées (fond, vent,
+  rivière, feu, barde…), chacune avec ses sons, son volume, ses conditions et sa probabilité
+  (plans 1, 2 et 4).
+- **Un bouton « Publier »** dans l'admin : l'iPhone ne reçoit que le contenu publié (plans 3 et 4).
+- **Le perso** : nom et genre choisis à la création, dans l'app (plans 2 et 5).
+- **Le matériel** : iPhone 14 Pro, dernière version d'iOS ; Pi avec SSD, les données vont sur le SSD
+  (plans 1 et 3).
+- **Format des boucles d'ambiance** : encore ouvert, le test de l'étape 1 tranche entre AAC et un
+  format sans perte.
