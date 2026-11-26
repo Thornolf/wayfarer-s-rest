@@ -49,7 +49,7 @@
     }
   },
   "weatherMinMinutes": 20,
-  "silentIntensity": 0.5,
+  "silentIntensity": 0.8,
   "levelUpTransition": "levelup",
   "noiseBed": {
     "kind": "brown",
