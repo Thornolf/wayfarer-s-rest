@@ -1,0 +1,25 @@
+name: CI
+
+# Runs on the owner's Pi (self-hosted runner "pi-wayfarer"). Pull requests from
+# forks are deliberately not built: this repo is public and the runner is a
+# personal machine.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: [self-hosted, pi-wayfarer]
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test --if-present
