@@ -21,6 +21,9 @@ const sources = readdirSync(root, { recursive: true, encoding: "utf8" })
 
 test("shared code is pure: no Node API, no clock, no unseeded randomness", () => {
   assert.ok(sources.length >= 15, `only ${sources.length} source files found`);
+  for (const part of ["generator", "progression", "sound", "summary"]) {
+    assert.ok(sources.some((file) => relative(root, file).startsWith(part)), `no source found in src/${part}`);
+  }
   for (const file of sources) {
     const code = readFileSync(file, "utf8");
     for (const [pattern, name] of FORBIDDEN) {
