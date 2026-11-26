@@ -1,0 +1,203 @@
+[
+  {
+    "id": "loup-gris",
+    "aiGenerated": true,
+    "rank": "normal",
+    "name": {
+      "text": {
+        "fr": "loup gris"
+      },
+      "gender": "m",
+      "plural": {
+        "fr": "loups gris"
+      }
+    }
+  },
+  {
+    "id": "sanglier-des-fourres",
+    "aiGenerated": true,
+    "rank": "normal",
+    "name": {
+      "text": {
+        "fr": "sanglier des fourrés"
+      },
+      "gender": "m",
+      "plural": {
+        "fr": "sangliers des fourrés"
+      }
+    }
+  },
+  {
+    "id": "ours-brun",
+    "aiGenerated": true,
+    "rank": "normal",
+    "name": {
+      "text": {
+        "fr": "ours brun"
+      },
+      "gender": "m",
+      "plural": {
+        "fr": "ours bruns"
+      }
+    }
+  },
+  {
+    "id": "meneur-de-meute",
+    "aiGenerated": true,
+    "rank": "elite",
+    "name": {
+      "text": {
+        "fr": "meneur de meute"
+      },
+      "gender": "m",
+      "plural": {
+        "fr": "meneurs de meute"
+      }
+    }
+  },
+  {
+    "id": "alpha-grisecroc",
+    "aiGenerated": true,
+    "rank": "boss",
+    "name": {
+      "text": {
+        "fr": "Alpha Grisecroc"
+      },
+      "gender": "m"
+    }
+  },
+  {
+    "id": "kobold-des-mines",
+    "aiGenerated": true,
+    "rank": "normal",
+    "name": {
+      "text": {
+        "fr": "kobold des mines"
+      },
+      "gender": "m",
+      "plural": {
+        "fr": "kobolds des mines"
+      }
+    }
+  },
+  {
+    "id": "araignee-des-grottes",
+    "aiGenerated": true,
+    "rank": "normal",
+    "name": {
+      "text": {
+        "fr": "araignée des grottes"
+      },
+      "gender": "f",
+      "plural": {
+        "fr": "araignées des grottes"
+      }
+    }
+  },
+  {
+    "id": "chauve-souris",
+    "aiGenerated": true,
+    "rank": "normal",
+    "name": {
+      "text": {
+        "fr": "chauve-souris"
+      },
+      "gender": "f",
+      "plural": {
+        "fr": "chauves-souris"
+      }
+    }
+  },
+  {
+    "id": "golem-de-schiste",
+    "aiGenerated": true,
+    "rank": "elite",
+    "name": {
+      "text": {
+        "fr": "golem de schiste"
+      },
+      "gender": "m",
+      "plural": {
+        "fr": "golems de schiste"
+      }
+    }
+  },
+  {
+    "id": "contremaitre-kobold",
+    "aiGenerated": true,
+    "rank": "boss",
+    "name": {
+      "text": {
+        "fr": "Contremaître Kobold"
+      },
+      "gender": "m"
+    }
+  },
+  {
+    "id": "murloc-du-marais",
+    "aiGenerated": true,
+    "rank": "normal",
+    "name": {
+      "text": {
+        "fr": "murloc du marais"
+      },
+      "gender": "m",
+      "plural": {
+        "fr": "murlocs du marais"
+      }
+    }
+  },
+  {
+    "id": "sangsue-geante",
+    "aiGenerated": true,
+    "rank": "normal",
+    "name": {
+      "text": {
+        "fr": "sangsue géante"
+      },
+      "gender": "f",
+      "plural": {
+        "fr": "sangsues géantes"
+      }
+    }
+  },
+  {
+    "id": "feu-follet",
+    "aiGenerated": true,
+    "rank": "normal",
+    "name": {
+      "text": {
+        "fr": "feu follet"
+      },
+      "gender": "m",
+      "plural": {
+        "fr": "feux follets"
+      }
+    }
+  },
+  {
+    "id": "troll-des-marais",
+    "aiGenerated": true,
+    "rank": "elite",
+    "name": {
+      "text": {
+        "fr": "troll des marais"
+      },
+      "gender": "m",
+      "plural": {
+        "fr": "trolls des marais"
+      }
+    }
+  },
+  {
+    "id": "vieille-noyee",
+    "aiGenerated": true,
+    "rank": "boss",
+    "name": {
+      "text": {
+        "fr": "Vieille Noyée"
+      },
+      "gender": "f"
+    }
+  }
+]

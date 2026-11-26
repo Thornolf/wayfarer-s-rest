@@ -1,0 +1,228 @@
+[
+  {
+    "id": "marche-herbe",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Marcher dans l’herbe"
+    },
+    "kind": "walk",
+    "duration": {
+      "min": 30,
+      "max": 120
+    },
+    "intensity": 0.3,
+    "actionCategory": "marche-herbe",
+    "floors": [
+      "grass"
+    ]
+  },
+  {
+    "id": "marche-bois",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Marcher sur des planches"
+    },
+    "kind": "walk",
+    "duration": {
+      "min": 30,
+      "max": 120
+    },
+    "intensity": 0.3,
+    "actionCategory": "marche-bois",
+    "floors": [
+      "wood"
+    ]
+  },
+  {
+    "id": "marche-pierre",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Marcher sur la pierre"
+    },
+    "kind": "walk",
+    "duration": {
+      "min": 30,
+      "max": 120
+    },
+    "intensity": 0.3,
+    "actionCategory": "marche-pierre",
+    "floors": [
+      "stone"
+    ]
+  },
+  {
+    "id": "marche-boue",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Patauger dans la boue"
+    },
+    "kind": "walk",
+    "duration": {
+      "min": 30,
+      "max": 120
+    },
+    "intensity": 0.3,
+    "actionCategory": "marche-boue",
+    "floors": [
+      "mud"
+    ]
+  },
+  {
+    "id": "chevauchee",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Chevaucher"
+    },
+    "kind": "ride",
+    "duration": {
+      "min": 45,
+      "max": 150
+    },
+    "intensity": 0.4,
+    "actionCategory": "monture",
+    "placeKinds": [
+      "wild",
+      "town"
+    ]
+  },
+  {
+    "id": "combat",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Combattre"
+    },
+    "kind": "fight",
+    "duration": {
+      "min": 30,
+      "max": 90
+    },
+    "intensity": 0.9,
+    "actionCategory": "combat",
+    "group": "solo"
+  },
+  {
+    "id": "combat-groupe",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Combattre en groupe"
+    },
+    "kind": "fight",
+    "duration": {
+      "min": 45,
+      "max": 120
+    },
+    "intensity": 1,
+    "actionCategory": "combat-groupe",
+    "group": "group"
+  },
+  {
+    "id": "minage",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Miner un filon"
+    },
+    "kind": "mine",
+    "duration": {
+      "min": 40,
+      "max": 110
+    },
+    "intensity": 0.5,
+    "actionCategory": "minage",
+    "placeKinds": [
+      "cave"
+    ],
+    "xp": 12
+  },
+  {
+    "id": "cueillette",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Cueillir des plantes"
+    },
+    "kind": "gather",
+    "duration": {
+      "min": 30,
+      "max": 90
+    },
+    "intensity": 0.25,
+    "actionCategory": "cueillette",
+    "placeKinds": [
+      "wild",
+      "camp"
+    ],
+    "xp": 10
+  },
+  {
+    "id": "fouille",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Fouiller les environs"
+    },
+    "kind": "search",
+    "duration": {
+      "min": 20,
+      "max": 60
+    },
+    "intensity": 0.3,
+    "actionCategory": "fouille",
+    "xp": 5
+  },
+  {
+    "id": "discussion",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Parler à quelqu’un"
+    },
+    "kind": "talk",
+    "duration": {
+      "min": 15,
+      "max": 40
+    },
+    "intensity": 0.2
+  },
+  {
+    "id": "halte",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Souffler un instant"
+    },
+    "kind": "rest",
+    "duration": {
+      "min": 20,
+      "max": 50
+    },
+    "intensity": 0.15
+  },
+  {
+    "id": "repos-feu-de-camp",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Se reposer près du feu de camp"
+    },
+    "kind": "rest",
+    "duration": {
+      "min": 120,
+      "max": 300
+    },
+    "intensity": 0.1,
+    "placeKinds": [
+      "camp"
+    ]
+  },
+  {
+    "id": "repos-auberge",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Se reposer à l’auberge"
+    },
+    "kind": "rest",
+    "duration": {
+      "min": 120,
+      "max": 300
+    },
+    "intensity": 0.05,
+    "placeKinds": [
+      "inn"
+    ]
+  }
+]

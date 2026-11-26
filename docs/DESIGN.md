@@ -98,8 +98,13 @@ change.
 - Des **références** entre collections (une quête pointe vers un lieu, un son vers une zone).
 - Une **vérification** du contenu : références cassées, catégories sans son.
 - Un bouton **« Simuler une nuit »** : la chronologie générée et le résumé, sans attendre la nuit.
-- Les collections : zones fixes, lieux, quêtes, modèles de scènes, tables d'événements, sons,
-  compagnons, objets, phrases du résumé ; plus tard les départs et les classes.
+- Les collections : zones fixes, lieux, monstres, quêtes, modèles de scènes, tables d'événements,
+  ambiances (avec leurs sous-ambiances), catégories de sons, sons, compagnons, objets, phrases du
+  résumé, et un formulaire de réglages (XP, butin, réussite, fond sonore continu) ; plus tard les
+  départs et les classes.
+- Les **monstres** sont une collection à part : un nom, un rang (normal, élite, boss), et chaque zone
+  liste les siens.
+- Les **libellés de l'admin** sont en français, écrits dans le schéma.
 
 ### Les sons
 

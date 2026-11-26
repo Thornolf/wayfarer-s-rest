@@ -1,0 +1,474 @@
+[
+  {
+    "id": "chasse",
+    "aiGenerated": true,
+    "kind": "hunt",
+    "title": {
+      "fr": "[{monster:pl:le} {place:de}|Sus {monster:pl:a}|Trop {monster:pl:d} {place:a}]"
+    },
+    "placeKinds": [
+      "wild"
+    ],
+    "steps": [
+      {
+        "action": "accept",
+        "scene": "discussion",
+        "transition": "accept"
+      },
+      {
+        "action": "travel",
+        "eventTable": "route",
+        "repeat": {
+          "min": 2,
+          "max": 4
+        }
+      },
+      {
+        "action": "do",
+        "eventTable": "chasse",
+        "repeat": {
+          "min": 4,
+          "max": 8
+        }
+      },
+      {
+        "action": "return",
+        "eventTable": "route",
+        "repeat": {
+          "min": 2,
+          "max": 3
+        }
+      },
+      {
+        "action": "turnIn",
+        "scene": "discussion",
+        "transition": "turnin"
+      }
+    ],
+    "xp": 120,
+    "weight": 30,
+    "monsterRank": "normal",
+    "minIntensity": 0.45
+  },
+  {
+    "id": "recolte",
+    "aiGenerated": true,
+    "kind": "gather",
+    "title": {
+      "fr": "[Cueillette {place:a}|Des simples pour la tisane|Le panier de l’herboriste]"
+    },
+    "placeKinds": [
+      "wild"
+    ],
+    "steps": [
+      {
+        "action": "accept",
+        "scene": "discussion",
+        "transition": "accept"
+      },
+      {
+        "action": "travel",
+        "eventTable": "calme",
+        "repeat": {
+          "min": 2,
+          "max": 4
+        }
+      },
+      {
+        "action": "do",
+        "eventTable": "recolte",
+        "repeat": {
+          "min": 4,
+          "max": 7
+        }
+      },
+      {
+        "action": "return",
+        "eventTable": "calme",
+        "repeat": {
+          "min": 2,
+          "max": 3
+        }
+      },
+      {
+        "action": "turnIn",
+        "scene": "discussion",
+        "transition": "turnin"
+      }
+    ],
+    "xp": 80,
+    "weight": 24
+  },
+  {
+    "id": "livraison",
+    "aiGenerated": true,
+    "kind": "deliver",
+    "title": {
+      "fr": "[Un colis pour {place:le}|Courrier urgent pour {place:le}|Des vivres pour {place:le}]"
+    },
+    "placeKinds": [
+      "town",
+      "inn",
+      "camp"
+    ],
+    "steps": [
+      {
+        "action": "accept",
+        "scene": "discussion",
+        "transition": "accept"
+      },
+      {
+        "action": "travel",
+        "eventTable": "route",
+        "repeat": {
+          "min": 4,
+          "max": 8
+        }
+      },
+      {
+        "action": "do",
+        "scene": "discussion"
+      },
+      {
+        "action": "return",
+        "eventTable": "route",
+        "repeat": {
+          "min": 3,
+          "max": 6
+        }
+      },
+      {
+        "action": "turnIn",
+        "scene": "discussion",
+        "transition": "turnin"
+      }
+    ],
+    "xp": 90,
+    "weight": 22
+  },
+  {
+    "id": "grotte",
+    "aiGenerated": true,
+    "kind": "cave",
+    "title": {
+      "fr": "[Au fond {place:de}|Ce qui remue dans {place:le}|{monster:pl:le} {place:de}]"
+    },
+    "placeKinds": [
+      "cave"
+    ],
+    "steps": [
+      {
+        "action": "accept",
+        "scene": "discussion",
+        "transition": "accept"
+      },
+      {
+        "action": "travel",
+        "eventTable": "route",
+        "repeat": {
+          "min": 2,
+          "max": 4
+        }
+      },
+      {
+        "action": "do",
+        "eventTable": "grotte",
+        "repeat": {
+          "min": 5,
+          "max": 9
+        }
+      },
+      {
+        "action": "return",
+        "eventTable": "route",
+        "repeat": {
+          "min": 2,
+          "max": 3
+        }
+      },
+      {
+        "action": "turnIn",
+        "scene": "discussion",
+        "transition": "turnin"
+      }
+    ],
+    "xp": 150,
+    "weight": 20,
+    "monsterRank": "normal",
+    "minIntensity": 0.4
+  },
+  {
+    "id": "escorte",
+    "aiGenerated": true,
+    "kind": "escort",
+    "title": {
+      "fr": "[Escorte jusqu’{place:a}|Un voyageur à mener {place:a}|La caravane {place:de}]"
+    },
+    "placeKinds": [
+      "town",
+      "inn",
+      "camp"
+    ],
+    "steps": [
+      {
+        "action": "accept",
+        "scene": "discussion",
+        "transition": "accept"
+      },
+      {
+        "action": "travel",
+        "eventTable": "route",
+        "repeat": {
+          "min": 5,
+          "max": 9
+        }
+      },
+      {
+        "action": "do",
+        "scene": "discussion"
+      },
+      {
+        "action": "return",
+        "eventTable": "calme",
+        "repeat": {
+          "min": 2,
+          "max": 4
+        }
+      },
+      {
+        "action": "turnIn",
+        "scene": "discussion",
+        "transition": "turnin"
+      }
+    ],
+    "xp": 110,
+    "weight": 14,
+    "group": {
+      "chance": 0.4,
+      "size": {
+        "min": 1,
+        "max": 1
+      }
+    },
+    "minIntensity": 0.3
+  },
+  {
+    "id": "eaux-troubles",
+    "aiGenerated": true,
+    "kind": "hunt",
+    "title": {
+      "fr": "[Remous dans {place:le}|{monster:pl:le} {place:de}|Eaux troubles {place:a}]"
+    },
+    "placeKinds": [
+      "wild"
+    ],
+    "steps": [
+      {
+        "action": "accept",
+        "scene": "discussion",
+        "transition": "accept"
+      },
+      {
+        "action": "travel",
+        "eventTable": "route",
+        "repeat": {
+          "min": 2,
+          "max": 4
+        }
+      },
+      {
+        "action": "do",
+        "eventTable": "marais",
+        "repeat": {
+          "min": 4,
+          "max": 8
+        }
+      },
+      {
+        "action": "return",
+        "eventTable": "route",
+        "repeat": {
+          "min": 2,
+          "max": 3
+        }
+      },
+      {
+        "action": "turnIn",
+        "scene": "discussion",
+        "transition": "turnin"
+      }
+    ],
+    "xp": 130,
+    "weight": 26,
+    "zones": [
+      "marais-de-noirjonc"
+    ],
+    "monsterRank": "normal",
+    "minIntensity": 0.45
+  },
+  {
+    "id": "avis-de-recherche",
+    "aiGenerated": true,
+    "kind": "hunt",
+    "title": {
+      "fr": "[Avis de recherche : {monster:le}|Sus {monster:a}|La prime {monster:de}]"
+    },
+    "placeKinds": [
+      "wild",
+      "cave"
+    ],
+    "steps": [
+      {
+        "action": "accept",
+        "scene": "discussion",
+        "transition": "accept"
+      },
+      {
+        "action": "travel",
+        "eventTable": "route",
+        "repeat": {
+          "min": 2,
+          "max": 4
+        }
+      },
+      {
+        "action": "do",
+        "eventTable": "chasse",
+        "repeat": {
+          "min": 2,
+          "max": 4
+        }
+      },
+      {
+        "action": "do",
+        "eventTable": "elite",
+        "repeat": {
+          "min": 1,
+          "max": 1
+        }
+      },
+      {
+        "action": "return",
+        "eventTable": "route",
+        "repeat": {
+          "min": 2,
+          "max": 3
+        }
+      },
+      {
+        "action": "turnIn",
+        "scene": "discussion",
+        "transition": "turnin"
+      }
+    ],
+    "xp": 220,
+    "weight": 10,
+    "monsterRank": "elite",
+    "group": {
+      "chance": 0.8,
+      "size": {
+        "min": 1,
+        "max": 2
+      }
+    },
+    "minIntensity": 0.6
+  },
+  {
+    "id": "boss-de-zone",
+    "aiGenerated": true,
+    "kind": "cave",
+    "title": {
+      "fr": "[La fin {monster:de}|Dans l’antre {monster:de}|{monster:le} doit tomber]"
+    },
+    "placeKinds": [
+      "cave"
+    ],
+    "steps": [
+      {
+        "action": "accept",
+        "scene": "discussion",
+        "transition": "accept"
+      },
+      {
+        "action": "travel",
+        "eventTable": "route",
+        "repeat": {
+          "min": 3,
+          "max": 5
+        }
+      },
+      {
+        "action": "do",
+        "eventTable": "grotte",
+        "repeat": {
+          "min": 3,
+          "max": 5
+        }
+      },
+      {
+        "action": "do",
+        "eventTable": "repaire",
+        "repeat": {
+          "min": 1,
+          "max": 1
+        }
+      },
+      {
+        "action": "return",
+        "eventTable": "route",
+        "repeat": {
+          "min": 2,
+          "max": 4
+        }
+      },
+      {
+        "action": "turnIn",
+        "scene": "discussion",
+        "transition": "turnin"
+      }
+    ],
+    "xp": 400,
+    "weight": 5,
+    "monsterRank": "boss",
+    "group": {
+      "chance": 1,
+      "size": {
+        "min": 2,
+        "max": 3
+      }
+    },
+    "minIntensity": 0.7
+  },
+  {
+    "id": "pause",
+    "aiGenerated": true,
+    "kind": "rest",
+    "title": {
+      "fr": "[Une halte {place:a}|Un moment de répit {place:a}|Le temps de souffler {place:a}]"
+    },
+    "placeKinds": [
+      "inn",
+      "camp"
+    ],
+    "steps": [
+      {
+        "action": "travel",
+        "eventTable": "calme",
+        "repeat": {
+          "min": 1,
+          "max": 3
+        }
+      },
+      {
+        "action": "do",
+        "eventTable": "repos",
+        "repeat": {
+          "min": 2,
+          "max": 4
+        }
+      }
+    ],
+    "xp": 30,
+    "weight": 12
+  }
+]

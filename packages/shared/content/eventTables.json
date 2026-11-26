@@ -1,0 +1,386 @@
+[
+  {
+    "id": "chasse",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Chasse"
+    },
+    "rows": [
+      {
+        "scene": "combat",
+        "weight": 60,
+        "outcome": "fight"
+      },
+      {
+        "scene": "combat-groupe",
+        "weight": 60,
+        "outcome": "fight"
+      },
+      {
+        "scene": "combat",
+        "weight": 6,
+        "outcome": "elite"
+      },
+      {
+        "scene": "combat-groupe",
+        "weight": 6,
+        "outcome": "elite"
+      },
+      {
+        "scene": "marche-herbe",
+        "weight": 14
+      },
+      {
+        "scene": "marche-bois",
+        "weight": 14
+      },
+      {
+        "scene": "marche-pierre",
+        "weight": 14
+      },
+      {
+        "scene": "marche-boue",
+        "weight": 14
+      },
+      {
+        "scene": "fouille",
+        "weight": 6,
+        "outcome": "find"
+      },
+      {
+        "scene": "halte",
+        "weight": 8
+      }
+    ]
+  },
+  {
+    "id": "recolte",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Récolte"
+    },
+    "rows": [
+      {
+        "scene": "cueillette",
+        "weight": 50
+      },
+      {
+        "scene": "cueillette",
+        "weight": 8,
+        "outcome": "find"
+      },
+      {
+        "scene": "marche-herbe",
+        "weight": 18
+      },
+      {
+        "scene": "marche-bois",
+        "weight": 18
+      },
+      {
+        "scene": "marche-pierre",
+        "weight": 18
+      },
+      {
+        "scene": "marche-boue",
+        "weight": 18
+      },
+      {
+        "scene": "combat",
+        "weight": 10,
+        "outcome": "fight"
+      },
+      {
+        "scene": "combat-groupe",
+        "weight": 10,
+        "outcome": "fight"
+      },
+      {
+        "scene": "halte",
+        "weight": 8
+      }
+    ]
+  },
+  {
+    "id": "grotte",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Grotte"
+    },
+    "rows": [
+      {
+        "scene": "minage",
+        "weight": 30
+      },
+      {
+        "scene": "minage",
+        "weight": 6,
+        "outcome": "find"
+      },
+      {
+        "scene": "combat",
+        "weight": 32,
+        "outcome": "fight"
+      },
+      {
+        "scene": "combat-groupe",
+        "weight": 32,
+        "outcome": "fight"
+      },
+      {
+        "scene": "combat",
+        "weight": 5,
+        "outcome": "elite"
+      },
+      {
+        "scene": "combat-groupe",
+        "weight": 5,
+        "outcome": "elite"
+      },
+      {
+        "scene": "fouille",
+        "weight": 8,
+        "outcome": "find"
+      },
+      {
+        "scene": "marche-herbe",
+        "weight": 14
+      },
+      {
+        "scene": "marche-bois",
+        "weight": 14
+      },
+      {
+        "scene": "marche-pierre",
+        "weight": 14
+      },
+      {
+        "scene": "marche-boue",
+        "weight": 14
+      },
+      {
+        "scene": "halte",
+        "weight": 5
+      }
+    ]
+  },
+  {
+    "id": "route",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Route"
+    },
+    "rows": [
+      {
+        "scene": "marche-herbe",
+        "weight": 55
+      },
+      {
+        "scene": "marche-bois",
+        "weight": 55
+      },
+      {
+        "scene": "marche-pierre",
+        "weight": 55
+      },
+      {
+        "scene": "marche-boue",
+        "weight": 55
+      },
+      {
+        "scene": "chevauchee",
+        "weight": 20
+      },
+      {
+        "scene": "combat",
+        "weight": 10,
+        "outcome": "fight"
+      },
+      {
+        "scene": "combat-groupe",
+        "weight": 10,
+        "outcome": "fight"
+      },
+      {
+        "scene": "halte",
+        "weight": 8
+      },
+      {
+        "scene": "discussion",
+        "weight": 4
+      },
+      {
+        "scene": "fouille",
+        "weight": 3,
+        "outcome": "find"
+      }
+    ]
+  },
+  {
+    "id": "marais",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Marais"
+    },
+    "rows": [
+      {
+        "scene": "combat",
+        "weight": 45,
+        "outcome": "fight"
+      },
+      {
+        "scene": "combat-groupe",
+        "weight": 45,
+        "outcome": "fight"
+      },
+      {
+        "scene": "combat",
+        "weight": 8,
+        "outcome": "elite"
+      },
+      {
+        "scene": "combat-groupe",
+        "weight": 8,
+        "outcome": "elite"
+      },
+      {
+        "scene": "marche-herbe",
+        "weight": 25
+      },
+      {
+        "scene": "marche-bois",
+        "weight": 25
+      },
+      {
+        "scene": "marche-pierre",
+        "weight": 25
+      },
+      {
+        "scene": "marche-boue",
+        "weight": 25
+      },
+      {
+        "scene": "fouille",
+        "weight": 8,
+        "outcome": "find"
+      },
+      {
+        "scene": "cueillette",
+        "weight": 8
+      },
+      {
+        "scene": "halte",
+        "weight": 6
+      }
+    ]
+  },
+  {
+    "id": "calme",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Calme (intensité basse)"
+    },
+    "rows": [
+      {
+        "scene": "marche-herbe",
+        "weight": 50
+      },
+      {
+        "scene": "marche-bois",
+        "weight": 50
+      },
+      {
+        "scene": "marche-pierre",
+        "weight": 50
+      },
+      {
+        "scene": "marche-boue",
+        "weight": 50
+      },
+      {
+        "scene": "halte",
+        "weight": 20
+      },
+      {
+        "scene": "cueillette",
+        "weight": 14
+      },
+      {
+        "scene": "chevauchee",
+        "weight": 10
+      },
+      {
+        "scene": "discussion",
+        "weight": 8
+      },
+      {
+        "scene": "fouille",
+        "weight": 4,
+        "outcome": "find"
+      }
+    ]
+  },
+  {
+    "id": "repos",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Repos"
+    },
+    "rows": [
+      {
+        "scene": "repos-auberge",
+        "weight": 60
+      },
+      {
+        "scene": "repos-feu-de-camp",
+        "weight": 60
+      },
+      {
+        "scene": "discussion",
+        "weight": 15
+      },
+      {
+        "scene": "halte",
+        "weight": 10
+      }
+    ]
+  },
+  {
+    "id": "elite",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Face à l’élite"
+    },
+    "rows": [
+      {
+        "scene": "combat",
+        "weight": 1,
+        "outcome": "elite"
+      },
+      {
+        "scene": "combat-groupe",
+        "weight": 1,
+        "outcome": "elite"
+      }
+    ]
+  },
+  {
+    "id": "repaire",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Repaire du boss"
+    },
+    "rows": [
+      {
+        "scene": "combat",
+        "weight": 1,
+        "outcome": "boss"
+      },
+      {
+        "scene": "combat-groupe",
+        "weight": 1,
+        "outcome": "boss"
+      }
+    ]
+  }
+]

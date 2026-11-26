@@ -1,0 +1,73 @@
+[
+  {
+    "id": "bois-des-murmures",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "Bois des Murmures"
+      },
+      "gender": "m"
+    },
+    "weather": {
+      "clear": 5,
+      "cloudy": 3,
+      "rain": 2,
+      "storm": 1
+    },
+    "monsters": [
+      "loup-gris",
+      "sanglier-des-fourres",
+      "ours-brun",
+      "meneur-de-meute",
+      "alpha-grisecroc"
+    ]
+  },
+  {
+    "id": "collines-de-brumefer",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "Collines de Brumefer"
+      },
+      "gender": "f",
+      "isPlural": true
+    },
+    "weather": {
+      "clear": 3,
+      "cloudy": 5,
+      "rain": 2,
+      "storm": 2
+    },
+    "monsters": [
+      "kobold-des-mines",
+      "araignee-des-grottes",
+      "chauve-souris",
+      "golem-de-schiste",
+      "contremaitre-kobold"
+    ]
+  },
+  {
+    "id": "marais-de-noirjonc",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "Marais de Noirjonc"
+      },
+      "gender": "m",
+      "isPlural": true
+    },
+    "weather": {
+      "clear": 2,
+      "cloudy": 4,
+      "rain": 6,
+      "storm": 2
+    },
+    "monsters": [
+      "murloc-du-marais",
+      "sangsue-geante",
+      "feu-follet",
+      "troll-des-marais",
+      "vieille-noyee"
+    ]
+  }
+]
