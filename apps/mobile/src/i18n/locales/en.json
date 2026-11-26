@@ -3,6 +3,89 @@
     "title": "Wayfarer's Rest",
     "subtitle": "Your adventurer sets off, you fall asleep.",
     "adventure": "Adventure",
-    "comingSoon": "Coming soon"
+    "comingSoon": "Coming soon",
+    "audioTest": "Audio test"
+  },
+  "audioTest": {
+    "title": "Audio test",
+    "back": "Back",
+    "intro": "Start, lock the screen and listen. When you come back, look at the longest heartbeat gap: it tells whether the app kept running.",
+    "duration": "Duration",
+    "minutes": "{{count}} min",
+    "loop": "Rain loop",
+    "loopFormat": {
+      "alac": "ALAC (lossless)",
+      "aac": "AAC"
+    },
+    "otherApps": "Music from other apps",
+    "mode": {
+      "doNotMix": "Stop it",
+      "mixWithOthers": "Mix with it"
+    },
+    "lockScreenCard": "Lock-screen card",
+    "yes": "Yes",
+    "no": "No",
+    "cardNeedsExclusive": "The card only exists when the music from other apps is stopped.",
+    "lockScreen": {
+      "title": "Wayfarer's Rest",
+      "subtitle": "Audio test · pause to stop"
+    },
+    "start": "Start",
+    "stop": "Stop",
+    "resume": "Resume the sound",
+    "loadTest": "Load test (1 min)",
+    "stopLoadTest": "Stop the load test",
+    "share": "Share the log",
+    "noLog": "No log to share: run a test first.",
+    "shareUnavailable": "Sharing is not available on this device.",
+    "shareFailed": "Sharing failed.",
+    "phase": {
+      "preparing": "Preparing…",
+      "playing": "Running",
+      "fading": "Final fade",
+      "done": "Finished"
+    },
+    "endReason": {
+      "timer": "end of the timer",
+      "user": "stopped by hand",
+      "lockScreen": "stopped from the lock screen",
+      "error": "error at start"
+    },
+    "paused": "The sound is paused (call, Siri, earphones removed…).",
+    "elapsed": "Elapsed",
+    "scene": "Current scene",
+    "sceneKind": {
+      "walk": "Walking",
+      "mine": "Mining",
+      "none": "Nothing"
+    },
+    "maxBeatGap": "Longest heartbeat gap",
+    "expectedBeat": "(normal: 10 s)",
+    "stalls": "Stalls longer than 3 s",
+    "scenes": "Sound scenes started",
+    "sceneChanges": "Scene changes",
+    "oneShots": "One-shots started",
+    "startedOfAsked": "{{started}} of {{asked}}",
+    "questDings": "Quest dings",
+    "interruptions": "Interruptions",
+    "problems": "Errors",
+    "battery": "Battery",
+    "postEndBeatGap": "Longest gap after the end",
+    "seconds": "{{value}} s",
+    "percent": "{{value}}%",
+    "unknown": "?",
+    "load": {
+      "title": "Load test",
+      "playing": "Players playing (out of 10)",
+      "replaces": "Sounds restarted",
+      "maxTickGap": "Longest time between two rounds"
+    },
+    "scenario": "Scenario",
+    "scenarioKind": {
+      "full": "Full",
+      "loopOnly": "Rain loop alone"
+    },
+    "loopOnlyHint": "To listen to the seam: the rain plays alone, unchanged, and the loop restarts when the position goes back to zero (the first time after 6 s).",
+    "loopPosition": "Position in the loop"
   }
 }
