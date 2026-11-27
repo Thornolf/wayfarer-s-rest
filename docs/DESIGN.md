@@ -11,8 +11,8 @@ change.
   zone, type d'aventure, intensité) ; le bouton envoie « tout au hasard ». Les **Départs** (à l'aube,
   de nuit, sous la pluie, en donjon…) viendront plus tard comme des réglages pré-remplis, édités
   dans l'admin.
-- **Zone de départ au hasard.** Les zones n'ont pas de niveau : les monstres et le butin suivent le
-  niveau du perso.
+- **Zone au hasard, une seule par nuit.** Les zones n'ont pas de niveau : les monstres et le butin
+  suivent le niveau du perso.
 - **Progression** : XP et niveaux, butin ramassé pendant la nuit, gear. Le gear augmente les chances
   de réussite (moins de fuites, plus d'élites et de boss vaincus) et la rareté du butin. Pas de mort,
   pas de perte : un échec n'existe que dans le récit (« il a dû fuir »).
@@ -69,8 +69,8 @@ change.
   - la durée des fondus entre les scènes.
   `expo-audio` (Expo Go) permet le volume, la vitesse et la position. Le panoramique gauche-droite
   n'y est pas : à reconsidérer si on passe un jour à un build de développement.
-- **Son manquant** : on prend un son de secours de la catégorie générale (sinon juste l'ambiance), et
-  la vérification de l'admin signale le trou.
+- **Son manquant** : on prend un son de la catégorie de repli (sinon rien ne joue pour cette
+  catégorie : il reste l'ambiance et le fond continu), et la vérification de l'admin signale le trou.
 
 - **Les autres apps** : lancer une aventure **coupe la musique** des autres apps (mode audio
   exclusif), et l'écran verrouillé affiche une carte Wayfarer's Rest avec un bouton pour arrêter.
@@ -85,6 +85,120 @@ change.
 - Affiché à la prochaine ouverture de l'app, et annoncé par une **notification locale** à l'heure du
   réveil, qui marque aussi la fin de l'aventure.
 - Un **journal de toutes les nuits** (« Chroniques »), dans l'app et dans l'admin.
+
+## Le générateur
+
+Les décisions prises en construisant l'étape 2. Tout vit dans `packages/shared`, en TypeScript pur :
+le même code tourne dans l'app, dans l'admin et sur le serveur.
+
+### Graine et hasard
+
+- Un générateur maison (sfc32, graine hachée par cyrb128), sans dépendance : une mise à jour de
+  bibliothèque ne peut pas changer les nuits passées. Le générateur ne lit jamais l'horloge et
+  n'utilise jamais `Math.random` ; un test le vérifie.
+- **Un flux de hasard par usage** (plan, récit, météo, combats, butin, sons, résumé). Ajouter un son
+  ne change pas l'histoire, ajouter un objet ne change pas l'issue des combats.
+- **Même graine + catalogue différent = autre nuit.** La nuit garde l'empreinte du catalogue qui l'a
+  produite, et elle est stockée telle qu'elle a été générée : on ne la rejoue pas après coup.
+- **Préfixe stable** : rien de ce qui se passe à 1 h ne dépend de l'heure du réveil. Couper la nuit
+  à l'ouverture de l'app, c'est garder les événements commencés avant la coupure ; le résumé est
+  réécrit pour cette partie, et les gains s'additionnent jusqu'à la coupure.
+
+### Le récit
+
+- **Une zone par nuit.** Une quête est donnée et rendue dans une ville, une auberge ou un camp ;
+  elle se fait au lieu qu'elle désigne ; l'aller et le retour passent par un lieu sauvage de la zone.
+- **La même quête n'est pas donnée deux fois de suite** tant qu'une autre est possible.
+- **L'horloge du monde** : le monde a sa propre heure de départ, tirée au hasard (ou dans le moment
+  demandé), et avance au rythme réel. Aube de 5 h à 8 h, jour jusqu'à 18 h, crépuscule jusqu'à 21 h,
+  puis nuit. (Question encore ouverte dans le plan 2 : c'est le choix par défaut.)
+- **Météo** : un état dure au moins le temps réglé (20 min au départ), puis reste ou passe à un état
+  voisin (clair, nuageux, pluie, orage), selon les poids de la zone.
+- **Intensité** : elle descend en ligne droite de 1 à 0,2 sur la minuterie du son, puis reste à la
+  valeur « silencieuse » des réglages (0,8 au départ) jusqu'au réveil. Elle pèse sur le tirage des
+  scènes, écarte les quêtes trop animées (leur intensité minimale) et favorise les pauses.
+- **La fin de la partie entendue** : une quête n'est acceptée que si elle se termine avant la
+  réserve gardée pour le repos final (30 % de la minuterie, entre 3 et 10 min). Quand plus rien ne
+  tient, ou quand une pause est tirée vers la fin, vient la dernière quête : une marche calme qui
+  remplit l'attente, puis le repos à l'auberge ou au feu de camp, qui dure jusqu'à la fin du son.
+  La dernière scène entendue est toujours un repos, et elle dépasse la minuterie.
+- **Quête échouée** : une quête d'élite ou de boss échoue si son monstre a fait fuir le perso à
+  chaque combat. Elle est rendue sans XP de quête ni « ding ».
+- **Groupes** : un modèle de quête dit sa chance d'être en groupe et le nombre de compagnons. Les
+  compagnons déjà rencontrés reviennent plus souvent (poids ×3 au départ).
+
+### Progression et butin
+
+- **Le gear du coucher vaut pour toute la nuit** : ni le gear ni le niveau gagné en route ne
+  changent les chances des combats, pour que la coupure ne change rien. Au réveil, l'app équipe ce
+  qui est meilleur.
+- **Réussite** d'un combat : la base du rang (90 % normal, 65 % élite, 50 % boss au départ), plus
+  2 % par point d'écart entre le score de gear et le niveau, plus 15 % en groupe, entre 40 % et
+  98 %. Le score de gear est la moyenne, sur les six emplacements, de la puissance de l'objet
+  multipliée par son niveau.
+- **XP** : un combat gagné selon le rang (35, 90, 250), les scènes de récolte, de minage et de
+  fouille, et la quête rendue. Une fuite ne rapporte rien.
+- **Courbe d'XP** : 600 XP pour le niveau 2, puis 12 % de plus à chaque niveau. Une nuit de 8 h
+  rapporte environ 6 800 XP quel que soit le niveau : 7 niveaux la première nuit, 5 au niveau 5,
+  un seul au niveau 20, puis plusieurs nuits par niveau. Avec ces chiffres, un niveau se gagne
+  rarement pendant la partie entendue.
+- **Butin** : on tire d'abord la rareté selon le rang du monstre, puis un objet de cette rareté, qui
+  prend le niveau du perso. Le gear et le groupe augmentent les chances au-dessus de « commun ».
+  Une **pitié** rattrape les longues malchances sur les rares et les épiques. Une nuit de 8 h donne
+  environ 35 objets, dont 5 rares et 1 ou 2 épiques ; un légendaire est très rare.
+
+### Le son
+
+- La nuit contient la liste de ce que le téléphone doit jouer (des « lectures ») : le son, quand,
+  combien de temps, à quel volume, à quelle vitesse, avec quels fondus. Rien n'est prévu après la
+  minuterie.
+- **Le fondu final** est un seul fondu de tout ce qui joue : le dernier dixième de la minuterie,
+  entre 30 s et 2 min.
+- **Sous-ambiances** : leur présence est retirée toutes les 3 à 8 min, elles arrivent et partent en
+  8 à 20 s, et leur volume dérive lentement.
+- **Catégorie sans son** : on suit la chaîne de repli de la catégorie ; au bout, rien ne joue pour
+  elle. Dans les deux cas la nuit le signale dans ses avertissements, que la vérification de
+  l'admin réutilise.
+- Un son a toujours une catégorie, et c'est la catégorie qui donne sa couche.
+
+### Le résumé
+
+- **Tamis** : la nuit jouée est relue, et les temps forts sont notés avec une saillance (boss,
+  butin épique ou légendaire, niveau gagné, compagnon, fuite, repos, orage, quête rendue…).
+- Le résumé raconte une ouverture, une clôture, et entre les deux **six temps forts au plus**, les
+  plus saillants, dans l'ordre : deux du même type au maximum, et jamais deux fois le même monstre,
+  le même objet ou la même quête.
+- Les phrases sortent d'un **sac mélangé gardé dans le perso** : une phrase ne revient pas tant que
+  les autres ne sont pas sorties. Une phrase peut avoir des conditions (météo, moment, issue du
+  combat, en groupe, nombre de fois).
+- Le résumé est gardé **en texte et en données** : réécrire ou archiver une phrase ne change pas
+  les anciennes Chroniques.
+
+### Les phrases à trous
+
+- Un petit moteur maison. **C'est le nom qui porte sa grammaire** (genre, élision, pluriel, nom
+  propre), la phrase dit seulement la forme voulue : `{place:de}` donne « du Bois », « de
+  l'Auberge », « des Collines », « d'Aldric ». Les formes : `le`, `un`, `de`, `a`, `d`, `ce`, et
+  `pl` pour le pluriel.
+- `{hero?parti|partie}` accorde selon le genre, `[a|b|c]` tire une variante, et les nombres sont
+  écrits à la française (« 6 448 »).
+- Les titres de quêtes sont aussi des phrases à trous.
+- Seule la grammaire française existe pour l'instant.
+
+### Simuler une nuit
+
+```bash
+npm run simulate --workspace packages/shared -- --seed 4821 --sound 30 --start 23:00 --wake 07:00 --level 5
+```
+
+Affiche la chronologie (la partie entendue scène par scène, la partie silencieuse quête par quête),
+le résumé, les gains et les avertissements. `--cut 02:15` coupe la nuit comme si l'app était
+rouverte, `--all` détaille aussi la partie silencieuse, `--json` sort la nuit telle que l'app la
+reçoit, `--help` liste le reste.
+
+Trois **nuits témoins** sont enregistrées dans `packages/shared/golden/` et comparées par les
+tests. Après un changement voulu du générateur ou du monde de départ, `npm run golden --workspace
+packages/shared` les réécrit, et leur diff se relit avec le reste.
 
 ## L'admin
 
@@ -104,6 +218,9 @@ change.
   départs et les classes.
 - Les **monstres** sont une collection à part : un nom, un rang (normal, élite, boss), et chaque zone
   liste les siens.
+- **Le schéma est écrit en Zod 4**, dans `packages/shared` : d'une seule source sortent les types,
+  la validation et ce qu'il faut pour dessiner les formulaires (libellé, type de champ, référence,
+  aide). Les clés inconnues sont refusées.
 - Les **libellés de l'admin** sont en français, écrits dans le schéma.
 
 ### Les sons
