@@ -21,12 +21,17 @@ export function stableStringify(value: unknown): string {
   return JSON.stringify(value);
 }
 
-/**
- * 32 hexadecimal characters that change whenever the content does. Hash a parsed catalog
- * (`parseCatalog`), so that a default left out of the JSON does not change the result.
- */
-export function catalogHash(catalog: Catalog): string {
-  return cyrb128(stableStringify(catalog))
+/** 32 hexadecimal characters that change whenever the value does, whatever the order of its keys. */
+export function fingerprint(value: unknown): string {
+  return cyrb128(stableStringify(value))
     .map((part) => part.toString(16).padStart(8, "0"))
     .join("");
+}
+
+/**
+ * The fingerprint of a catalog. Hash a parsed catalog (`parseCatalog`), so that a default left out
+ * of the JSON does not change the result.
+ */
+export function catalogHash(catalog: Catalog): string {
+  return fingerprint(catalog);
 }
