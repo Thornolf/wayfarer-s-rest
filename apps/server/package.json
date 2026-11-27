@@ -3,16 +3,24 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "start": "tsx src/index.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test \"src/**/*.test.ts\"",
+    "hash-password": "tsx scripts/hash-password.ts"
   },
   "dependencies": {
-    "@wayfarers-rest/shared": "*"
+    "@fastify/cookie": "^11.1.5",
+    "@wayfarers-rest/shared": "*",
+    "fastify": "^5.12.8",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0",
+    "@types/node": "^24.19.4",
     "tsx": "^4.23.15",
     "typescript": "~6.0.3"
   }
