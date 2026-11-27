@@ -1,0 +1,414 @@
+[
+  {
+    "id": "epee-de-milicien",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "épée de milicien"
+      },
+      "gender": "f"
+    },
+    "slot": "weapon",
+    "rarity": "common",
+    "power": 1
+  },
+  {
+    "id": "hachette-de-bucheron",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "hachette de bûcheron"
+      },
+      "gender": "f"
+    },
+    "slot": "weapon",
+    "rarity": "common",
+    "power": 1.1
+  },
+  {
+    "id": "lame-de-brumefer",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "lame de Brumefer"
+      },
+      "gender": "f"
+    },
+    "slot": "weapon",
+    "rarity": "rare",
+    "power": 1.5
+  },
+  {
+    "id": "arc-du-rodeur-gris",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "arc du rôdeur gris"
+      },
+      "gender": "m"
+    },
+    "slot": "weapon",
+    "rarity": "rare",
+    "power": 1.45
+  },
+  {
+    "id": "croc-de-grisecroc",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "croc de Grisecroc"
+      },
+      "gender": "m"
+    },
+    "slot": "weapon",
+    "rarity": "epic",
+    "power": 1.9
+  },
+  {
+    "id": "chantebrume",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "Chantebrume"
+      },
+      "gender": "f",
+      "proper": true
+    },
+    "slot": "weapon",
+    "rarity": "legendary",
+    "power": 2.6
+  },
+  {
+    "id": "capuche-de-voyageur",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "capuche de voyageur"
+      },
+      "gender": "f"
+    },
+    "slot": "head",
+    "rarity": "common",
+    "power": 1
+  },
+  {
+    "id": "casque-cabosse",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "casque cabossé"
+      },
+      "gender": "m"
+    },
+    "slot": "head",
+    "rarity": "common",
+    "power": 1.1
+  },
+  {
+    "id": "bandeau-du-pisteur",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "bandeau du pisteur"
+      },
+      "gender": "m"
+    },
+    "slot": "head",
+    "rarity": "rare",
+    "power": 1.4
+  },
+  {
+    "id": "heaume-de-prospecteur",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "heaume de prospecteur"
+      },
+      "gender": "m"
+    },
+    "slot": "head",
+    "rarity": "rare",
+    "power": 1.5
+  },
+  {
+    "id": "couronne-de-roseaux",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "couronne de roseaux tressés"
+      },
+      "gender": "f"
+    },
+    "slot": "head",
+    "rarity": "epic",
+    "power": 1.9
+  },
+  {
+    "id": "tunique-de-lin",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "tunique de lin"
+      },
+      "gender": "f"
+    },
+    "slot": "chest",
+    "rarity": "common",
+    "power": 1
+  },
+  {
+    "id": "gilet-de-cuir-bouilli",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "gilet de cuir bouilli"
+      },
+      "gender": "m"
+    },
+    "slot": "chest",
+    "rarity": "common",
+    "power": 1.1
+  },
+  {
+    "id": "cotte-de-mailles-naine",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "cotte de mailles naine"
+      },
+      "gender": "f"
+    },
+    "slot": "chest",
+    "rarity": "rare",
+    "power": 1.5
+  },
+  {
+    "id": "manteau-de-brume",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "manteau de brume"
+      },
+      "gender": "m"
+    },
+    "slot": "chest",
+    "rarity": "epic",
+    "power": 1.9
+  },
+  {
+    "id": "egide-de-hautval",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "égide de Hautval"
+      },
+      "gender": "f"
+    },
+    "slot": "chest",
+    "rarity": "legendary",
+    "power": 2.5
+  },
+  {
+    "id": "mitaines-de-laine",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "mitaines de laine"
+      },
+      "gender": "f",
+      "isPlural": true
+    },
+    "slot": "hands",
+    "rarity": "common",
+    "power": 1
+  },
+  {
+    "id": "gants-de-mineur",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "gants de mineur"
+      },
+      "gender": "m",
+      "isPlural": true
+    },
+    "slot": "hands",
+    "rarity": "common",
+    "power": 1.1
+  },
+  {
+    "id": "gantelets-cloutes",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "gantelets cloutés"
+      },
+      "gender": "m",
+      "isPlural": true
+    },
+    "slot": "hands",
+    "rarity": "rare",
+    "power": 1.45
+  },
+  {
+    "id": "poigne-du-contremaitre",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "poigne du contremaître"
+      },
+      "gender": "f"
+    },
+    "slot": "hands",
+    "rarity": "epic",
+    "power": 1.85
+  },
+  {
+    "id": "sandales-usees",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "sandales usées"
+      },
+      "gender": "f",
+      "isPlural": true
+    },
+    "slot": "feet",
+    "rarity": "common",
+    "power": 0.9
+  },
+  {
+    "id": "bottes-de-marche",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "bottes de marche"
+      },
+      "gender": "f",
+      "isPlural": true
+    },
+    "slot": "feet",
+    "rarity": "common",
+    "power": 1.1
+  },
+  {
+    "id": "bottes-des-marais",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "bottes des marais"
+      },
+      "gender": "f",
+      "isPlural": true
+    },
+    "slot": "feet",
+    "rarity": "rare",
+    "power": 1.4
+  },
+  {
+    "id": "bottines-de-chef-kobold",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "bottines de chef kobold"
+      },
+      "gender": "f",
+      "isPlural": true
+    },
+    "slot": "feet",
+    "rarity": "rare",
+    "power": 1.5
+  },
+  {
+    "id": "foulees-du-vent-gris",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "foulées du vent gris"
+      },
+      "gender": "f",
+      "isPlural": true
+    },
+    "slot": "feet",
+    "rarity": "epic",
+    "power": 1.9
+  },
+  {
+    "id": "patte-de-lapin",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "patte de lapin"
+      },
+      "gender": "f"
+    },
+    "slot": "trinket",
+    "rarity": "common",
+    "power": 1
+  },
+  {
+    "id": "sifflet-en-os",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "sifflet en os"
+      },
+      "gender": "m"
+    },
+    "slot": "trinket",
+    "rarity": "common",
+    "power": 1.05
+  },
+  {
+    "id": "amulette-de-jonc-noir",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "amulette de jonc noir"
+      },
+      "gender": "f"
+    },
+    "slot": "trinket",
+    "rarity": "rare",
+    "power": 1.45
+  },
+  {
+    "id": "pierre-de-chance",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "pierre de chance kobold"
+      },
+      "gender": "f"
+    },
+    "slot": "trinket",
+    "rarity": "rare",
+    "power": 1.4
+  },
+  {
+    "id": "lanterne-aux-feux-follets",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "lanterne aux feux follets"
+      },
+      "gender": "f"
+    },
+    "slot": "trinket",
+    "rarity": "epic",
+    "power": 1.9
+  },
+  {
+    "id": "oeil-de-la-noyee",
+    "aiGenerated": true,
+    "name": {
+      "text": {
+        "fr": "œil de la Noyée"
+      },
+      "gender": "m"
+    },
+    "slot": "trinket",
+    "rarity": "legendary",
+    "power": 2.5
+  }
+]

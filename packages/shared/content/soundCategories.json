@@ -1,0 +1,435 @@
+[
+  {
+    "id": "foret",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Forêt (fond de feuillages)"
+    },
+    "layer": "ambience",
+    "maxVolume": 0.7,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03
+  },
+  {
+    "id": "collines",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Collines (fond de landes et de rocaille)"
+    },
+    "layer": "ambience",
+    "maxVolume": 0.7,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03,
+    "fallback": "vent"
+  },
+  {
+    "id": "marais",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Marais (fond d’eau dormante)"
+    },
+    "layer": "ambience",
+    "maxVolume": 0.7,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03
+  },
+  {
+    "id": "taverne",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Taverne (brouhaha)"
+    },
+    "layer": "ambience",
+    "maxVolume": 0.65,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03
+  },
+  {
+    "id": "grotte",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Grotte (fond sourd)"
+    },
+    "layer": "ambience",
+    "maxVolume": 0.6,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03
+  },
+  {
+    "id": "village",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Village (fond de hameau)"
+    },
+    "layer": "ambience",
+    "maxVolume": 0.6,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03
+  },
+  {
+    "id": "vent",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Vent"
+    },
+    "layer": "ambience",
+    "maxVolume": 0.55,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03
+  },
+  {
+    "id": "pluie",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Pluie"
+    },
+    "layer": "ambience",
+    "maxVolume": 0.7,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03
+  },
+  {
+    "id": "pluie-toit",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Pluie sur le toit"
+    },
+    "layer": "ambience",
+    "maxVolume": 0.45,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03,
+    "fallback": "pluie"
+  },
+  {
+    "id": "riviere",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Rivière"
+    },
+    "layer": "ambience",
+    "maxVolume": 0.5,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03
+  },
+  {
+    "id": "feu",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Feu qui crépite"
+    },
+    "layer": "ambience",
+    "maxVolume": 0.55,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03
+  },
+  {
+    "id": "grillons",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Grillons"
+    },
+    "layer": "ambience",
+    "maxVolume": 0.4,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03
+  },
+  {
+    "id": "grenouilles",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Grenouilles"
+    },
+    "layer": "ambience",
+    "maxVolume": 0.45,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03
+  },
+  {
+    "id": "barde",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Barde"
+    },
+    "layer": "ambience",
+    "maxVolume": 0.4,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03
+  },
+  {
+    "id": "gouttes",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Gouttes d’eau"
+    },
+    "layer": "ambience",
+    "maxVolume": 0.4,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03
+  },
+  {
+    "id": "marche",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Marche (pas de secours)"
+    },
+    "layer": "action",
+    "maxVolume": 0.5,
+    "volumeJitter": 0.2,
+    "rateJitter": 0.08
+  },
+  {
+    "id": "marche-herbe",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Marche sur l’herbe"
+    },
+    "layer": "action",
+    "maxVolume": 0.5,
+    "volumeJitter": 0.2,
+    "rateJitter": 0.08,
+    "fallback": "marche"
+  },
+  {
+    "id": "marche-bois",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Marche sur le bois"
+    },
+    "layer": "action",
+    "maxVolume": 0.5,
+    "volumeJitter": 0.2,
+    "rateJitter": 0.08,
+    "fallback": "marche"
+  },
+  {
+    "id": "marche-pierre",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Marche sur la pierre"
+    },
+    "layer": "action",
+    "maxVolume": 0.5,
+    "volumeJitter": 0.2,
+    "rateJitter": 0.08,
+    "fallback": "marche"
+  },
+  {
+    "id": "marche-boue",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Marche dans la boue"
+    },
+    "layer": "action",
+    "maxVolume": 0.5,
+    "volumeJitter": 0.2,
+    "rateJitter": 0.08,
+    "fallback": "marche"
+  },
+  {
+    "id": "monture",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Monture"
+    },
+    "layer": "action",
+    "maxVolume": 0.55,
+    "volumeJitter": 0.2,
+    "rateJitter": 0.08
+  },
+  {
+    "id": "combat",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Combat"
+    },
+    "layer": "action",
+    "maxVolume": 0.6,
+    "volumeJitter": 0.2,
+    "rateJitter": 0.08
+  },
+  {
+    "id": "combat-groupe",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Combat en groupe"
+    },
+    "layer": "action",
+    "maxVolume": 0.6,
+    "volumeJitter": 0.2,
+    "rateJitter": 0.08,
+    "fallback": "combat"
+  },
+  {
+    "id": "minage",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Minage"
+    },
+    "layer": "action",
+    "maxVolume": 0.55,
+    "volumeJitter": 0.2,
+    "rateJitter": 0.08
+  },
+  {
+    "id": "cueillette",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Cueillette"
+    },
+    "layer": "action",
+    "maxVolume": 0.4,
+    "volumeJitter": 0.2,
+    "rateJitter": 0.08
+  },
+  {
+    "id": "fouille",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Fouille"
+    },
+    "layer": "action",
+    "maxVolume": 0.4,
+    "volumeJitter": 0.2,
+    "rateJitter": 0.08
+  },
+  {
+    "id": "oiseau",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Oiseau"
+    },
+    "layer": "oneShot",
+    "maxVolume": 0.5,
+    "volumeJitter": 0.25,
+    "rateJitter": 0.1,
+    "minGap": {
+      "min": 20,
+      "max": 90
+    },
+    "burst": {
+      "chance": 0.35,
+      "count": {
+        "min": 2,
+        "max": 4
+      }
+    }
+  },
+  {
+    "id": "hibou",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Hibou"
+    },
+    "layer": "oneShot",
+    "maxVolume": 0.45,
+    "volumeJitter": 0.25,
+    "rateJitter": 0.1,
+    "minGap": {
+      "min": 40,
+      "max": 150
+    },
+    "burst": {
+      "chance": 0.3,
+      "count": {
+        "min": 2,
+        "max": 3
+      }
+    }
+  },
+  {
+    "id": "loup",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Loup au loin"
+    },
+    "layer": "oneShot",
+    "maxVolume": 0.4,
+    "volumeJitter": 0.25,
+    "rateJitter": 0.1,
+    "minGap": {
+      "min": 120,
+      "max": 400
+    }
+  },
+  {
+    "id": "tonnerre",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Tonnerre"
+    },
+    "layer": "oneShot",
+    "maxVolume": 0.6,
+    "volumeJitter": 0.25,
+    "rateJitter": 0.1,
+    "minGap": {
+      "min": 30,
+      "max": 120
+    }
+  },
+  {
+    "id": "voix",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Voix"
+    },
+    "layer": "oneShot",
+    "maxVolume": 0.4,
+    "volumeJitter": 0.25,
+    "rateJitter": 0.1,
+    "minGap": {
+      "min": 25,
+      "max": 100
+    },
+    "burst": {
+      "chance": 0.2,
+      "count": {
+        "min": 2,
+        "max": 3
+      }
+    }
+  },
+  {
+    "id": "accept",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Quête acceptée"
+    },
+    "layer": "transition",
+    "maxVolume": 0.5,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03
+  },
+  {
+    "id": "turnin",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Quête rendue"
+    },
+    "layer": "transition",
+    "maxVolume": 0.5,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03
+  },
+  {
+    "id": "levelup",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Niveau gagné"
+    },
+    "layer": "transition",
+    "maxVolume": 0.55,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03
+  },
+  {
+    "id": "porte",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Porte"
+    },
+    "layer": "transition",
+    "maxVolume": 0.45,
+    "volumeJitter": 0.1,
+    "rateJitter": 0.03
+  }
+]

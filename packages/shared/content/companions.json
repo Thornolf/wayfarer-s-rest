@@ -1,0 +1,94 @@
+[
+  {
+    "id": "brann",
+    "aiGenerated": true,
+    "role": "tank",
+    "name": {
+      "text": {
+        "fr": "Brann"
+      },
+      "gender": "m",
+      "proper": true
+    },
+    "quips": [
+      {
+        "fr": "Reste derrière mon bouclier et tout ira bien."
+      },
+      {
+        "fr": "Un bouclier, une hache, et la nuit est à nous."
+      },
+      {
+        "fr": "J’ai connu des mines plus profondes que tes soucis."
+      }
+    ]
+  },
+  {
+    "id": "soeur-elwyn",
+    "aiGenerated": true,
+    "role": "healer",
+    "name": {
+      "text": {
+        "fr": "Sœur Elwyn"
+      },
+      "gender": "f",
+      "proper": true
+    },
+    "quips": [
+      {
+        "fr": "Que la lumière veille sur nos pas."
+      },
+      {
+        "fr": "Montre-moi cette égratignure avant qu’elle ne s’aggrave."
+      },
+      {
+        "fr": "Doucement. Rien ne presse, sinon la prudence."
+      }
+    ]
+  },
+  {
+    "id": "kaelen",
+    "aiGenerated": true,
+    "role": "damage",
+    "name": {
+      "text": {
+        "fr": "Kaelen"
+      },
+      "gender": "m",
+      "proper": true
+    },
+    "quips": [
+      {
+        "fr": "J’ai relevé des traces fraîches. Suis-moi, et sans bruit."
+      },
+      {
+        "fr": "Le vent tourne. C’est bon signe."
+      },
+      {
+        "fr": "Je connais un raccourci. Enfin, je crois."
+      }
+    ]
+  },
+  {
+    "id": "mira",
+    "aiGenerated": true,
+    "role": "damage",
+    "name": {
+      "text": {
+        "fr": "Mira"
+      },
+      "gender": "f",
+      "proper": true
+    },
+    "quips": [
+      {
+        "fr": "Quelqu’un a demandé du feu ?"
+      },
+      {
+        "fr": "Promis, cette fois je ne brûle que les méchants."
+      },
+      {
+        "fr": "Recule un peu. Encore. Voilà, parfait."
+      }
+    ]
+  }
+]

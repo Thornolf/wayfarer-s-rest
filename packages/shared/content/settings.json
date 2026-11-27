@@ -1,0 +1,58 @@
+{
+  "xpCurve": {
+    "base": 600,
+    "growth": 1.12
+  },
+  "fightXp": {
+    "normal": 35,
+    "elite": 90,
+    "boss": 250
+  },
+  "successBase": {
+    "normal": 0.9,
+    "elite": 0.65,
+    "boss": 0.5
+  },
+  "successBounds": {
+    "min": 0.4,
+    "max": 0.98
+  },
+  "gearWeight": 0.02,
+  "groupBonus": {
+    "success": 0.15,
+    "loot": 1.25
+  },
+  "knownCompanionWeight": 3,
+  "dropChance": {
+    "normal": 0.25,
+    "elite": 0.6,
+    "boss": 1
+  },
+  "lootRates": {
+    "normal": {
+      "common": 88,
+      "rare": 11,
+      "epic": 1,
+      "legendary": 0
+    },
+    "elite": {
+      "common": 55,
+      "rare": 35,
+      "epic": 9,
+      "legendary": 1
+    },
+    "boss": {
+      "common": 0,
+      "rare": 55,
+      "epic": 38,
+      "legendary": 7
+    }
+  },
+  "weatherMinMinutes": 20,
+  "silentIntensity": 0.8,
+  "levelUpTransition": "levelup",
+  "noiseBed": {
+    "kind": "brown",
+    "volume": 0.12
+  }
+}

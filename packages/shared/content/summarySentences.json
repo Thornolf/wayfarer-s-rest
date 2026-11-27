@@ -1,0 +1,721 @@
+[
+  {
+    "id": "opening-01",
+    "aiGenerated": true,
+    "trigger": "opening",
+    "text": {
+      "fr": "À la tombée du jour, {hero} a quitté {place:le} [d’un pas tranquille|sans se presser], son sac sur l’épaule."
+    },
+    "weight": 10,
+    "when": {
+      "daylight": [
+        "dusk"
+      ]
+    }
+  },
+  {
+    "id": "opening-02",
+    "aiGenerated": true,
+    "trigger": "opening",
+    "text": {
+      "fr": "La nuit était déjà noire quand {hero} s’est glissé{hero?|e} hors {place:de}, une lanterne à la main."
+    },
+    "weight": 10,
+    "when": {
+      "daylight": [
+        "night"
+      ]
+    }
+  },
+  {
+    "id": "opening-03",
+    "aiGenerated": true,
+    "trigger": "opening",
+    "text": {
+      "fr": "Aux premières lueurs de l’aube, {hero} a repris la route depuis {place:le}, [encore un peu ensommeillé{hero?|e}|la rosée aux chevilles]."
+    },
+    "weight": 10,
+    "when": {
+      "daylight": [
+        "dawn"
+      ]
+    }
+  },
+  {
+    "id": "opening-04",
+    "aiGenerated": true,
+    "trigger": "opening",
+    "text": {
+      "fr": "Le soleil était haut sur {zone:le} quand {hero} a bouclé son sac et quitté {place:le}."
+    },
+    "weight": 10,
+    "when": {
+      "daylight": [
+        "day"
+      ]
+    }
+  },
+  {
+    "id": "opening-05",
+    "aiGenerated": true,
+    "trigger": "opening",
+    "text": {
+      "fr": "Tout a commencé {place:a}, où {hero} a resserré ses sangles avant de s’enfoncer dans {zone:le}."
+    },
+    "weight": 10
+  },
+  {
+    "id": "opening-06",
+    "aiGenerated": true,
+    "trigger": "opening",
+    "text": {
+      "fr": "{hero} est parti{hero?|e} {place:de} [le cœur léger|l’esprit tranquille], sans savoir ce qui l’attendait dans {zone:le}."
+    },
+    "weight": 10
+  },
+  {
+    "id": "opening-07",
+    "aiGenerated": true,
+    "trigger": "opening",
+    "text": {
+      "fr": "L’aventure a commencé {place:a} : {hero} y a vérifié ses lanières, puis s’est mis{hero?|e} en chemin."
+    },
+    "weight": 10
+  },
+  {
+    "id": "opening-08",
+    "aiGenerated": true,
+    "trigger": "opening",
+    "text": {
+      "fr": "Un dernier regard vers {place:le}, et {hero} s’en est allé{hero?|e} sur les chemins {zone:de}."
+    },
+    "weight": 10
+  },
+  {
+    "id": "quest-done-01",
+    "aiGenerated": true,
+    "trigger": "questDone",
+    "text": {
+      "fr": "« {quest} » menée à bien, il ne restait qu’à retourner {place:a} chercher la récompense."
+    },
+    "weight": 10
+  },
+  {
+    "id": "quest-done-02",
+    "aiGenerated": true,
+    "trigger": "questDone",
+    "text": {
+      "fr": "« {quest} » : affaire réglée. On a remercié {hero} {place:a} [d’une poignée de main|d’une bourse bien remplie|d’un simple hochement de tête]."
+    },
+    "weight": 10
+  },
+  {
+    "id": "quest-done-03",
+    "aiGenerated": true,
+    "trigger": "questDone",
+    "text": {
+      "fr": "De retour {place:a}, la nouvelle a fait plaisir : « {quest} » n’était plus qu’un souvenir."
+    },
+    "weight": 10
+  },
+  {
+    "id": "quest-done-04",
+    "aiGenerated": true,
+    "trigger": "questDone",
+    "text": {
+      "fr": "La quête « {quest} » s’est achevée {place:a}, [sans tambour ni trompette|autour d’un bol de soupe chaude|sous quelques regards admiratifs]."
+    },
+    "weight": 10
+  },
+  {
+    "id": "quest-done-05",
+    "aiGenerated": true,
+    "trigger": "questDone",
+    "text": {
+      "fr": "{hero} a rendu « {quest} » {place:a}, [un peu crotté{hero?|e}|fourbu{hero?|e}|les bottes pleines de boue], mais le sourire aux lèvres."
+    },
+    "weight": 10
+  },
+  {
+    "id": "quest-done-06",
+    "aiGenerated": true,
+    "trigger": "questDone",
+    "text": {
+      "fr": "Il restait « {quest} » à terminer : c’est chose faite, et l’on dort plus tranquille {place:a}."
+    },
+    "weight": 10
+  },
+  {
+    "id": "quest-done-07",
+    "aiGenerated": true,
+    "trigger": "questDone",
+    "text": {
+      "fr": "En tout, {count} quêtes ont été bouclées : {hero} n’a pas chômé."
+    },
+    "weight": 10,
+    "when": {
+      "minCount": 3
+    }
+  },
+  {
+    "id": "level-up-01",
+    "aiGenerated": true,
+    "trigger": "levelUp",
+    "text": {
+      "fr": "Quelque part {place:a}, {hero} a senti ses forces grandir : {hero?le|la} voilà niveau {level}."
+    },
+    "weight": 10
+  },
+  {
+    "id": "level-up-02",
+    "aiGenerated": true,
+    "trigger": "levelUp",
+    "text": {
+      "fr": "Niveau {level} ! [De l’assurance en plus|Du métier en plus|Un geste plus sûr], et cela se voit."
+    },
+    "weight": 10
+  },
+  {
+    "id": "level-up-03",
+    "aiGenerated": true,
+    "trigger": "levelUp",
+    "text": {
+      "fr": "À force de [marcher|batailler|persévérer], le niveau {level} a fini par venir."
+    },
+    "weight": 10
+  },
+  {
+    "id": "level-up-04",
+    "aiGenerated": true,
+    "trigger": "levelUp",
+    "text": {
+      "fr": "[Un frisson|Un éclat doré|Un souffle chaud] a parcouru {hero} : niveau {level}, enfin."
+    },
+    "weight": 10
+  },
+  {
+    "id": "level-up-05",
+    "aiGenerated": true,
+    "trigger": "levelUp",
+    "text": {
+      "fr": "Le passage au niveau {level} s’est fait {place:a}, presque sans y penser."
+    },
+    "weight": 10
+  },
+  {
+    "id": "level-up-06",
+    "aiGenerated": true,
+    "trigger": "levelUp",
+    "text": {
+      "fr": "Le niveau {level} est arrivé au détour du chemin : {hero} se sent plus [solide|aguerri{hero?|e}|sûr{hero?|e} de ses gestes] qu’hier."
+    },
+    "weight": 10
+  },
+  {
+    "id": "boss-01",
+    "aiGenerated": true,
+    "trigger": "boss",
+    "text": {
+      "fr": "{place:a}, {monster:le} a fini par tomber. {hero} n’était pas seul{hero?|e} : avec {companions} à ses côtés, l’affaire a été rondement menée."
+    },
+    "weight": 10,
+    "when": {
+      "outcome": "win",
+      "companion": true
+    }
+  },
+  {
+    "id": "boss-02",
+    "aiGenerated": true,
+    "trigger": "boss",
+    "text": {
+      "fr": "Le grand moment de l’aventure : {monster:le} vaincu{monster?|e} {place:a}, grâce à {companions}, et à [beaucoup de sang-froid|une bonne dose d’audace]."
+    },
+    "weight": 10,
+    "when": {
+      "outcome": "win",
+      "companion": true
+    }
+  },
+  {
+    "id": "boss-03",
+    "aiGenerated": true,
+    "trigger": "boss",
+    "text": {
+      "fr": "{monster:le} régnait sur {place:le} ; plus maintenant. {hero} en est venu{hero?|e} à bout [au terme d’un long combat|après une lutte acharnée]."
+    },
+    "weight": 10,
+    "when": {
+      "outcome": "win"
+    }
+  },
+  {
+    "id": "boss-04",
+    "aiGenerated": true,
+    "trigger": "boss",
+    "text": {
+      "fr": "On racontera longtemps comment {hero} a terrassé {monster:le} {place:a}."
+    },
+    "weight": 10,
+    "when": {
+      "outcome": "win"
+    }
+  },
+  {
+    "id": "boss-05",
+    "aiGenerated": true,
+    "trigger": "boss",
+    "text": {
+      "fr": "Seul{hero?|e} face {monster:a}, {hero} a tenu bon jusqu’au bout. Le silence est revenu {place:a}."
+    },
+    "weight": 10,
+    "when": {
+      "outcome": "win",
+      "companion": false
+    }
+  },
+  {
+    "id": "boss-06",
+    "aiGenerated": true,
+    "trigger": "boss",
+    "text": {
+      "fr": "{monster:le} était trop fort{monster?|e} cette fois : {hero} a dû battre en retraite et quitter {place:le} [en hâte|sans demander son reste]."
+    },
+    "weight": 10,
+    "when": {
+      "outcome": "flee"
+    }
+  },
+  {
+    "id": "boss-07",
+    "aiGenerated": true,
+    "trigger": "boss",
+    "text": {
+      "fr": "{monster:le} n’a pas bronché, et mieux valait rompre le combat. {hero} reviendra {place:a}, mieux préparé{hero?|e}."
+    },
+    "weight": 10,
+    "when": {
+      "outcome": "flee"
+    }
+  },
+  {
+    "id": "boss-08",
+    "aiGenerated": true,
+    "trigger": "boss",
+    "text": {
+      "fr": "Même avec {companions}, {monster:le} n’a pas cédé. Tout le monde s’est replié en bon ordre : ce n’est que partie remise."
+    },
+    "weight": 10,
+    "when": {
+      "outcome": "flee",
+      "companion": true
+    }
+  },
+  {
+    "id": "epic-loot-01",
+    "aiGenerated": true,
+    "trigger": "epicLoot",
+    "text": {
+      "fr": "Belle trouvaille {place:a} : {item:un}, rien de moins."
+    },
+    "weight": 10
+  },
+  {
+    "id": "epic-loot-02",
+    "aiGenerated": true,
+    "trigger": "epicLoot",
+    "text": {
+      "fr": "Au fond d’un [vieux coffre|sac abandonné|recoin oublié], une découverte : {item:un}. [De quoi sourire un bon moment.|Une prise rare.]"
+    },
+    "weight": 10
+  },
+  {
+    "id": "epic-loot-03",
+    "aiGenerated": true,
+    "trigger": "epicLoot",
+    "text": {
+      "fr": "Une prise se passe de commentaire : {item:un}."
+    },
+    "weight": 10
+  },
+  {
+    "id": "epic-loot-04",
+    "aiGenerated": true,
+    "trigger": "epicLoot",
+    "text": {
+      "fr": "{hero} n’en revenait pas : {item:un}, là, {place:a}."
+    },
+    "weight": 10
+  },
+  {
+    "id": "epic-loot-05",
+    "aiGenerated": true,
+    "trigger": "epicLoot",
+    "text": {
+      "fr": "Parmi les prises, une pièce sort du lot : {item:le}."
+    },
+    "weight": 10
+  },
+  {
+    "id": "epic-loot-06",
+    "aiGenerated": true,
+    "trigger": "epicLoot",
+    "text": {
+      "fr": "Quelque chose brillait {place:a} : {item:un}, qu’il a suffi de ramasser."
+    },
+    "weight": 10
+  },
+  {
+    "id": "flee-01",
+    "aiGenerated": true,
+    "trigger": "flee",
+    "text": {
+      "fr": "{monster:un} s’est montré{monster?|e} plus coriace que prévu : il a fallu filer."
+    },
+    "weight": 10
+  },
+  {
+    "id": "flee-02",
+    "aiGenerated": true,
+    "trigger": "flee",
+    "text": {
+      "fr": "Face {monster:a}, il a fallu fuir [à toutes jambes|sans se retourner]. Aucune honte à cela."
+    },
+    "weight": 10
+  },
+  {
+    "id": "flee-03",
+    "aiGenerated": true,
+    "trigger": "flee",
+    "text": {
+      "fr": "{place:a}, un combat a mal tourné : {hero} a rompu l’engagement et laissé {monster:le} à ses affaires."
+    },
+    "weight": 10
+  },
+  {
+    "id": "flee-04",
+    "aiGenerated": true,
+    "trigger": "flee",
+    "text": {
+      "fr": "Devant {monster:un}, mieux valait battre en retraite. [La prudence est aussi une vertu.|Ce sera pour une autre fois.]"
+    },
+    "weight": 10
+  },
+  {
+    "id": "flee-05",
+    "aiGenerated": true,
+    "trigger": "flee",
+    "text": {
+      "fr": "Un repli [stratégique|précipité|sans gloire] devant {monster:un}, {place:a} : {hero?il|elle} en rira demain."
+    },
+    "weight": 10
+  },
+  {
+    "id": "flee-06",
+    "aiGenerated": true,
+    "trigger": "flee",
+    "text": {
+      "fr": "{hero} a tourné les talons {count} fois en chemin ; ses jambes, au moins, sont en pleine forme."
+    },
+    "weight": 10,
+    "when": {
+      "minCount": 3
+    }
+  },
+  {
+    "id": "companion-01",
+    "aiGenerated": true,
+    "trigger": "companion",
+    "text": {
+      "fr": "{companion} a rejoint l’aventure {place:a}. « {quip} »"
+    },
+    "weight": 10
+  },
+  {
+    "id": "companion-02",
+    "aiGenerated": true,
+    "trigger": "companion",
+    "text": {
+      "fr": "En chemin, {hero} a croisé {companion}, et {companion?celui-ci|celle-ci} a lancé : « {quip} »"
+    },
+    "weight": 10
+  },
+  {
+    "id": "companion-03",
+    "aiGenerated": true,
+    "trigger": "companion",
+    "text": {
+      "fr": "« {quip} » C’était {companion}, qui [attendait|patientait] {place:a} et s’est joint{companion?|e} à l’aventure."
+    },
+    "weight": 10
+  },
+  {
+    "id": "companion-04",
+    "aiGenerated": true,
+    "trigger": "companion",
+    "text": {
+      "fr": "{companion} a fait un bout de route avec {hero}, et le chemin a paru plus court."
+    },
+    "weight": 10
+  },
+  {
+    "id": "companion-05",
+    "aiGenerated": true,
+    "trigger": "companion",
+    "text": {
+      "fr": "Une silhouette {place:a} : {companion}, [déjà prêt{companion?|e} à partir|le sac sur l’épaule]. « {quip} »"
+    },
+    "weight": 10
+  },
+  {
+    "id": "companion-06",
+    "aiGenerated": true,
+    "trigger": "companion",
+    "text": {
+      "fr": "{companion} s’est invité{companion?|e} dans l’aventure {place:a}, et personne ne s’en est plaint."
+    },
+    "weight": 10
+  },
+  {
+    "id": "weather-change-01",
+    "aiGenerated": true,
+    "trigger": "weatherChange",
+    "text": {
+      "fr": "La pluie s’est invitée sur {zone:le}, [fine et régulière|d’abord quelques gouttes, puis un vrai rideau]."
+    },
+    "weight": 10,
+    "when": {
+      "weather": [
+        "rain"
+      ]
+    }
+  },
+  {
+    "id": "weather-change-02",
+    "aiGenerated": true,
+    "trigger": "weatherChange",
+    "text": {
+      "fr": "La pluie a surpris {hero} [aux abords|non loin|à deux pas] {place:de}. La capuche a servi."
+    },
+    "weight": 10,
+    "when": {
+      "weather": [
+        "rain"
+      ]
+    }
+  },
+  {
+    "id": "weather-change-03",
+    "aiGenerated": true,
+    "trigger": "weatherChange",
+    "text": {
+      "fr": "L’orage a éclaté au-dessus {zone:de} : le tonnerre a roulé longtemps [dans le lointain|d’un bout à l’autre du ciel]."
+    },
+    "weight": 10,
+    "when": {
+      "weather": [
+        "storm"
+      ]
+    }
+  },
+  {
+    "id": "weather-change-04",
+    "aiGenerated": true,
+    "trigger": "weatherChange",
+    "text": {
+      "fr": "Des éclairs ont zébré le ciel {place:a}. Il a fallu presser le pas."
+    },
+    "weight": 10,
+    "when": {
+      "weather": [
+        "storm"
+      ]
+    }
+  },
+  {
+    "id": "weather-change-05",
+    "aiGenerated": true,
+    "trigger": "weatherChange",
+    "text": {
+      "fr": "Le ciel s’est dégagé sur {zone:le}, [et l’air s’est fait plus léger|et tout a paru plus calme]."
+    },
+    "weight": 10,
+    "when": {
+      "weather": [
+        "clear"
+      ]
+    }
+  },
+  {
+    "id": "weather-change-06",
+    "aiGenerated": true,
+    "trigger": "weatherChange",
+    "text": {
+      "fr": "Les nuages se sont écartés {place:a} : la suite du chemin s’est faite au sec."
+    },
+    "weight": 10,
+    "when": {
+      "weather": [
+        "clear"
+      ]
+    }
+  },
+  {
+    "id": "weather-change-07",
+    "aiGenerated": true,
+    "trigger": "weatherChange",
+    "text": {
+      "fr": "Le ciel s’est couvert peu à peu au-dessus {zone:de}."
+    },
+    "weight": 10,
+    "when": {
+      "weather": [
+        "cloudy"
+      ]
+    }
+  },
+  {
+    "id": "weather-change-08",
+    "aiGenerated": true,
+    "trigger": "weatherChange",
+    "text": {
+      "fr": "Des nuages [bas|lourds|gris] sont venus coiffer {zone:le}, [sans prévenir|l’un après l’autre]."
+    },
+    "weight": 10,
+    "when": {
+      "weather": [
+        "cloudy"
+      ]
+    }
+  },
+  {
+    "id": "rest-at-01",
+    "aiGenerated": true,
+    "trigger": "restAt",
+    "text": {
+      "fr": "Une pause bien méritée {place:a}, [les pieds près du feu|le temps de souffler]."
+    },
+    "weight": 10
+  },
+  {
+    "id": "rest-at-02",
+    "aiGenerated": true,
+    "trigger": "restAt",
+    "text": {
+      "fr": "Un moment de repos {place:a} : [un bol de ragoût|une chope tiède|un quignon de pain], et la fatigue est retombée."
+    },
+    "weight": 10
+  },
+  {
+    "id": "rest-at-03",
+    "aiGenerated": true,
+    "trigger": "restAt",
+    "text": {
+      "fr": "{place:a}, le sac posé, un long moment à regarder les flammes [danser|crépiter]."
+    },
+    "weight": 10
+  },
+  {
+    "id": "rest-at-04",
+    "aiGenerated": true,
+    "trigger": "restAt",
+    "text": {
+      "fr": "Rien ne pressait. {hero} s’est assis{hero?|e} {place:a} et a laissé le temps [passer|s’étirer]."
+    },
+    "weight": 10
+  },
+  {
+    "id": "rest-at-05",
+    "aiGenerated": true,
+    "trigger": "restAt",
+    "text": {
+      "fr": "La halte {place:a} a fait du bien : [on y parlait bas|il y faisait bon], et personne ne posait de questions."
+    },
+    "weight": 10
+  },
+  {
+    "id": "rest-at-06",
+    "aiGenerated": true,
+    "trigger": "restAt",
+    "text": {
+      "fr": "{hero} a somnolé un moment {place:a}, [au coin du feu|la tête sur son sac]."
+    },
+    "weight": 10
+  },
+  {
+    "id": "closing-01",
+    "aiGenerated": true,
+    "trigger": "closing",
+    "text": {
+      "fr": "Au petit matin, {hero} se trouvait {place:a}, [fourbu{hero?|e} mais content{hero?|e}|les jambes lourdes et le cœur léger]."
+    },
+    "weight": 10,
+    "when": {
+      "daylight": [
+        "dawn"
+      ]
+    }
+  },
+  {
+    "id": "closing-02",
+    "aiGenerated": true,
+    "trigger": "closing",
+    "text": {
+      "fr": "L’aventure s’est achevée {place:a}. Bilan : {xp} points d’expérience, et l’envie de repartir."
+    },
+    "weight": 10
+  },
+  {
+    "id": "closing-03",
+    "aiGenerated": true,
+    "trigger": "closing",
+    "text": {
+      "fr": "Quand le jour s’est levé, {hero} était {place:a}, niveau {level}, prêt{hero?|e} pour la suite."
+    },
+    "weight": 10,
+    "when": {
+      "daylight": [
+        "dawn"
+      ]
+    }
+  },
+  {
+    "id": "closing-04",
+    "aiGenerated": true,
+    "trigger": "closing",
+    "text": {
+      "fr": "Voilà pour cette fois. {hero} t’attend {place:a}, [le sac un peu plus lourd|avec quelques histoires de plus à raconter]."
+    },
+    "weight": 10
+  },
+  {
+    "id": "closing-05",
+    "aiGenerated": true,
+    "trigger": "closing",
+    "text": {
+      "fr": "{count} quêtes, {xp} points d’expérience : une aventure bien remplie, qui s’est terminée {place:a}."
+    },
+    "weight": 10,
+    "when": {
+      "minCount": 2
+    }
+  },
+  {
+    "id": "closing-06",
+    "aiGenerated": true,
+    "trigger": "closing",
+    "text": {
+      "fr": "L’aventure s’est arrêtée là, {place:a}, [sans bruit|tout doucement]. À ce soir."
+    },
+    "weight": 10
+  },
+  {
+    "id": "closing-07",
+    "aiGenerated": true,
+    "trigger": "closing",
+    "text": {
+      "fr": "{hero} a fini sa route {place:a}. [Il fera bon y revenir.|La route reprendra bien assez tôt.]"
+    },
+    "weight": 10
+  }
+]

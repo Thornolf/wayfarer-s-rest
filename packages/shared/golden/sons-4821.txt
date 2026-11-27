@@ -1,0 +1,9 @@
+Aventure #4821, avec trois sons d’essai par catégorie
+action : 48
+ambience : 18
+noiseBed : 1
+oneShot : 10
+transition : 6
+fondu final : 1680 s, pendant 120 s
+empreinte des lectures : f0d694b0daf508b970612825c0b6df6c
+avertissements : 0

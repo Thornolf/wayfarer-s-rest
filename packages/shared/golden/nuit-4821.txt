@@ -1,0 +1,119 @@
+Aventure #4821 — Aldric, niveau 5
+Zone : les Collines de Brumefer · il est 4 h 45 dans le monde au départ
+Coucher 23:00, réveil 07:00 · son 30 min · nuit de 8 h
+
+— La partie entendue — (heure · intensité · scène)
+0:00:00  « Des vivres pour le Comptoir de Brumefer » (livraison), à la Chope Fendue
+  0:00:00        ~ nuit, nuageux
+  0:00:00  1,00  Parler à quelqu’un, 38 s · la Chope Fendue · [accept]
+  0:00:38  0,98  Marcher sur la pierre, 42 s · les Éboulis des Chèvres
+  0:01:20  0,96  Marcher sur la pierre, 1 min 46 · les Éboulis des Chèvres
+  0:03:06  0,92  Marcher sur la pierre, 1 min 08 · les Éboulis des Chèvres
+  0:04:14  0,89  Marcher sur la pierre, 1 min 19 · les Éboulis des Chèvres
+  0:05:33  0,85  Souffler un instant, 33 s · les Éboulis des Chèvres
+  0:06:06  0,84  Parler à quelqu’un, 27 s · le Comptoir de Brumefer
+  0:06:33  0,82  Marcher sur la pierre, 1 min 28 · les Éboulis des Chèvres
+  0:08:01  0,79  Marcher sur la pierre, 1 min 23 · les Éboulis des Chèvres
+  0:09:24  0,75  Souffler un instant, 32 s · les Éboulis des Chèvres
+  0:09:56  0,73  Chevaucher, 2 min 05 · les Éboulis des Chèvres
+  0:12:01  0,68  Parler à quelqu’un, 32 s · la Chope Fendue · quête rendue · +90 XP · [turnin, porte]
+0:12:33  « La chasse aux araignées des grottes » (chasse), à la Chope Fendue
+  0:12:33  0,67  Parler à quelqu’un, 15 s · la Chope Fendue · [accept]
+  0:12:48  0,66  Chevaucher, 1 min 26 · le Col du Vent Gris
+  0:14:14  0,62  Souffler un instant, 40 s · le Col du Vent Gris
+  0:14:54  0,60  Combattre, 42 s · les Éboulis des Chèvres · araignée des grottes → victoire · +35 XP · bottes de marche (commun, niv. 5)
+  0:15:36        ~ aube, nuageux
+  0:15:36  0,58  Marcher sur la pierre, 34 s · les Éboulis des Chèvres
+  0:16:10  0,57  Combattre, 1 min 01 · les Éboulis des Chèvres · araignée des grottes → victoire · +35 XP
+  0:17:11  0,54  Combattre, 59 s · les Éboulis des Chèvres · araignée des grottes → victoire · +35 XP
+  0:18:10  0,52  Souffler un instant, 34 s · le Col du Vent Gris
+  0:18:44  0,50  Marcher sur la pierre, 1 min 40 · le Col du Vent Gris
+  0:20:24  0,46  Parler à quelqu’un, 36 s · la Chope Fendue · quête rendue · +120 XP · [turnin, porte]
+0:21:00  « Une halte au Camp des Prospecteurs » (pause), à la Chope Fendue
+  0:21:00  0,44  Souffler un instant, 21 s · le Camp des Prospecteurs
+  0:21:21  0,43  Se reposer près du feu de camp, 2 min 45 · le Camp des Prospecteurs
+  0:24:06  0,36  Se reposer près du feu de camp, 3 min 27 · le Camp des Prospecteurs
+  0:27:33  0,27  Se reposer près du feu de camp, 4 min 44 · le Camp des Prospecteurs · quête rendue · +30 XP
+
+0:30:00  — fin du son (fondu depuis 0:28:00) —
+
+— La partie silencieuse — (une ligne par quête ; --all pour toutes les scènes)
+0:32:17  « Sus aux kobolds des mines » (chasse), au Camp des Prospecteurs · 15 scènes · 3 victoires · 1 fuite · rendue · +225 XP · arc du rôdeur gris (rare, niv. 5)
+0:48:45  « Un colis pour le Comptoir de Brumefer » (livraison), au Camp des Prospecteurs · 13 scènes · rendue · +95 XP · capuche de voyageur (commun, niv. 5)
+0:59:31  « Une halte à la Chope Fendue » (pause), au Camp des Prospecteurs · 5 scènes · rendue · +30 XP
+1:04:18  « Trop d’araignées des grottes au Col du Vent Gris » (chasse), à la Chope Fendue · 16 scènes · 4 victoires · 1 fuite · rendue · +260 XP · niveau 6 !
+1:19:14  « Au fond de la Mine de Brumefer » (grotte), à la Chope Fendue · 16 scènes · 4 victoires · rendue · +326 XP · gants de mineur (commun, niv. 6) · tunique de lin (commun, niv. 6)
+1:37:22  « La caravane du Comptoir de Brumefer » (escorte), à la Chope Fendue · 12 scènes · rendue · +110 XP
+1:47:03  « Une halte au Camp des Prospecteurs » (pause), à la Chope Fendue · 7 scènes · rendue · +30 XP
+2:00:02  « Trop de kobolds des mines aux Éboulis des Chèvres » (chasse), au Camp des Prospecteurs · 17 scènes · 8 victoires · rendue · +455 XP · lame de Brumefer (rare, niv. 6) · sandales usées (commun, niv. 6) · amulette de jonc noir (rare, niv. 6) · gants de mineur (commun, niv. 6)
+2:19:58  « Courrier urgent pour la Chope Fendue » (livraison), au Camp des Prospecteurs · 13 scènes · 1 victoire · rendue · +125 XP · capuche de voyageur (commun, niv. 6) · niveau 7 !
+2:29:28  « Des simples pour la tisane » (récolte), au Camp des Prospecteurs · 11 scènes · rendue · +105 XP · tunique de lin (commun, niv. 7)
+2:39:57  « Sus aux araignées des grottes » (chasse), au Camp des Prospecteurs · 14 scènes · 2 victoires · 1 fuite · rendue · +200 XP · bottes de marche (commun, niv. 7) · sifflet en os (commun, niv. 7) · gilet de cuir bouilli (commun, niv. 7)
+2:54:20  « Cueillette au Col du Vent Gris » (récolte), au Camp des Prospecteurs · 15 scènes · rendue · +140 XP
+3:04:44  « Courrier urgent pour le Comptoir de Brumefer » (livraison), au Camp des Prospecteurs · 14 scènes · rendue · +90 XP
+3:19:21  « Une halte à la Chope Fendue » (pause), au Camp des Prospecteurs · 4 scènes · rendue · +30 XP
+3:24:59  « Escorte jusqu’au Comptoir de Brumefer » (escorte), à la Chope Fendue · 12 scènes · 2 victoires · rendue · +180 XP
+3:39:34  « Un moment de répit au Camp des Prospecteurs » (pause), à la Chope Fendue · 5 scènes · rendue · +30 XP
+3:51:04  « Des vivres pour le Comptoir de Brumefer » (livraison), au Camp des Prospecteurs · 12 scènes · rendue · +90 XP
+4:02:06  « Sus au golem de schiste » (chasse), au Camp des Prospecteurs, avec Mira · 13 scènes · 3 victoires · rendue · +440 XP · tunique de lin (commun, niv. 7) · gilet de cuir bouilli (commun, niv. 7) · épée de milicien (commun, niv. 7) · niveau 8 !
+4:15:43  « Des simples pour la tisane » (récolte), au Camp des Prospecteurs · 13 scènes · 3 victoires · rendue · +195 XP · cotte de mailles naine (rare, niv. 8) · casque cabossé (commun, niv. 8)
+4:28:23  « Trop de kobolds des mines aux Éboulis des Chèvres » (chasse), au Camp des Prospecteurs · 16 scènes · 5 victoires · rendue · +355 XP · sandales usées (commun, niv. 8) · gants de mineur (commun, niv. 8) · heaume de prospecteur (rare, niv. 8)
+4:42:47  « Le temps de souffler à la Chope Fendue » (pause), au Camp des Prospecteurs · 6 scènes · rendue · +35 XP · hachette de bûcheron (commun, niv. 8)
+4:53:43  « Des vivres pour le Camp des Prospecteurs » (livraison), à la Chope Fendue · 13 scènes · rendue · +95 XP · hachette de bûcheron (commun, niv. 8)
+5:06:49  « Ce qui remue dans la Mine de Brumefer » (grotte), à la Chope Fendue · 15 scènes · 1 victoire · rendue · +264 XP · sifflet en os (commun, niv. 8)
+5:25:42  « Sus aux araignées des grottes » (chasse), à la Chope Fendue · 13 scènes · 5 victoires · 1 fuite · rendue · +300 XP · capuche de voyageur (commun, niv. 8) · casque cabossé (commun, niv. 8) · hachette de bûcheron (commun, niv. 8) · niveau 9 !
+5:38:59  « Au fond de la Mine de Brumefer » (grotte), à la Chope Fendue · 14 scènes · 1 fuite · rendue · +203 XP · bottines de chef kobold (rare, niv. 9) · hachette de bûcheron (commun, niv. 9)
+5:52:58  « La chasse aux araignées des grottes » (chasse), à la Chope Fendue · 13 scènes · 3 victoires · rendue · +225 XP · patte de lapin (commun, niv. 9) · sandales usées (commun, niv. 9)
+6:07:33  « Ce qui remue dans la Mine de Brumefer » (grotte), à la Chope Fendue · 15 scènes · 2 victoires · 1 fuite · rendue · +292 XP · épée de milicien (commun, niv. 9) · sandales usées (commun, niv. 9) · bottes de marche (commun, niv. 9) · hachette de bûcheron (commun, niv. 9)
+6:20:49  « Des vivres pour le Camp des Prospecteurs » (livraison), à la Chope Fendue · 10 scènes · 1 victoire · rendue · +125 XP · casque cabossé (commun, niv. 9)
+6:31:34  « Avis de recherche : le golem de schiste » (chasse), à la Chope Fendue, avec Sœur Elwyn · 13 scènes · 3 victoires · rendue · +435 XP · bottes des marais (rare, niv. 9) · manteau de brume (épique, niv. 9)
+6:46:27  « Sus aux chauves-souris » (chasse), à la Chope Fendue · 13 scènes · 3 victoires · rendue · +280 XP · bandeau du pisteur (rare, niv. 9) · niveau 10 !
+7:02:01  « Avis de recherche : le golem de schiste » (chasse), à la Chope Fendue, avec Mira · 9 scènes · 4 victoires · rendue · +525 XP · gilet de cuir bouilli (commun, niv. 10)
+7:11:07  « Trop de chauves-souris au Col du Vent Gris » (chasse), à la Chope Fendue · 16 scènes · 4 victoires · 1 fuite · rendue · +270 XP · amulette de jonc noir (rare, niv. 10) · mitaines de laine (commun, niv. 10) · hachette de bûcheron (commun, niv. 10)
+7:25:18  « Des simples pour la tisane » (récolte), à la Chope Fendue · 12 scènes · 1 victoire · rendue · +135 XP
+7:37:12  « Un colis pour le Comptoir de Brumefer » (livraison), à la Chope Fendue · 14 scènes · rendue · +95 XP · bottines de chef kobold (rare, niv. 10)
+7:51:06  « La chasse aux chauves-souris » (chasse), à la Chope Fendue · 8 scènes · 2 victoires · 1 fuite · en cours · +75 XP · gilet de cuir bouilli (commun, niv. 10) · patte de lapin (commun, niv. 10)
+
+8:00:00  — réveil à 07:00 — 453 scènes, 38 quêtes
+
+— Le résumé du matin —
+Un dernier regard vers la Chope Fendue, et Aldric s’en est allé sur les chemins des Collines de Brumefer. La halte au Camp des Prospecteurs a fait du bien : il y faisait bon, et personne ne posait de questions. Au Col du Vent Gris, un combat a mal tourné : Aldric a rompu l’engagement et laissé le golem de schiste à ses affaires. « Recule un peu. Encore. Voilà, parfait. » C’était Mira, qui attendait au Camp des Prospecteurs et s’est jointe à l’aventure. Une silhouette à la Chope Fendue : Sœur Elwyn, le sac sur l’épaule. « Que la lumière veille sur nos pas. » Quelque chose brillait au Col du Vent Gris : un manteau de brume, qu’il a suffi de ramasser. Le passage au niveau 10 s’est fait à la Chope Fendue, presque sans y penser. Aldric a fini sa route aux Éboulis des Chèvres. La route reprendra bien assez tôt.
+
+  0:00:00  Ouverture [opening-08]
+  0:21:00  Repos [rest-at-05]
+  1:11:14  Fuite [flee-03]
+  4:02:06  Compagnon qui rejoint l’aventure [companion-03]
+  6:31:34  Compagnon qui rejoint l’aventure [companion-05]
+  6:42:53  Butin épique ou légendaire [epic-loot-06]
+  7:01:24  Niveau gagné [level-up-05]
+  8:00:16  Clôture [closing-07]
+
+— Les gains —
+XP : +7 210 · niveau 5 → 10 (1 213 / 1 664 XP vers le suivant)
+Quêtes rendues : 37 · combats : 67 victoires, 8 fuites
+Butin : 47 objets (36 communs, 10 rares, 1 épique)
+  arc du rôdeur gris (rare, niv. 5)
+  lame de Brumefer (rare, niv. 6)
+  amulette de jonc noir (rare, niv. 6)
+  cotte de mailles naine (rare, niv. 8)
+  heaume de prospecteur (rare, niv. 8)
+  bottines de chef kobold (rare, niv. 9)
+  bottes des marais (rare, niv. 9)
+  manteau de brume (épique, niv. 9)
+  bandeau du pisteur (rare, niv. 9)
+  amulette de jonc noir (rare, niv. 10)
+  bottines de chef kobold (rare, niv. 10)
+Compagnons : Mira et Sœur Elwyn
+Équipé au réveil :
+  Arme : hachette de bûcheron (commun, niv. 10)
+  Tête : bandeau du pisteur (rare, niv. 9)
+  Torse : manteau de brume (épique, niv. 9)
+  Mains : mitaines de laine (commun, niv. 10)
+  Pieds : bottines de chef kobold (rare, niv. 10)
+  Bijou : amulette de jonc noir (rare, niv. 10)
+
+— Le son —
+1 lecture prévue (fond continu 1)
+
+— Les avertissements —
+Catégories sans aucun son, même en repli (15) : taverne, feu, collines, vent, riviere, grillons, village, marche-pierre, monture, combat, loup, oiseau, accept, turnin, porte

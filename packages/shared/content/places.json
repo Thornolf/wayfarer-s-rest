@@ -1,0 +1,259 @@
+[
+  {
+    "id": "relais-de-hautval",
+    "aiGenerated": true,
+    "zone": "bois-des-murmures",
+    "kind": "town",
+    "floor": "stone",
+    "ambience": "village",
+    "name": {
+      "text": {
+        "fr": "Relais de Hautval"
+      },
+      "gender": "m"
+    }
+  },
+  {
+    "id": "auberge-du-sanglier-ivre",
+    "aiGenerated": true,
+    "zone": "bois-des-murmures",
+    "kind": "inn",
+    "floor": "wood",
+    "ambience": "taverne",
+    "enterTransition": "porte",
+    "name": {
+      "text": {
+        "fr": "Auberge du Sanglier Ivre"
+      },
+      "gender": "f"
+    }
+  },
+  {
+    "id": "sentier-des-murmures",
+    "aiGenerated": true,
+    "zone": "bois-des-murmures",
+    "kind": "wild",
+    "floor": "grass",
+    "ambience": "foret",
+    "name": {
+      "text": {
+        "fr": "Sentier des Murmures"
+      },
+      "gender": "m"
+    }
+  },
+  {
+    "id": "clairiere-aux-biches",
+    "aiGenerated": true,
+    "zone": "bois-des-murmures",
+    "kind": "wild",
+    "floor": "grass",
+    "ambience": "foret",
+    "name": {
+      "text": {
+        "fr": "Clairière aux Biches"
+      },
+      "gender": "f"
+    }
+  },
+  {
+    "id": "taniere-de-grisecroc",
+    "aiGenerated": true,
+    "zone": "bois-des-murmures",
+    "kind": "cave",
+    "floor": "stone",
+    "ambience": "grotte",
+    "name": {
+      "text": {
+        "fr": "Tanière de Grisecroc"
+      },
+      "gender": "f"
+    }
+  },
+  {
+    "id": "camp-des-bucherons",
+    "aiGenerated": true,
+    "zone": "bois-des-murmures",
+    "kind": "camp",
+    "floor": "grass",
+    "ambience": "camp",
+    "name": {
+      "text": {
+        "fr": "Camp des Bûcherons"
+      },
+      "gender": "m"
+    }
+  },
+  {
+    "id": "comptoir-de-brumefer",
+    "aiGenerated": true,
+    "zone": "collines-de-brumefer",
+    "kind": "town",
+    "floor": "stone",
+    "ambience": "village",
+    "name": {
+      "text": {
+        "fr": "Comptoir de Brumefer"
+      },
+      "gender": "m"
+    }
+  },
+  {
+    "id": "chope-fendue",
+    "aiGenerated": true,
+    "zone": "collines-de-brumefer",
+    "kind": "inn",
+    "floor": "wood",
+    "ambience": "taverne",
+    "enterTransition": "porte",
+    "name": {
+      "text": {
+        "fr": "Chope Fendue"
+      },
+      "gender": "f"
+    }
+  },
+  {
+    "id": "col-du-vent-gris",
+    "aiGenerated": true,
+    "zone": "collines-de-brumefer",
+    "kind": "wild",
+    "floor": "stone",
+    "ambience": "collines",
+    "name": {
+      "text": {
+        "fr": "Col du Vent Gris"
+      },
+      "gender": "m"
+    }
+  },
+  {
+    "id": "eboulis-des-chevres",
+    "aiGenerated": true,
+    "zone": "collines-de-brumefer",
+    "kind": "wild",
+    "floor": "stone",
+    "ambience": "collines",
+    "name": {
+      "text": {
+        "fr": "Éboulis des Chèvres"
+      },
+      "gender": "m",
+      "isPlural": true
+    }
+  },
+  {
+    "id": "mine-de-brumefer",
+    "aiGenerated": true,
+    "zone": "collines-de-brumefer",
+    "kind": "cave",
+    "floor": "stone",
+    "ambience": "grotte",
+    "name": {
+      "text": {
+        "fr": "Mine de Brumefer"
+      },
+      "gender": "f"
+    }
+  },
+  {
+    "id": "camp-des-prospecteurs",
+    "aiGenerated": true,
+    "zone": "collines-de-brumefer",
+    "kind": "camp",
+    "floor": "stone",
+    "ambience": "camp",
+    "name": {
+      "text": {
+        "fr": "Camp des Prospecteurs"
+      },
+      "gender": "m"
+    }
+  },
+  {
+    "id": "ponton-de-noirjonc",
+    "aiGenerated": true,
+    "zone": "marais-de-noirjonc",
+    "kind": "town",
+    "floor": "wood",
+    "ambience": "village",
+    "name": {
+      "text": {
+        "fr": "Ponton de Noirjonc"
+      },
+      "gender": "m"
+    }
+  },
+  {
+    "id": "lanterne-verte",
+    "aiGenerated": true,
+    "zone": "marais-de-noirjonc",
+    "kind": "inn",
+    "floor": "wood",
+    "ambience": "taverne",
+    "enterTransition": "porte",
+    "name": {
+      "text": {
+        "fr": "Lanterne Verte"
+      },
+      "gender": "f"
+    }
+  },
+  {
+    "id": "chaussee-des-roseaux",
+    "aiGenerated": true,
+    "zone": "marais-de-noirjonc",
+    "kind": "wild",
+    "floor": "mud",
+    "ambience": "marais",
+    "name": {
+      "text": {
+        "fr": "Chaussée des Roseaux"
+      },
+      "gender": "f"
+    }
+  },
+  {
+    "id": "mares-aux-feux-follets",
+    "aiGenerated": true,
+    "zone": "marais-de-noirjonc",
+    "kind": "wild",
+    "floor": "mud",
+    "ambience": "marais",
+    "name": {
+      "text": {
+        "fr": "Mares aux Feux Follets"
+      },
+      "gender": "f",
+      "isPlural": true
+    }
+  },
+  {
+    "id": "grotte-de-la-noyee",
+    "aiGenerated": true,
+    "zone": "marais-de-noirjonc",
+    "kind": "cave",
+    "floor": "mud",
+    "ambience": "grotte",
+    "name": {
+      "text": {
+        "fr": "Grotte de la Noyée"
+      },
+      "gender": "f"
+    }
+  },
+  {
+    "id": "camp-sur-pilotis",
+    "aiGenerated": true,
+    "zone": "marais-de-noirjonc",
+    "kind": "camp",
+    "floor": "wood",
+    "ambience": "camp",
+    "name": {
+      "text": {
+        "fr": "Camp sur Pilotis"
+      },
+      "gender": "m"
+    }
+  }
+]

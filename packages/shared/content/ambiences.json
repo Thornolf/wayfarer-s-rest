@@ -1,0 +1,617 @@
+[
+  {
+    "id": "foret",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Forêt"
+    },
+    "layers": [
+      {
+        "id": "fond",
+        "name": {
+          "fr": "Fond de feuillages"
+        },
+        "category": "foret",
+        "volume": 0.8,
+        "probability": 1,
+        "drift": 0.1
+      },
+      {
+        "id": "vent",
+        "name": {
+          "fr": "Vent dans les branches"
+        },
+        "category": "vent",
+        "volume": 0.4,
+        "probability": 0.5,
+        "drift": 0.5
+      },
+      {
+        "id": "riviere",
+        "name": {
+          "fr": "Rivière proche"
+        },
+        "category": "riviere",
+        "volume": 0.35,
+        "probability": 0.4,
+        "drift": 0.3
+      },
+      {
+        "id": "grillons",
+        "name": {
+          "fr": "Grillons du soir"
+        },
+        "category": "grillons",
+        "volume": 0.3,
+        "probability": 0.7,
+        "drift": 0.3,
+        "when": {
+          "daylight": [
+            "dusk",
+            "night"
+          ],
+          "weather": [
+            "clear",
+            "cloudy"
+          ]
+        }
+      },
+      {
+        "id": "pluie",
+        "name": {
+          "fr": "Pluie sur les feuilles"
+        },
+        "category": "pluie",
+        "volume": 0.7,
+        "probability": 1,
+        "drift": 0.4,
+        "when": {
+          "weather": [
+            "rain",
+            "storm"
+          ]
+        }
+      }
+    ],
+    "oneShots": [
+      {
+        "category": "oiseau",
+        "when": {
+          "daylight": [
+            "dawn",
+            "day"
+          ],
+          "weather": [
+            "clear",
+            "cloudy"
+          ]
+        }
+      },
+      {
+        "category": "hibou",
+        "when": {
+          "daylight": [
+            "dusk",
+            "night"
+          ]
+        }
+      },
+      {
+        "category": "loup",
+        "when": {
+          "daylight": [
+            "night"
+          ]
+        }
+      },
+      {
+        "category": "tonnerre",
+        "when": {
+          "weather": [
+            "storm"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "collines",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Collines"
+    },
+    "layers": [
+      {
+        "id": "fond",
+        "name": {
+          "fr": "Fond de landes"
+        },
+        "category": "collines",
+        "volume": 0.7,
+        "probability": 1,
+        "drift": 0.1
+      },
+      {
+        "id": "vent",
+        "name": {
+          "fr": "Vent des crêtes"
+        },
+        "category": "vent",
+        "volume": 0.55,
+        "probability": 0.8,
+        "drift": 0.6
+      },
+      {
+        "id": "torrent",
+        "name": {
+          "fr": "Torrent en contrebas"
+        },
+        "category": "riviere",
+        "volume": 0.3,
+        "probability": 0.3,
+        "drift": 0.3
+      },
+      {
+        "id": "grillons",
+        "name": {
+          "fr": "Grillons du soir"
+        },
+        "category": "grillons",
+        "volume": 0.25,
+        "probability": 0.5,
+        "drift": 0.3,
+        "when": {
+          "daylight": [
+            "dusk",
+            "night"
+          ],
+          "weather": [
+            "clear",
+            "cloudy"
+          ]
+        }
+      },
+      {
+        "id": "pluie",
+        "name": {
+          "fr": "Pluie sur la rocaille"
+        },
+        "category": "pluie",
+        "volume": 0.7,
+        "probability": 1,
+        "drift": 0.4,
+        "when": {
+          "weather": [
+            "rain",
+            "storm"
+          ]
+        }
+      }
+    ],
+    "oneShots": [
+      {
+        "category": "oiseau",
+        "when": {
+          "daylight": [
+            "dawn",
+            "day"
+          ],
+          "weather": [
+            "clear",
+            "cloudy"
+          ]
+        }
+      },
+      {
+        "category": "loup",
+        "when": {
+          "daylight": [
+            "night"
+          ]
+        }
+      },
+      {
+        "category": "tonnerre",
+        "when": {
+          "weather": [
+            "storm"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "marais",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Marais"
+    },
+    "layers": [
+      {
+        "id": "fond",
+        "name": {
+          "fr": "Fond d’eau dormante"
+        },
+        "category": "marais",
+        "volume": 0.75,
+        "probability": 1,
+        "drift": 0.1
+      },
+      {
+        "id": "grenouilles",
+        "name": {
+          "fr": "Grenouilles"
+        },
+        "category": "grenouilles",
+        "volume": 0.4,
+        "probability": 0.8,
+        "drift": 0.4,
+        "when": {
+          "daylight": [
+            "dusk",
+            "night"
+          ]
+        }
+      },
+      {
+        "id": "vent",
+        "name": {
+          "fr": "Vent dans les roseaux"
+        },
+        "category": "vent",
+        "volume": 0.35,
+        "probability": 0.5,
+        "drift": 0.5
+      },
+      {
+        "id": "pluie",
+        "name": {
+          "fr": "Pluie sur l’eau"
+        },
+        "category": "pluie",
+        "volume": 0.7,
+        "probability": 1,
+        "drift": 0.4,
+        "when": {
+          "weather": [
+            "rain",
+            "storm"
+          ]
+        }
+      }
+    ],
+    "oneShots": [
+      {
+        "category": "oiseau",
+        "when": {
+          "daylight": [
+            "dawn",
+            "day"
+          ]
+        }
+      },
+      {
+        "category": "hibou",
+        "when": {
+          "daylight": [
+            "dusk",
+            "night"
+          ]
+        }
+      },
+      {
+        "category": "tonnerre",
+        "when": {
+          "weather": [
+            "storm"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "taverne",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Taverne"
+    },
+    "layers": [
+      {
+        "id": "brouhaha",
+        "name": {
+          "fr": "Brouhaha de la salle"
+        },
+        "category": "taverne",
+        "volume": 0.65,
+        "probability": 1,
+        "drift": 0.2
+      },
+      {
+        "id": "feu",
+        "name": {
+          "fr": "Feu de cheminée"
+        },
+        "category": "feu",
+        "volume": 0.5,
+        "probability": 0.9,
+        "drift": 0.2
+      },
+      {
+        "id": "barde",
+        "name": {
+          "fr": "Barde dans un coin"
+        },
+        "category": "barde",
+        "volume": 0.35,
+        "probability": 0.5,
+        "drift": 0.3
+      },
+      {
+        "id": "pluie",
+        "name": {
+          "fr": "Pluie sur le toit"
+        },
+        "category": "pluie-toit",
+        "volume": 0.35,
+        "probability": 1,
+        "drift": 0.3,
+        "when": {
+          "weather": [
+            "rain",
+            "storm"
+          ]
+        }
+      }
+    ],
+    "oneShots": [
+      {
+        "category": "voix"
+      },
+      {
+        "category": "tonnerre",
+        "when": {
+          "weather": [
+            "storm"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "grotte",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Grotte"
+    },
+    "layers": [
+      {
+        "id": "fond",
+        "name": {
+          "fr": "Fond sourd de la roche"
+        },
+        "category": "grotte",
+        "volume": 0.6,
+        "probability": 1,
+        "drift": 0.1
+      },
+      {
+        "id": "gouttes",
+        "name": {
+          "fr": "Gouttes qui tombent"
+        },
+        "category": "gouttes",
+        "volume": 0.35,
+        "probability": 0.8,
+        "drift": 0.3
+      },
+      {
+        "id": "courant-d-air",
+        "name": {
+          "fr": "Courant d’air"
+        },
+        "category": "vent",
+        "volume": 0.2,
+        "probability": 0.4,
+        "drift": 0.5
+      }
+    ],
+    "oneShots": []
+  },
+  {
+    "id": "village",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Village"
+    },
+    "layers": [
+      {
+        "id": "fond",
+        "name": {
+          "fr": "Fond de hameau"
+        },
+        "category": "village",
+        "volume": 0.6,
+        "probability": 1,
+        "drift": 0.2
+      },
+      {
+        "id": "vent",
+        "name": {
+          "fr": "Vent léger"
+        },
+        "category": "vent",
+        "volume": 0.3,
+        "probability": 0.4,
+        "drift": 0.5
+      },
+      {
+        "id": "grillons",
+        "name": {
+          "fr": "Grillons du soir"
+        },
+        "category": "grillons",
+        "volume": 0.25,
+        "probability": 0.5,
+        "drift": 0.3,
+        "when": {
+          "daylight": [
+            "dusk",
+            "night"
+          ],
+          "weather": [
+            "clear",
+            "cloudy"
+          ]
+        }
+      },
+      {
+        "id": "pluie",
+        "name": {
+          "fr": "Pluie sur les pavés"
+        },
+        "category": "pluie",
+        "volume": 0.65,
+        "probability": 1,
+        "drift": 0.4,
+        "when": {
+          "weather": [
+            "rain",
+            "storm"
+          ]
+        }
+      }
+    ],
+    "oneShots": [
+      {
+        "category": "voix",
+        "when": {
+          "daylight": [
+            "dawn",
+            "day"
+          ]
+        }
+      },
+      {
+        "category": "oiseau",
+        "when": {
+          "daylight": [
+            "dawn",
+            "day"
+          ],
+          "weather": [
+            "clear",
+            "cloudy"
+          ]
+        }
+      },
+      {
+        "category": "hibou",
+        "when": {
+          "daylight": [
+            "night"
+          ]
+        }
+      },
+      {
+        "category": "tonnerre",
+        "when": {
+          "weather": [
+            "storm"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "camp",
+    "aiGenerated": true,
+    "name": {
+      "fr": "Camp"
+    },
+    "layers": [
+      {
+        "id": "feu",
+        "name": {
+          "fr": "Feu de camp"
+        },
+        "category": "feu",
+        "volume": 0.65,
+        "probability": 1,
+        "drift": 0.2
+      },
+      {
+        "id": "vent",
+        "name": {
+          "fr": "Vent léger"
+        },
+        "category": "vent",
+        "volume": 0.3,
+        "probability": 0.5,
+        "drift": 0.5
+      },
+      {
+        "id": "grillons",
+        "name": {
+          "fr": "Grillons du soir"
+        },
+        "category": "grillons",
+        "volume": 0.3,
+        "probability": 0.7,
+        "drift": 0.3,
+        "when": {
+          "daylight": [
+            "dusk",
+            "night"
+          ],
+          "weather": [
+            "clear",
+            "cloudy"
+          ]
+        }
+      },
+      {
+        "id": "pluie",
+        "name": {
+          "fr": "Pluie sur la toile"
+        },
+        "category": "pluie",
+        "volume": 0.55,
+        "probability": 1,
+        "drift": 0.4,
+        "when": {
+          "weather": [
+            "rain",
+            "storm"
+          ]
+        }
+      }
+    ],
+    "oneShots": [
+      {
+        "category": "hibou",
+        "when": {
+          "daylight": [
+            "dusk",
+            "night"
+          ]
+        }
+      },
+      {
+        "category": "loup",
+        "when": {
+          "daylight": [
+            "night"
+          ]
+        }
+      },
+      {
+        "category": "tonnerre",
+        "when": {
+          "weather": [
+            "storm"
+          ]
+        }
+      }
+    ]
+  }
+]

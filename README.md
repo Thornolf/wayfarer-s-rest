@@ -41,8 +41,30 @@ npm run dev --workspace apps/admin
 npm run dev --workspace apps/server
 ```
 
+## Simuler une nuit
+
+Le générateur tourne en ligne de commande, sur le monde de départ :
+
+```bash
+npm run simulate --workspace packages/shared -- --seed 4821 --sound 30 --start 23:00 --wake 07:00 --level 5
+```
+
+`--cut 02:15` coupe la nuit comme si l'app était rouverte, `--all` détaille la partie silencieuse,
+`--json` sort la nuit en JSON, `--help` liste toutes les options.
+
 ## Vérifications
 
 ```bash
 npm run typecheck
+```
+
+```bash
+npm test
+```
+
+Après un changement voulu du générateur ou du monde de départ, les nuits témoins se réécrivent
+avec :
+
+```bash
+npm run golden --workspace packages/shared
 ```
