@@ -94,3 +94,10 @@ export function joinList(parts: readonly string[]): string {
   if (parts.length <= 1) return parts[0] ?? "";
   return `${parts.slice(0, -1).join(", ")} et ${parts[parts.length - 1]}`;
 }
+
+/** A whole number as French writes it, thousands set apart by a narrow no-break space: "6 448". */
+export function wholeNumber(value: number): string {
+  return Math.round(value)
+    .toString()
+    .replace(/\B(?=(\d{3})+$)/g, "\u202f");
+}

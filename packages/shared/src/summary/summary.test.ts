@@ -83,13 +83,23 @@ test("the most salient moments are kept: a boss or an epic find is never dropped
     const dropped = all.filter((highlight) => !kept.includes(highlight));
     const leastKept = Math.min(...kept.map((highlight) => highlight.salience));
     for (const highlight of dropped) {
-      const full = kept.filter((other) => other.kind === highlight.kind).length >= 2;
-      assert.ok(full || highlight.salience <= leastKept, `${highlight.kind} (${highlight.salience}) dropped below ${leastKept}`);
+      const ofKind = kept.filter((other) => other.kind === highlight.kind);
+      const subject = highlight.monster ?? highlight.item?.item ?? highlight.quest;
+      const told = subject !== undefined && ofKind.some((other) => (other.monster ?? other.item?.item ?? other.quest) === subject);
+      assert.ok(ofKind.length >= 2 || told || highlight.salience <= leastKept, `${highlight.kind} (${highlight.salience}) dropped below ${leastKept}`);
     }
   }
   const moment = (kind: HighlightKind, at: number, salience: number): Highlight => ({ kind, at, place: "p", weather: "clear", daylight: "day", salience });
   const many = [moment("opening", 0, 100), ...Array.from({ length: 5 }, (_, n) => moment("questDone", 10 + n, 2)), moment("boss", 50, 10), moment("closing", 99, 100)];
   assert.deepEqual(selectHighlights(many).map((highlight) => highlight.at), [0, 10, 11, 50, 99]);
+});
+
+test("the same monster fled or the same item found is told once", () => {
+  const moment = (kind: HighlightKind, at: number, more: Partial<Highlight>): Highlight => ({ kind, at, place: "p", weather: "clear", daylight: "day", salience: 3, ...more });
+  const item = { item: "cloak", rarity: "epic" as const, level: 5 };
+  const flights = [moment("flee", 1, { monster: "troll" }), moment("flee", 2, { monster: "troll" }), moment("flee", 3, { monster: "wolf" })];
+  const finds = [moment("epicLoot", 4, { item }), moment("epicLoot", 5, { item: { ...item, level: 6 } })];
+  assert.deepEqual(selectHighlights([...flights, ...finds]).map((highlight) => highlight.at), [1, 3, 4]);
 });
 
 test("a companion is introduced once a night, with one of their own lines", () => {

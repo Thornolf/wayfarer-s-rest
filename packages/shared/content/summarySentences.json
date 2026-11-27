@@ -198,7 +198,7 @@
     "aiGenerated": true,
     "trigger": "levelUp",
     "text": {
-      "fr": "{hero} est passé{hero?|e} niveau {level} {place:a}, presque sans s’en rendre compte."
+      "fr": "Le passage au niveau {level} s’est fait {place:a}, presque sans y penser."
     },
     "weight": 10
   },
@@ -397,7 +397,7 @@
     "aiGenerated": true,
     "trigger": "flee",
     "text": {
-      "fr": "{hero} a jugé plus sage de battre en retraite devant {monster:un}. [La prudence est aussi une vertu.|Ce sera pour une autre nuit.]"
+      "fr": "Devant {monster:un}, mieux valait battre en retraite. [La prudence est aussi une vertu.|Ce sera pour une autre nuit.]"
     },
     "weight": 10
   },
@@ -454,7 +454,7 @@
     "aiGenerated": true,
     "trigger": "companion",
     "text": {
-      "fr": "{hero} n’a pas marché seul{hero?|e} : {companion} a fait un bout de route avec {hero?lui|elle}."
+      "fr": "{companion} a fait un bout de route avec {hero}, et le chemin a paru plus court."
     },
     "weight": 10
   },
@@ -593,7 +593,7 @@
     "aiGenerated": true,
     "trigger": "restAt",
     "text": {
-      "fr": "{hero} s’est accordé une pause {place:a}, [les pieds près du feu|le temps de souffler]."
+      "fr": "Une pause bien méritée {place:a}, [les pieds près du feu|le temps de souffler]."
     },
     "weight": 10
   },
@@ -638,7 +638,7 @@
     "aiGenerated": true,
     "trigger": "restAt",
     "text": {
-      "fr": "{hero} a fini par s’assoupir {place:a}, [bercé{hero?|e} par le feu|la tête sur son sac]."
+      "fr": "Le sommeil a fini par gagner {hero} {place:a}, [au coin du feu|la tête sur son sac]."
     },
     "weight": 10
   },
@@ -695,7 +695,7 @@
     "aiGenerated": true,
     "trigger": "closing",
     "text": {
-      "fr": "L’aventure s’est arrêtée là, {place:a}, [sans bruit|comme elle avait commencé]. À ce soir."
+      "fr": "L’aventure s’est arrêtée là, {place:a}, [sans bruit|tout doucement]. À ce soir."
     },
     "weight": 10
   },

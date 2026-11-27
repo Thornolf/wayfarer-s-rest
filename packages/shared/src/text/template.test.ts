@@ -27,6 +27,11 @@ test("slots take names, texts and numbers", () => {
   assert.equal(render("{hero} : niveau {level}, « {quest} ».", { hero: aldric, level: 7, quest: "Sus aux loups" }), "Aldric : niveau 7, « Sus aux loups ».");
 });
 
+test("numbers are written the French way, thousands set apart", () => {
+  assert.equal(render("{xp} points d’expérience en {count} quêtes", { xp: 6448, count: 37 }), "6\u202f448 points d’expérience en 37 quêtes");
+  assert.equal(render("{xp}", { xp: 1234567 }), "1\u202f234\u202f567");
+});
+
 test("forms contract and elide according to the name", () => {
   assert.equal(render("au retour {place:de}", { place: bois }), "Au retour du Bois des Murmures");
   assert.equal(render("au retour {place:de}", { place: auberge }), "Au retour de l’Auberge du Sanglier Ivre");

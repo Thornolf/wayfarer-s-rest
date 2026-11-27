@@ -11,7 +11,7 @@
 import type { Locale } from "../locale";
 import type { Noun } from "../schema/common";
 import type { Rng } from "../rng";
-import { NOUN_FORMS, nounPhrase, type NounForm } from "./french";
+import { NOUN_FORMS, nounPhrase, wholeNumber, type NounForm } from "./french";
 
 export type SlotValue = Noun | string | number;
 export type SlotKind = "noun" | "text" | "number";
@@ -134,7 +134,7 @@ function renderNodes(nodes: TemplateNode[], slots: Record<string, SlotValue>, op
       if (node.form !== "bare" || node.plural) {
         throw new TemplateError(`{${node.name}} has a filter but its value is a ${typeof value}, not a name`);
       }
-      return String(value);
+      return typeof value === "number" ? wholeNumber(value) : value;
     })
     .join("");
 }

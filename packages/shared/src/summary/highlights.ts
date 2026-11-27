@@ -107,19 +107,29 @@ export function siftHighlights(night: PlayedNight, world: World, rng: Rng, local
   return highlights;
 }
 
+/** What a highlight is about, when telling it twice would repeat the same story: the same monster fled, the same item found. */
+function subjectOf(highlight: Highlight): string | undefined {
+  const subject = highlight.monster ?? highlight.item?.item ?? highlight.quest;
+  return subject === undefined ? undefined : `${highlight.kind}/${subject}`;
+}
+
 /**
  * The highlights that get a sentence: the opening, the closing, and between them the most salient
- * ones (the earliest first among equals, and no more than two of a kind), told in order.
+ * ones (the earliest first among equals, no more than two of a kind, never twice about the same
+ * monster, item or quest), told in order.
  */
 export function selectHighlights(highlights: readonly Highlight[]): Highlight[] {
   const framing = ({ kind }: Highlight) => kind === "opening" || kind === "closing";
   const ranked = highlights.filter((highlight) => !framing(highlight)).sort((a, b) => b.salience - a.salience || a.at - b.at);
   const kept = new Set(highlights.filter(framing));
   const taken = new Map<HighlightKind, number>();
+  const subjects = new Set<string>();
   let told = 0;
   for (const highlight of ranked) {
     const ofKind = taken.get(highlight.kind) ?? 0;
-    if (told >= MOST_HIGHLIGHTS || ofKind >= MOST_OF_A_KIND) continue;
+    const subject = subjectOf(highlight);
+    if (told >= MOST_HIGHLIGHTS || ofKind >= MOST_OF_A_KIND || (subject !== undefined && subjects.has(subject))) continue;
+    if (subject !== undefined) subjects.add(subject);
     kept.add(highlight);
     taken.set(highlight.kind, ofKind + 1);
     told += 1;
