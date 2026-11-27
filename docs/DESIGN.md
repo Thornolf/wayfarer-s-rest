@@ -267,6 +267,13 @@ packages/shared` les réécrit, et leur diff se relit avec le reste.
   SSD (les données et les sons vont sur le SSD, pas sur la carte SD).
 - **Le serveur sur le Pi**, joint en Tailscale : il stocke le contenu et les sons, et reçoit les
   rapports.
+- **Le contrat de l'API** est écrit une seule fois, dans `packages/shared/src/api` : une table des
+  routes avec les schémas Zod de ce qui entre et de ce qui sort. Le serveur, l'admin et l'app s'en
+  servent tous les trois.
+- **Brouillon et publication** : un seul compteur de version. Chaque écriture de l'admin prend la
+  valeur suivante ; publier ne recopie rien, on retient la valeur du compteur à ce moment-là.
+  L'iPhone reçoit le contenu tel qu'il était à cette valeur, et l'admin voit comme « modifié » tout
+  ce qui a été écrit depuis. Une publication est refusée tant que la vérification trouve des erreurs.
 - **Synchro** :
   - le **catalogue** (le JSON du monde, léger) est toujours synchronisé ;
   - les **sons par zone** se téléchargent à la demande, et automatiquement avant une aventure ; sans
