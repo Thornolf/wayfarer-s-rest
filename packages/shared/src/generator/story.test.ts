@@ -147,6 +147,32 @@ test("the way to the final rest fills the wait: the rest itself begins about one
   }
 });
 
+test("the heard part is not one long pause: other quests come first, and the calm walk to the final rest stays short", () => {
+  for (const soundMinutes of [15, 30, 60, 120]) {
+    const soundSeconds = soundMinutes * 60;
+    const reserve = restReserve(soundSeconds);
+    for (const seed of seeds(60)) {
+      const quests = [...new Set(until(input(seed, { soundMinutes }), soundSeconds).map((beat) => beat.quest))];
+      const final = quests.at(-1) as StoryBeat["quest"];
+      assert.ok(quests.length >= 2, `seed ${seed}, ${soundMinutes} min: the final rest is the only quest heard`);
+      assert.notEqual(quests.at(-2)?.kind, "rest", `seed ${seed}, ${soundMinutes} min: two pauses end the heard part`);
+      assert.ok(soundSeconds - final.at <= 2.5 * reserve, `seed ${seed}, ${soundMinutes} min: the final rest takes ${soundSeconds - final.at} s`);
+    }
+  }
+});
+
+test("a quest with a minimum level waits for the character to reach it", () => {
+  const gated = catalog.questTemplates.filter((quest) => quest.minLevel !== undefined);
+  assert.ok(gated.some((quest) => quest.monsterRank === "boss"), "the starter world keeps its bosses for later");
+  const lowest = Math.min(...gated.map((quest) => quest.minLevel ?? 1));
+  const templates = (level: number) =>
+    new Set(seeds(12).flatMap((seed) => until(input(seed, { character: { ...hero, level } }), 8 * HOUR).map((beat) => beat.quest.template)));
+  const early = templates(lowest - 1);
+  for (const quest of gated) assert.ok(!early.has(quest.id), `${quest.id} at level ${lowest - 1}`);
+  const later = templates(Math.max(...gated.map((quest) => quest.minLevel ?? 1)));
+  assert.ok(gated.some((quest) => later.has(quest.id)));
+});
+
 test("the same quest is not given twice in a row, but for the rest that ends the heard part", () => {
   for (const seed of seeds(20)) {
     const quests = [...new Set(until(input(seed), 6 * HOUR).map((beat) => beat.quest))];
@@ -198,12 +224,16 @@ test("the world has its own clock, running at the pace of the night", () => {
   assert.equal(daylightAt(23, 3 * HOUR), "night");
   assert.equal(daylightAt(23, 7 * HOUR), "dawn");
   for (const daylight of ["dawn", "day", "dusk", "night"] as const) {
-    for (const seed of seeds(20)) {
+    // Thousands of draws: the hour never rounds up into the next time of day.
+    for (const seed of seeds(3000)) {
       const hour = drawStartHour(createRng(seed), daylight);
       assert.ok(hour >= 0 && hour < 24);
-      assert.equal(daylightAt(hour, 0), daylight);
+      assert.equal(daylightAt(hour, 0), daylight, `seed ${seed}: ${hour} h`);
     }
   }
+  for (const seed of seeds(3000)) assert.ok(drawStartHour(createRng(seed)) < 24);
+  const edge = { float: () => 7.999 } as unknown as Parameters<typeof drawStartHour>[0];
+  assert.equal(drawStartHour(edge, "dawn"), 7.99);
 });
 
 test("the settings of the Adventure button are obeyed", () => {

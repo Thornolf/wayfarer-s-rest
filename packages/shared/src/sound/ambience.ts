@@ -32,6 +32,8 @@ export function ambienceCues(events: readonly TimelineEvent[], world: World, ban
     state.cue = null;
     cue.duration = round(at + fade - cue.at, 2);
     cue.fadeOut = Math.min(fade, cue.duration);
+    // Cut short while it was still coming in: the rise takes what the fall leaves.
+    cue.fadeIn = round(Math.min(cue.fadeIn, cue.duration - cue.fadeOut), 2);
     const drift = layer.drift > 0 ? driftOf(cue, layer, state) : [];
     if (drift.length > 1) cue.drift = drift;
   };
@@ -41,9 +43,13 @@ export function ambienceCues(events: readonly TimelineEvent[], world: World, ban
   };
 
   for (const event of events) {
-    const place = world.byId.places.get(event.place);
-    const ambience = place ? world.byId.ambiences.get(place.ambience) : undefined;
-    if (!ambience) continue;
+    const ambience = ambienceOf(world, event.place);
+    if (!ambience) {
+      // A place without ambience (it was archived): the one before fades away.
+      if (current) closeAll(event.at, round(fades.float(CROSSFADE.min, CROSSFADE.max), 2));
+      current = null;
+      continue;
+    }
 
     const arriving = current?.ambience.id !== ambience.id;
     const crossfade = round(fades.float(CROSSFADE.min, CROSSFADE.max), 2);
@@ -81,6 +87,13 @@ export function ambienceCues(events: readonly TimelineEvent[], world: World, ban
   const last = events[events.length - 1];
   if (last) closeAll(last.at + last.duration, 0);
   return cues;
+}
+
+/** The ambience of a place, unless it was archived: an archived ambience no longer plays. */
+export function ambienceOf(world: World, placeId: string): Ambience | undefined {
+  const place = world.byId.places.get(placeId);
+  const ambience = place ? world.byId.ambiences.get(place.ambience) : undefined;
+  return ambience?.archived ? undefined : ambience;
 }
 
 /** The slow rise and fall of a sub-ambience around its volume, as points along its cue. */

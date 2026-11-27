@@ -21,7 +21,10 @@ import type { HighlightKind } from "../schema/summary";
 export type ItemInstance = { item: string; rarity: Rarity; level: number };
 export type Gear = Partial<Record<ItemSlot, ItemInstance>>;
 
-/** Drops since the last item of each rarity or better: long bad luck raises the odds. */
+/**
+ * What luck owes for each rarity: the chances of it (or better) that went by since it last dropped,
+ * counted in drops. Past 1, the odds rise. It is kept from one night to the next.
+ */
 export type PityCounters = { rare: number; epic: number };
 
 /** The character as it goes to bed. The night never changes it: `applyNight` gives the next one. */
@@ -94,6 +97,8 @@ export type Gains = {
   levelXp: number;
   /** True when this event raised the level. */
   levelUp: boolean;
+  /** The pity counters once the event is counted. */
+  pity: PityCounters;
 };
 
 /** One scene of the night. Events follow each other without gap: `at + duration` is the next `at`. */
@@ -128,5 +133,7 @@ export type StoryBeat = { quest: QuestRun; event: TimelineEvent };
 /** A hole in the content that the night worked around; the admin's check shows them. */
 export type NightWarning =
   | { kind: "emptyCategory"; category: string; fallback?: string }
+  /** The noise bed is set to a real sound and its category gave none: generated noise played instead. */
+  | { kind: "noNoiseBedSound"; category: string }
   | { kind: "noRestQuest"; zone: string }
   | { kind: "noSentence"; highlight: HighlightKind };

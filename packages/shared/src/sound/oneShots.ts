@@ -5,6 +5,7 @@ import type { TimelineEvent } from "../generator/types";
 import type { Rng } from "../rng";
 import type { SoundCategory } from "../schema/sound";
 import type { World } from "../world";
+import { ambienceOf } from "./ambience";
 import { cueFor, type SoundBank } from "./bank";
 import { holds } from "./conditions";
 import type { SoundCue } from "./types";
@@ -21,8 +22,7 @@ export function oneShotCues(events: readonly TimelineEvent[], world: World, bank
   const streams = new Map<string, Rng>();
 
   for (const event of events) {
-    const place = world.byId.places.get(event.place);
-    const ambience = place ? world.byId.ambiences.get(place.ambience) : undefined;
+    const ambience = ambienceOf(world, event.place);
     const end = event.at + event.duration;
     const categories = new Set((ambience?.oneShots ?? []).filter((entry) => holds(entry.when, event)).map((entry) => entry.category));
 

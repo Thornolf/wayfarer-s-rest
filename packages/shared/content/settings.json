@@ -38,14 +38,14 @@
     "elite": {
       "common": 55,
       "rare": 35,
-      "epic": 6,
-      "legendary": 0.5
+      "epic": 9,
+      "legendary": 1
     },
     "boss": {
       "common": 0,
-      "rare": 66,
-      "epic": 30,
-      "legendary": 4
+      "rare": 55,
+      "epic": 38,
+      "legendary": 7
     }
   },
   "weatherMinMinutes": 20,

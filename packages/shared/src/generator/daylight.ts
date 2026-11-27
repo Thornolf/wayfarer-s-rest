@@ -22,5 +22,6 @@ export function daylightAt(startHour: number, seconds: number): Daylight {
 export function drawStartHour(rng: Rng, daylight?: Daylight): number {
   const band = BANDS.find(({ kind }) => kind === daylight);
   const hour = band ? rng.float(band.from, band.to) : rng.float(0, 24);
-  return Math.round((hour % 24) * 100) / 100;
+  // Rounded down, so that the hour stays inside its time of day and below 24.
+  return (Math.floor(hour * 100) / 100) % 24;
 }

@@ -111,6 +111,15 @@ test("the report tells the whole night: timeline, summary, gains, sound and warn
   assert.doesNotMatch(report, /undefined|NaN|\[object|\?/, "nothing unresolved in the report");
 });
 
+test("the report never guesses the hero's gender, and names a noise bed that fell back on generated noise", () => {
+  const short = ["--seed", "5", "--gender", "f", "--name", "Ysolde", "--level", "1", "--wake", "23:12", "--sound", "10"];
+  assert.match(section(run(short, catalog), "Les gains"), /Équipé au réveil : rien de mieux que l’équipement du coucher/);
+  assert.doesNotMatch(run(short, catalog), /qu’il portait/);
+
+  const windBed = { ...catalog, settings: { ...catalog.settings, noiseBed: { kind: "sound" as const, volume: 0.1, category: "vent" } } };
+  assert.match(section(run(["--seed", "4821"], windBed), "Les avertissements"), /Fond sonore continu : aucun son dans la catégorie « vent », un bruit brun joue à la place/);
+});
+
 test("the report details the heard part scene by scene, and the silent part quest by quest unless --all", () => {
   const args = ["--seed", "4821", "--wake", "02:00"];
   const { night } = simulate(options(...args), catalog);

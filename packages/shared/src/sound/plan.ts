@@ -3,6 +3,7 @@
 
 import type { NightWarning, TimelineEvent } from "../generator/types";
 import { createRng, type Rng } from "../rng";
+import type { NoiseKind } from "../schema/common";
 import type { World } from "../world";
 import { actionCues } from "./action";
 import { ambienceCues } from "./ambience";
@@ -14,6 +15,8 @@ import type { SoundCue } from "./types";
 
 /** Seconds the noise bed takes to rise at the start of the night. */
 const BED_FADE_IN = 4;
+/** The noise generated when the bed is set to a real sound and none can play. */
+const FALLBACK_NOISE = "brown";
 
 export type SoundPlan = {
   cues: SoundCue[];
@@ -51,26 +54,35 @@ export function planSound(request: SoundRequest): SoundPlan {
   const rng = createRng(request.seed).fork("sound");
   const bank = new SoundBank(world, rng.fork("variants"));
   const heard = request.events.filter((event) => event.at < soundSeconds);
+  const warnings: NightWarning[] = [];
   const cues = [
-    ...noiseBed(world, bank, soundSeconds, rng.fork("bed"), heard[0]?.place),
+    ...noiseBed(world, bank, soundSeconds, rng.fork("bed"), warnings),
     ...ambienceCues(heard, world, bank, rng.fork("ambience")),
     ...actionCues(heard, world, bank, rng.fork("action")),
     ...oneShotCues(heard, world, bank, rng.fork("oneShot")),
     ...transitionCues(heard, world, bank, rng.fork("transition")),
   ];
   const heardCues = cues.flatMap((cue) => cutAt(cue, soundSeconds));
-  return { cues: heardCues.sort((a, b) => a.at - b.at), finalFade, warnings: bank.warnings };
+  return { cues: heardCues.sort((a, b) => a.at - b.at), finalFade, warnings: [...bank.warnings, ...warnings] };
 }
 
-/** The continuous bed under everything: generated noise, or a looping sound of the category set in the admin. */
-function noiseBed(world: World, bank: SoundBank, soundSeconds: number, rng: Rng, placeId = ""): SoundCue[] {
+/**
+ * The continuous bed under everything: generated noise, or a looping sound of the category set in
+ * the admin, wherever the night takes place. The bed is never missing: when that category gives no
+ * sound, generated noise plays instead and the hole is noted.
+ */
+function noiseBed(world: World, bank: SoundBank, soundSeconds: number, rng: Rng, warnings: NightWarning[]): SoundCue[] {
   const bed = world.catalog.settings.noiseBed;
   const playback = { at: 0, duration: soundSeconds, fadeIn: Math.min(BED_FADE_IN, soundSeconds) };
-  if (bed.kind !== "sound") {
-    return [{ ...playback, layer: "noiseBed", category: null, source: { noise: bed.kind }, loop: true, offset: 0, volume: bed.volume, rate: 1, fadeOut: 0 }];
+  const generated = (noise: Exclude<NoiseKind, "sound">): SoundCue[] => [
+    { ...playback, layer: "noiseBed", category: null, source: { noise }, loop: true, offset: 0, volume: bed.volume, rate: 1, fadeOut: 0 },
+  ];
+  if (bed.kind !== "sound") return generated(bed.kind);
+  const variant = bed.category === undefined ? null : bank.pick(bed.category);
+  if (!variant) {
+    warnings.push({ kind: "noNoiseBedSound", category: bed.category ?? "" });
+    return generated(FALLBACK_NOISE);
   }
-  const variant = bed.category === undefined ? null : bank.pick(bed.category, placeId);
-  if (!variant) return [];
   // The bed plays at the volume of the settings, without variation: it must be forgotten.
   const steady = { ...variant, sound: { ...variant.sound, volume: bed.volume, volumeJitter: 0, rateJitter: 0 } };
   return [{ ...cueFor(steady, "noiseBed", playback, rng), loop: true }];
@@ -81,11 +93,13 @@ function cutAt(cue: SoundCue, end: number): SoundCue[] {
   if (cue.at >= end) return [];
   if (cue.at + cue.duration <= end) return [cue];
   const duration = round(end - cue.at, 2);
+  const fadeOut = Math.min(cue.fadeOut, duration);
   return [
     {
       ...cue,
       duration,
-      fadeOut: Math.min(cue.fadeOut, duration),
+      fadeOut,
+      fadeIn: round(Math.min(cue.fadeIn, duration - fadeOut), 2),
       ...(cue.drift ? { drift: cue.drift.filter((point) => point.at < end) } : {}),
     },
   ];

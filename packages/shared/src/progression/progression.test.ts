@@ -92,20 +92,62 @@ test("loot: a rarity by the rates, an item of that rarity at the character's lev
   });
 });
 
-test("pity: the counters wait or start over, and an overdue rarity becomes certain", () => {
-  assert.deepEqual(advancePity({ rare: 4, epic: 9 }, "common"), { rare: 5, epic: 10 });
-  assert.deepEqual(advancePity({ rare: 4, epic: 9 }, "rare"), { rare: 0, epic: 10 });
-  assert.deepEqual(advancePity({ rare: 4, epic: 9 }, "legendary"), { rare: 0, epic: 0 });
+test("pity: a miss adds the chance it had, a hit starts over, and luck owed twice over is certain", () => {
+  const chances = { rare: 0.1, epic: 0.01 };
+  assert.deepEqual(advancePity({ rare: 0.4, epic: 0.9 }, "common", chances), { rare: 0.5, epic: 0.91 });
+  assert.deepEqual(advancePity({ rare: 0.4, epic: 0.9 }, "rare", chances), { rare: 0, epic: 0.91 });
+  assert.deepEqual(advancePity({ rare: 0.4, epic: 0.9 }, "legendary", chances), { rare: 0, epic: 0 });
 
   const rates = { common: 90, rare: 9, epic: 1, legendary: 0 };
-  const rarities = (pity: PityCounters) =>
-    Array.from({ length: 300 }, (_, seed) => rollLoot({ rates, multiplier: 1, pity, items: world.active.items, level: 1, rng: createRng(seed) }).item?.rarity);
-  // One drop in ten is rare or better: after twenty without one, the next is.
-  assert.ok(rarities({ rare: 20, epic: 0 }).every((rarity) => rarity !== "common"));
-  assert.ok(rarities({ rare: 0, epic: 200 }).every((rarity) => rarity === "epic"));
-  assert.ok(rarities({ rare: 10, epic: 0 }).filter((rarity) => rarity === "common").length > 200, "not overdue yet: the plain odds");
-  const halfway = rarities({ rare: 15, epic: 0 }).filter((rarity) => rarity !== "common").length;
+  const rolls = (pity: PityCounters, from: Record<Rarity, number> = rates) =>
+    Array.from({ length: 300 }, (_, seed) => rollLoot({ rates: from, multiplier: 1, pity, items: world.active.items, level: 1, rng: createRng(seed) }));
+  const rarities = (pity: PityCounters) => rolls(pity).map(({ item }) => item?.rarity);
+  assert.ok(rarities({ rare: 2, epic: 0 }).every((rarity) => rarity !== "common"));
+  assert.ok(rarities({ rare: 0, epic: 2 }).every((rarity) => rarity === "epic"));
+  assert.ok(rarities({ rare: 1, epic: 0 }).filter((rarity) => rarity === "common").length > 200, "not overdue yet: the plain odds");
+  const halfway = rarities({ rare: 1.5, epic: 0 }).filter((rarity) => rarity !== "common").length;
   assert.ok(halfway > 100 && halfway < 250, `${halfway} rescued out of 300 halfway to certainty`);
+
+  // One drop in ten is rare or better: each common adds a tenth of a drop to what luck owes.
+  for (const { item, pity } of rolls({ rare: 0.3, epic: 0 })) assert.equal(pity.rare, item?.rarity === "common" ? 0.4 : 0);
+});
+
+test("pity does not depend on the rank that drops: a boss after many wolves keeps the odds of its table", () => {
+  // Forty commons from wolves (1 % of epics each) owe less than half an epic: no rescue on the boss.
+  let pity: PityCounters = { rare: 0, epic: 0 };
+  for (let n = 0; n < 40; n++) pity = advancePity(pity, "rare", { rare: 0.12, epic: 0.01 });
+  assert.deepEqual(pity, { rare: 0, epic: 0.4 });
+  const boss = settings.lootRates.boss;
+  const configured = (boss.epic + boss.legendary) / (boss.common + boss.rare + boss.epic + boss.legendary);
+  const epics = Array.from({ length: 2000 }, (_, seed) => rollLoot({ rates: boss, multiplier: 1, pity, items: world.active.items, level: 1, rng: createRng(seed) }))
+    .filter(({ item }) => item?.rarity === "epic" || item?.rarity === "legendary").length;
+  assert.ok(Math.abs(epics / 2000 - configured) < 0.04, `${epics / 2000} against ${configured}`);
+});
+
+test("over many nights, bosses and elites give epics at the rate of their table", () => {
+  const share = (rates: Record<Rarity, number>) => (rates.epic + rates.legendary) / (rates.common + rates.rare + rates.epic + rates.legendary);
+  const drops = { elite: { all: 0, epic: 0 }, boss: { all: 0, epic: 0 } };
+  let character = { ...hero, gear: setOf("common", 5) };
+  for (let seed = 1; seed <= 120; seed++) {
+    const night = generateNight({ seed, catalog, character, soundMinutes: 30, durationSeconds: 8 * HOUR });
+    for (const event of night.events) {
+      const rank = event.fight?.rank;
+      if (rank !== "elite" && rank !== "boss") continue;
+      for (const item of event.gains?.items ?? []) {
+        drops[rank].all += 1;
+        if (item.rarity === "epic" || item.rarity === "legendary") drops[rank].epic += 1;
+      }
+    }
+    // Pity carries over from one night to the next, like in the app.
+    character = { ...character, pity: applyNight(character, night).pity };
+  }
+  // Gear and company multiply the odds a little, and pity rescues a few: above the table, never far.
+  for (const rank of ["elite", "boss"] as const) {
+    const configured = share(settings.lootRates[rank]);
+    const measured = drops[rank].epic / drops[rank].all;
+    assert.ok(drops[rank].all > 40, `${drops[rank].all} ${rank} drops`);
+    assert.ok(measured > configured * 0.6 && measured < configured * 1.6, `${rank}: ${measured.toFixed(3)} against ${configured.toFixed(3)}`);
+  }
 });
 
 test("better gear and company find rarer loot", () => {
@@ -164,7 +206,7 @@ test("totals at a cut add up the events that started before it", () => {
 });
 
 test("the character that wakes up: level, companions met, pity and served sentences; same gear", () => {
-  const start = { ...hero, knownCompanions: ["brann"], gear: setOf("common", 5), pity: { rare: 2, epic: 2 } };
+  const start = { ...hero, knownCompanions: ["brann"], gear: setOf("common", 5), pity: { rare: 0.2, epic: 0.2 } };
   const night = generateNight({ seed: 4821, catalog, character: start, soundMinutes: 30, durationSeconds: 7 * HOUR });
   const totals = nightTotals(night);
   const awake = applyNight(start, night);
@@ -175,7 +217,9 @@ test("the character that wakes up: level, companions met, pity and served senten
   assert.ok(awake.knownCompanions.includes("brann"));
   assert.ok(totals.companions.every((id) => awake.knownCompanions.includes(id)));
   assert.equal(new Set(awake.knownCompanions).size, awake.knownCompanions.length);
-  assert.deepEqual(awake.pity, totals.items.reduce((pity, item) => advancePity(pity, item.rarity), start.pity));
+  assert.deepEqual(awake.pity, [...night.events].reverse().find((event) => event.gains)?.gains?.pity);
+  assert.notDeepEqual(awake.pity, start.pity);
+  assert.deepEqual(applyNight(start, { ...night, events: [] }).pity, start.pity, "nothing played, nothing owed");
   assert.deepEqual(awake.servedSentences, night.summary.served);
-  assert.deepEqual(start.pity, { rare: 2, epic: 2 }, "the snapshot given is left untouched");
+  assert.deepEqual(start.pity, { rare: 0.2, epic: 0.2 }, "the snapshot given is left untouched");
 });

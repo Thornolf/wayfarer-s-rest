@@ -1,4 +1,5 @@
-// Transitions: the ding of a quest, the door of an inn as an event starts, the level-up as it ends.
+// Transitions: the level-up as the event that earned it ends, then the ding of a quest and the door
+// of an inn as the next one starts, one after the other.
 
 import type { TimelineEvent } from "../generator/types";
 import type { Rng } from "../rng";
@@ -6,20 +7,26 @@ import type { World } from "../world";
 import { cueFor, type SoundBank } from "./bank";
 import type { SoundCue } from "./types";
 
-/** Seconds between two transitions of the same event, so that they do not cover each other. */
+/** Seconds between two transitions, so that they do not cover each other. */
 const STAGGER = 1.5;
 
 export function transitionCues(events: readonly TimelineEvent[], world: World, bank: SoundBank, rng: Rng): SoundCue[] {
   const cues: SoundCue[] = [];
   const levelUp = world.catalog.settings.levelUpTransition;
-  for (const event of events) {
-    const draws = rng.fork(String(event.index));
-    const wanted = event.transitions.map((category, n) => ({ category, at: event.at + n * STAGGER }));
-    if (event.gains?.levelUp && levelUp !== undefined) wanted.push({ category: levelUp, at: event.at + event.duration });
-    for (const { category, at } of wanted) {
+  const play = (categories: readonly string[], event: TimelineEvent, from: number, stream = String(event.index)) => {
+    const draws = rng.fork(stream);
+    categories.forEach((category, n) => {
       const variant = bank.pick(category, event.place);
-      if (variant) cues.push(cueFor(variant, "transition", { at }, draws));
-    }
+      if (variant) cues.push(cueFor(variant, "transition", { at: from + n * STAGGER }, draws));
+    });
+  };
+  let levelled = false;
+  for (const event of events) {
+    // The level gained by the event before rings first: its ding never lands on the quest's.
+    play([...(levelled && levelUp !== undefined ? [levelUp] : []), ...event.transitions], event, event.at);
+    levelled = event.gains?.levelUp === true;
   }
+  const last = events[events.length - 1];
+  if (last && levelled && levelUp !== undefined) play([levelUp], last, last.at + last.duration, `${last.index}-end`);
   return cues;
 }

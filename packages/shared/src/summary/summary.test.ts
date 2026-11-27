@@ -63,7 +63,8 @@ test("the sifter notes every kind of highlight, with what its sentences need", (
     const highlights = sift(played);
     const flights = played.events.filter((event) => event.fight?.result === "flee" && event.fight.rank !== "boss").length;
     assert.equal(highlights.filter((highlight) => highlight.kind === "flee").length, flights);
-    assert.equal(highlights.filter((highlight) => highlight.kind === "questDone").length, played.events.filter((event) => event.questDone).length);
+    const turnedIn = played.events.filter((event) => event.questDone && played.quests[event.quest]?.kind !== "rest");
+    assert.equal(highlights.filter((highlight) => highlight.kind === "questDone").length, turnedIn.length);
     assert.equal(highlights.filter((highlight) => highlight.kind === "levelUp").length, played.events.filter((event) => event.gains?.levelUp).length);
     for (const highlight of highlights) seen.set(highlight.kind, highlight);
   }
@@ -74,6 +75,25 @@ test("the sifter notes every kind of highlight, with what its sentences need", (
   assert.ok(seen.get("questDone")?.quest);
   assert.ok((seen.get("levelUp")?.level ?? 0) > hero.level);
   assert.ok((seen.get("closing")?.xp ?? 0) > 0);
+});
+
+test("a pause is told by its rest, taken where the quest leads, and never thanked like a quest", () => {
+  let pauses = 0;
+  for (const seed of seeds) {
+    const played = night(seed);
+    const highlights = sift(played);
+    const rests = played.quests.filter((quest) => quest.kind === "rest");
+    pauses += rests.length;
+    for (const quest of rests) {
+      assert.ok(!highlights.some((highlight) => highlight.kind === "questDone" && highlight.quest === quest.title && highlight.place === quest.giver && played.events.some((event) => event.quest === quest.index && event.at === highlight.at)));
+      const resting = played.events.filter((event) => event.quest === quest.index && event.kind === "rest" && event.place === quest.place);
+      const told = highlights.filter((highlight) => highlight.kind === "restAt" && played.events.some((event) => event.quest === quest.index && event.at === highlight.at));
+      assert.equal(told.length, Math.min(1, resting.length));
+      // The inn or the camp of the quest, not the scree where the hero caught a breath on the way.
+      for (const highlight of told) assert.ok(["inn", "camp"].includes(world.byId.places.get(highlight.place)?.kind ?? ""), highlight.place);
+    }
+  }
+  assert.ok(pauses > 30);
 });
 
 test("the most salient moments are kept: a boss or an epic find is never dropped for a walk in the rain", () => {

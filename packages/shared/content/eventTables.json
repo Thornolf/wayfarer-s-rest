@@ -310,10 +310,6 @@
         "weight": 10
       },
       {
-        "scene": "discussion",
-        "weight": 8
-      },
-      {
         "scene": "fouille",
         "weight": 4,
         "outcome": "find"

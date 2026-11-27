@@ -105,6 +105,7 @@ export const questTemplateSchema = z
       "Groupe",
       "Vide : la quête se fait toujours seul.",
     ).optional(),
+    minLevel: amount("Niveau minimal", "La quête n’est proposée qu’à partir de ce niveau du personnage (celui du coucher). Vide : dès le niveau 1.").optional(),
     minIntensity: ratio("Intensité minimale", "La quête n’est plus proposée quand l’intensité de la nuit passe en dessous.").optional(),
     xp: amount("XP", "Gagnée quand la quête est rendue."),
     weight: amount("Poids", "Plus il est grand, plus la quête est fréquente."),

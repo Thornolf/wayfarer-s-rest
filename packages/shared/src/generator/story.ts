@@ -55,6 +55,7 @@ export function* generateStory(input: StoryInput): Generator<StoryBeat, never, u
       rng: storyRng.fork(`quest-${questIndex}`),
       kind: questIndex === 0 ? input.settings?.questKind : undefined,
       previous,
+      level: character.level,
     });
     previous = quest.template.id;
     const run: QuestRun = {
@@ -122,7 +123,7 @@ export function* generateStory(input: StoryInput): Generator<StoryBeat, never, u
         ...(fight ? { fight } : {}),
         ...(endsQuest ? { questDone } : {}),
         ...(earned.xp > 0 || earned.items.length > 0
-          ? { gains: { xp: earned.xp, items: earned.items, level: progress.level, levelXp: progress.xp, levelUp: progress.level > before.level } }
+          ? { gains: { xp: earned.xp, items: earned.items, level: progress.level, levelXp: progress.xp, levelUp: progress.level > before.level, pity } }
           : {}),
       };
       yield { quest: run, event };

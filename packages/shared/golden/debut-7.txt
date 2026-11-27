@@ -3,129 +3,126 @@ Zone : les Marais de Noirjonc · il est 1 h 23 dans le monde au départ
 Coucher 23:00, réveil 00:30 · son 15 min · nuit de 1 h 30
 
 — La partie entendue — (heure · intensité · scène)
-0:00:00  « Un voyageur à mener au Camp sur Pilotis » (escorte), au Ponton de Noirjonc, avec Kaelen
+0:00:00  « Ce qui remue dans la Grotte de la Noyée » (grotte), au Ponton de Noirjonc
   0:00:00        ~ nuit, pluie
   0:00:00  1,00  Parler à quelqu’un, 32 s · le Ponton de Noirjonc · [accept]
   0:00:32  0,97  Chevaucher, 1 min 29 · la Chaussée des Roseaux
   0:02:01  0,89  Patauger dans la boue, 34 s · la Chaussée des Roseaux
-  0:02:35  0,86  Souffler un instant, 22 s · la Chaussée des Roseaux
-  0:02:57  0,84  Chevaucher, 2 min 21 · la Chaussée des Roseaux
-  0:05:18  0,72  Patauger dans la boue, 30 s · la Chaussée des Roseaux
-  0:05:48  0,69  Parler à quelqu’un, 17 s · le Camp sur Pilotis
-  0:06:05  0,68  Souffler un instant, 22 s · la Chaussée des Roseaux
-  0:06:27  0,66  Souffler un instant, 33 s · la Chaussée des Roseaux
-  0:07:00  0,63  Parler à quelqu’un, 15 s · le Ponton de Noirjonc · quête rendue · +110 XP · [turnin]
-0:07:15  « Le temps de souffler au Camp sur Pilotis » (pause), au Ponton de Noirjonc
-  0:07:15  0,61  Patauger dans la boue, 1 min 29 · la Chaussée des Roseaux
-  0:08:44  0,53  Souffler un instant, 46 s · la Chaussée des Roseaux
-  0:09:30  0,49  Souffler un instant, 38 s · la Chaussée des Roseaux
-  0:10:08  0,46  Se reposer près du feu de camp, 2 min 40 · le Camp sur Pilotis
-  0:12:48  0,32  Souffler un instant, 42 s · le Camp sur Pilotis
-  0:13:30  0,28  Se reposer près du feu de camp, 4 min 36 · le Camp sur Pilotis · quête rendue · +30 XP
+  0:02:35  0,86  Patauger dans la boue, 37 s · la Grotte de la Noyée
+  0:03:12  0,83  Fouiller les environs, 57 s · la Grotte de la Noyée · +5 XP · sifflet en os (commun, niv. 12)
+  0:04:09  0,78  Miner un filon, 40 s · la Grotte de la Noyée · +12 XP
+  0:04:49  0,74  Miner un filon, 1 min 26 · la Grotte de la Noyée · +12 XP
+  0:06:15  0,67  Miner un filon, 1 min 26 · la Grotte de la Noyée · +12 XP
+  0:07:41  0,59  Patauger dans la boue, 33 s · la Chaussée des Roseaux
+  0:08:14  0,56  Chevaucher, 1 min 22 · la Chaussée des Roseaux
+  0:09:36  0,49  Parler à quelqu’un, 28 s · le Ponton de Noirjonc · quête rendue · +150 XP · [turnin]
+0:10:04  « Un moment de répit à la Lanterne Verte » (pause), au Ponton de Noirjonc
+  0:10:04  0,46  Se reposer à l’auberge, 3 min 40 · la Lanterne Verte · [porte]
+  0:13:44  0,27  Se reposer à l’auberge, 4 min 50 · la Lanterne Verte · quête rendue · +30 XP
 
 0:15:00  — fin du son (fondu depuis 0:13:30) —
 
 — La partie silencieuse —
-0:18:06  « Les murlocs du marais des Mares aux Feux Follets » (chasse), au Camp sur Pilotis
-  0:18:06  0,80  Parler à quelqu’un, 26 s · le Camp sur Pilotis · [accept]
-  0:18:32  0,80  Combattre, 40 s · la Chaussée des Roseaux · murloc du marais → fuite
-  0:19:12  0,80  Patauger dans la boue, 1 min 48 · la Chaussée des Roseaux
-  0:21:00  0,80  Combattre, 30 s · les Mares aux Feux Follets · murloc du marais → victoire · +35 XP
-  0:21:30  0,80  Combattre, 58 s · les Mares aux Feux Follets · troll des marais (élite) → victoire · +90 XP
-  0:22:28  0,80  Combattre, 43 s · les Mares aux Feux Follets · murloc du marais → victoire · +35 XP
-  0:23:11  0,80  Combattre, 37 s · les Mares aux Feux Follets · murloc du marais → victoire · +35 XP · cotte de mailles naine (rare, niv. 12)
-  0:23:48  0,80  Combattre, 40 s · les Mares aux Feux Follets · murloc du marais → victoire · +35 XP
-  0:24:28  0,80  Combattre, 1 min 13 · les Mares aux Feux Follets · murloc du marais → victoire · +35 XP
-  0:25:41  0,80  Chevaucher, 1 min 39 · la Chaussée des Roseaux
-  0:27:20        ~ nuit, nuageux
-  0:27:20  0,80  Patauger dans la boue, 1 min 18 · la Chaussée des Roseaux
-  0:28:38  0,80  Parler à quelqu’un, 34 s · le Camp sur Pilotis · quête rendue · +120 XP · [turnin]
-0:29:12  « La fin de la Vieille Noyée » (grotte), au Camp sur Pilotis, avec Brann et Kaelen
-  0:29:12  0,80  Parler à quelqu’un, 21 s · le Camp sur Pilotis · [accept]
-  0:29:33  0,80  Chevaucher, 55 s · la Chaussée des Roseaux
-  0:30:28  0,80  Chevaucher, 1 min 30 · la Chaussée des Roseaux
-  0:31:58  0,80  Patauger dans la boue, 56 s · la Chaussée des Roseaux
-  0:32:54  0,80  Souffler un instant, 50 s · la Chaussée des Roseaux
-  0:33:44  0,80  Miner un filon, 1 min 22 · la Grotte de la Noyée · +12 XP · gilet de cuir bouilli (commun, niv. 12)
-  0:35:06  0,80  Miner un filon, 1 min 31 · la Grotte de la Noyée · +12 XP
-  0:36:37  0,80  Combattre en groupe, 1 min 13 · la Grotte de la Noyée · feu follet → victoire · +35 XP
-  0:37:50  0,80  Miner un filon, 1 min 36 · la Grotte de la Noyée · +12 XP
-  0:39:26  0,80  Miner un filon, 55 s · la Grotte de la Noyée · +12 XP · sandales usées (commun, niv. 12)
-  0:40:21  0,80  Combattre en groupe, 1 min 06 · la Grotte de la Noyée · Vieille Noyée (boss) → victoire · +250 XP · manteau de brume (épique, niv. 12)
-  0:41:27  0,80  Combattre en groupe, 53 s · la Chaussée des Roseaux · feu follet → victoire · +35 XP
-  0:42:20  0,80  Patauger dans la boue, 1 min 34 · la Chaussée des Roseaux
-  0:43:54  0,80  Patauger dans la boue, 1 min 45 · la Chaussée des Roseaux
-  0:45:39  0,80  Patauger dans la boue, 1 min 12 · la Chaussée des Roseaux
-  0:46:51  0,80  Parler à quelqu’un, 25 s · le Camp sur Pilotis · quête rendue · +400 XP · [turnin]
-0:47:16  « Un moment de répit à la Lanterne Verte » (pause), au Camp sur Pilotis
-  0:47:16  0,80  Souffler un instant, 32 s · la Chaussée des Roseaux
-  0:47:48  0,80  Patauger dans la boue, 1 min 23 · la Chaussée des Roseaux
-  0:49:11  0,80  Fouiller les environs, 24 s · la Chaussée des Roseaux · +5 XP · mitaines de laine (commun, niv. 12)
-  0:49:35  0,80  Se reposer à l’auberge, 2 min 13 · la Lanterne Verte · [porte]
-  0:51:48  0,80  Souffler un instant, 45 s · la Lanterne Verte
-  0:52:33  0,80  Se reposer à l’auberge, 3 min 19 · la Lanterne Verte
-  0:55:52  0,80  Se reposer à l’auberge, 3 min 26 · la Lanterne Verte · quête rendue · +30 XP
-0:59:18  « Sus aux sangsues géantes » (chasse), à la Lanterne Verte
-  0:59:18  0,80  Parler à quelqu’un, 30 s · la Lanterne Verte · [accept]
-  0:59:48  0,80  Patauger dans la boue, 1 min 47 · les Mares aux Feux Follets
-  1:01:35  0,80  Patauger dans la boue, 1 min 59 · les Mares aux Feux Follets
-  1:03:34  0,80  Chevaucher, 2 min 16 · les Mares aux Feux Follets
-  1:05:50  0,80  Patauger dans la boue, 54 s · les Mares aux Feux Follets
-  1:06:44  0,80  Patauger dans la boue, 1 min 23 · la Chaussée des Roseaux
-  1:08:07  0,80  Combattre, 1 min 02 · la Chaussée des Roseaux · sangsue géante → victoire · +35 XP · sifflet en os (commun, niv. 12)
-  1:09:09  0,80  Combattre, 32 s · la Chaussée des Roseaux · troll des marais (élite) → victoire · +90 XP
-  1:09:41  0,80  Combattre, 1 min 24 · la Chaussée des Roseaux · troll des marais (élite) → victoire · +90 XP
-  1:11:05  0,80  Combattre, 46 s · la Chaussée des Roseaux · sangsue géante → victoire · +35 XP · tunique de lin (commun, niv. 12)
-  1:11:51  0,80  Combattre, 1 min 27 · la Chaussée des Roseaux · sangsue géante → victoire · +35 XP
-  1:13:18  0,80  Patauger dans la boue, 1 min 35 · les Mares aux Feux Follets
-  1:14:53  0,80  Parler à quelqu’un, 20 s · les Mares aux Feux Follets
-  1:15:13  0,80  Patauger dans la boue, 1 min 22 · les Mares aux Feux Follets
-  1:16:35  0,80  Parler à quelqu’un, 24 s · la Lanterne Verte · quête rendue · +120 XP · [turnin, porte]
-1:16:59  « La prime du troll des marais » (chasse), à la Lanterne Verte
-  1:16:59  0,80  Parler à quelqu’un, 17 s · la Lanterne Verte · [accept]
-  1:17:16  0,80  Patauger dans la boue, 1 min 27 · la Chaussée des Roseaux
-  1:18:43  0,80  Patauger dans la boue, 54 s · la Chaussée des Roseaux
-  1:19:37  0,80  Souffler un instant, 41 s · la Chaussée des Roseaux
-  1:20:18  0,80  Patauger dans la boue, 35 s · la Chaussée des Roseaux
-  1:20:53  0,80  Combattre, 42 s · les Mares aux Feux Follets · feu follet → victoire · +35 XP
-  1:21:35  0,80  Souffler un instant, 45 s · les Mares aux Feux Follets
-  1:22:20  0,80  Souffler un instant, 28 s · les Mares aux Feux Follets
-  1:22:48  0,80  Combattre, 1 min 27 · les Mares aux Feux Follets · feu follet → victoire · +35 XP · gants de mineur (commun, niv. 12)
-  1:24:15  0,80  Combattre, 1 min 08 · les Mares aux Feux Follets · troll des marais (élite) → victoire · +90 XP · gantelets cloutés (rare, niv. 12)
-  1:25:23  0,80  Chevaucher, 1 min 03 · la Chaussée des Roseaux
-  1:26:26  0,80  Patauger dans la boue, 1 min 42 · la Chaussée des Roseaux
-  1:28:08  0,80  Patauger dans la boue, 1 min 44 · la Chaussée des Roseaux
-  1:29:52  0,80  Parler à quelqu’un, 32 s · la Lanterne Verte · quête rendue · +220 XP · niveau 13 ! · [turnin, porte]
+0:18:34  « La chasse aux murlocs du marais » (chasse), à la Lanterne Verte
+  0:18:34  0,80  Parler à quelqu’un, 26 s · la Lanterne Verte · [accept]
+  0:19:00  0,80  Combattre, 40 s · la Chaussée des Roseaux · murloc du marais → victoire · +35 XP
+  0:19:40  0,80  Patauger dans la boue, 1 min 48 · la Chaussée des Roseaux
+  0:21:28  0,80  Combattre, 30 s · les Mares aux Feux Follets · murloc du marais → fuite
+  0:21:58  0,80  Combattre, 58 s · les Mares aux Feux Follets · troll des marais (élite) → fuite
+  0:22:56  0,80  Combattre, 43 s · les Mares aux Feux Follets · murloc du marais → victoire · +35 XP · gilet de cuir bouilli (commun, niv. 12)
+  0:23:39  0,80  Combattre, 37 s · les Mares aux Feux Follets · murloc du marais → victoire · +35 XP
+  0:24:16  0,80  Combattre, 40 s · les Mares aux Feux Follets · murloc du marais → victoire · +35 XP
+  0:24:56  0,80  Combattre, 1 min 13 · les Mares aux Feux Follets · murloc du marais → victoire · +35 XP
+  0:26:09  0,80  Chevaucher, 1 min 39 · la Chaussée des Roseaux
+  0:27:48        ~ nuit, nuageux
+  0:27:48  0,80  Patauger dans la boue, 1 min 18 · la Chaussée des Roseaux
+  0:29:06  0,80  Parler à quelqu’un, 34 s · la Lanterne Verte · quête rendue · +120 XP · [turnin, porte]
+0:29:40  « La fin de la Vieille Noyée » (grotte), à la Lanterne Verte, avec Brann et Mira
+  0:29:40  0,80  Parler à quelqu’un, 21 s · la Lanterne Verte · [accept]
+  0:30:01  0,80  Chevaucher, 55 s · la Chaussée des Roseaux
+  0:30:56  0,80  Chevaucher, 1 min 30 · la Chaussée des Roseaux
+  0:32:26  0,80  Patauger dans la boue, 56 s · la Chaussée des Roseaux
+  0:33:22  0,80  Souffler un instant, 50 s · la Chaussée des Roseaux
+  0:34:12  0,80  Miner un filon, 1 min 22 · la Grotte de la Noyée · +12 XP · gants de mineur (commun, niv. 12)
+  0:35:34  0,80  Miner un filon, 1 min 31 · la Grotte de la Noyée · +12 XP
+  0:37:05  0,80  Combattre en groupe, 1 min 13 · la Grotte de la Noyée · feu follet → victoire · +35 XP
+  0:38:18  0,80  Miner un filon, 1 min 36 · la Grotte de la Noyée · +12 XP
+  0:39:54  0,80  Miner un filon, 55 s · la Grotte de la Noyée · +12 XP · mitaines de laine (commun, niv. 12)
+  0:40:49  0,80  Combattre en groupe, 1 min 06 · la Grotte de la Noyée · Vieille Noyée (boss) → victoire · +250 XP · manteau de brume (épique, niv. 12)
+  0:41:55  0,80  Combattre en groupe, 53 s · la Chaussée des Roseaux · feu follet → victoire · +35 XP
+  0:42:48  0,80  Patauger dans la boue, 1 min 34 · la Chaussée des Roseaux
+  0:44:22  0,80  Patauger dans la boue, 1 min 45 · la Chaussée des Roseaux
+  0:46:07  0,80  Patauger dans la boue, 1 min 12 · la Chaussée des Roseaux
+  0:47:19  0,80  Parler à quelqu’un, 25 s · la Lanterne Verte · quête rendue · +400 XP · [turnin, porte]
+0:47:44  « Un moment de répit au Camp sur Pilotis » (pause), à la Lanterne Verte
+  0:47:44  0,80  Souffler un instant, 32 s · la Chaussée des Roseaux
+  0:48:16  0,80  Patauger dans la boue, 1 min 23 · la Chaussée des Roseaux
+  0:49:39  0,80  Fouiller les environs, 24 s · la Chaussée des Roseaux · +5 XP · patte de lapin (commun, niv. 12)
+  0:50:03  0,80  Se reposer près du feu de camp, 2 min 13 · le Camp sur Pilotis
+  0:52:16  0,80  Souffler un instant, 45 s · le Camp sur Pilotis
+  0:53:01  0,80  Se reposer près du feu de camp, 3 min 19 · le Camp sur Pilotis
+  0:56:20  0,80  Se reposer près du feu de camp, 3 min 26 · le Camp sur Pilotis · quête rendue · +30 XP
+0:59:46  « Sus aux sangsues géantes » (chasse), au Camp sur Pilotis
+  0:59:46  0,80  Parler à quelqu’un, 30 s · le Camp sur Pilotis · [accept]
+  1:00:16  0,80  Patauger dans la boue, 1 min 47 · les Mares aux Feux Follets
+  1:02:03  0,80  Patauger dans la boue, 1 min 59 · les Mares aux Feux Follets
+  1:04:02  0,80  Chevaucher, 2 min 16 · les Mares aux Feux Follets
+  1:06:18  0,80  Patauger dans la boue, 54 s · les Mares aux Feux Follets
+  1:07:12  0,80  Patauger dans la boue, 1 min 23 · la Chaussée des Roseaux
+  1:08:35  0,80  Combattre, 1 min 02 · la Chaussée des Roseaux · sangsue géante → victoire · +35 XP
+  1:09:37  0,80  Combattre, 32 s · la Chaussée des Roseaux · troll des marais (élite) → victoire · +90 XP · heaume de prospecteur (rare, niv. 12)
+  1:10:09  0,80  Combattre, 1 min 24 · la Chaussée des Roseaux · troll des marais (élite) → victoire · +90 XP · amulette de jonc noir (rare, niv. 12)
+  1:11:33  0,80  Combattre, 46 s · la Chaussée des Roseaux · sangsue géante → victoire · +35 XP · sifflet en os (commun, niv. 12)
+  1:12:19  0,80  Combattre, 1 min 27 · la Chaussée des Roseaux · sangsue géante → victoire · +35 XP
+  1:13:46  0,80  Patauger dans la boue, 1 min 35 · les Mares aux Feux Follets
+  1:15:21  0,80  Parler à quelqu’un, 20 s · les Mares aux Feux Follets
+  1:15:41  0,80  Patauger dans la boue, 1 min 22 · les Mares aux Feux Follets
+  1:17:03  0,80  Parler à quelqu’un, 24 s · le Camp sur Pilotis · quête rendue · +120 XP · [turnin]
+1:17:27  « La prime du troll des marais » (chasse), au Camp sur Pilotis
+  1:17:27  0,80  Parler à quelqu’un, 17 s · le Camp sur Pilotis · [accept]
+  1:17:44  0,80  Patauger dans la boue, 1 min 27 · la Chaussée des Roseaux
+  1:19:11  0,80  Patauger dans la boue, 54 s · la Chaussée des Roseaux
+  1:20:05  0,80  Souffler un instant, 41 s · la Chaussée des Roseaux
+  1:20:46  0,80  Patauger dans la boue, 35 s · la Chaussée des Roseaux
+  1:21:21  0,80  Combattre, 42 s · les Mares aux Feux Follets · feu follet → victoire · +35 XP
+  1:22:03  0,80  Souffler un instant, 45 s · les Mares aux Feux Follets
+  1:22:48  0,80  Souffler un instant, 28 s · les Mares aux Feux Follets
+  1:23:16  0,80  Combattre, 1 min 27 · les Mares aux Feux Follets · feu follet → victoire · +35 XP
+  1:24:43  0,80  Combattre, 1 min 08 · les Mares aux Feux Follets · troll des marais (élite) → fuite
+  1:25:51  0,80  Chevaucher, 1 min 03 · la Chaussée des Roseaux
+  1:26:54  0,80  Patauger dans la boue, 1 min 42 · la Chaussée des Roseaux
+  1:28:36  0,80  Patauger dans la boue, 1 min 44 · la Chaussée des Roseaux
 
-1:30:00  — réveil à 00:30 — 80 scènes, 7 quêtes
+1:30:00  — réveil à 00:30 — 76 scènes, 7 quêtes
 
 — Le résumé du matin —
-Un dernier regard vers le Ponton de Noirjonc, et Lyra s’en est allée sur les chemins des Marais de Noirjonc. Une silhouette familière au Ponton de Noirjonc : Kaelen, toujours partant. « Je connais un raccourci. Enfin, je crois. » La quête « Un voyageur à mener au Camp sur Pilotis » s’est achevée au Ponton de Noirjonc, sous quelques regards admiratifs. Brann a fait un bout de route avec Lyra, et le chemin a paru plus court. La Vieille Noyée régnait sur la Grotte de la Noyée ; plus maintenant. Lyra en est venue à bout au terme d’un long combat. Parmi les prises de la nuit, une pièce sort du lot : le manteau de brume. Le niveau 13 est arrivé au détour du chemin : Lyra se sent plus aguerrie qu’hier. L’aventure s’est arrêtée là, à la Lanterne Verte, sans bruit. À ce soir.
+Un dernier regard vers le Ponton de Noirjonc, et Lyra s’en est allée sur les chemins des Marais de Noirjonc. Rien ne pressait. Lyra s’est assise à la Lanterne Verte et a laissé le temps passer. Aux Mares aux Feux Follets, un combat a mal tourné : Lyra a rompu l’engagement et laissé le troll des marais à ses affaires. Une silhouette à la Lanterne Verte : Brann, le sac sur l’épaule. « Un bouclier, une hache, et la nuit est à nous. » Mira a fait un bout de route avec Lyra, et le chemin a paru plus court. La Vieille Noyée régnait sur la Grotte de la Noyée ; plus maintenant. Lyra en est venue à bout au terme d’un long combat. Parmi les prises, une pièce sort du lot : le manteau de brume. L’aventure s’est arrêtée là, à la Chaussée des Roseaux, sans bruit. À ce soir.
 
   0:00:00  Ouverture [opening-08]
-  0:00:00  Compagnon qui rejoint l’aventure [companion-05]
-  0:07:00  Quête rendue [quest-done-04]
-  0:29:12  Compagnon qui rejoint l’aventure [companion-04]
-  0:40:21  Combat de boss [boss-03]
-  0:40:21  Butin épique ou légendaire [epic-loot-05]
-  1:29:52  Niveau gagné [level-up-06]
-  1:30:24  Clôture [closing-06]
+  0:10:04  Repos [rest-at-04]
+  0:21:58  Fuite [flee-03]
+  0:29:40  Compagnon qui rejoint l’aventure [companion-05]
+  0:29:40  Compagnon qui rejoint l’aventure [companion-04]
+  0:40:49  Combat de boss [boss-03]
+  0:40:49  Butin épique ou légendaire [epic-loot-05]
+  1:30:20  Clôture [closing-06]
 
 — Les gains —
-XP : +2 113 · niveau 12 → 13 (26 / 2 338 XP vers le suivant)
-Quêtes rendues : 7 · combats : 17 victoires, 1 fuite
+XP : +1 794 · niveau 12 → 12 (1 794 / 2 087 XP vers le suivant)
+Quêtes rendues : 6 · combats : 15 victoires, 3 fuites
 Butin : 9 objets (6 communs, 2 rares, 1 épique)
-  cotte de mailles naine (rare, niv. 12)
   manteau de brume (épique, niv. 12)
-  gantelets cloutés (rare, niv. 12)
-Compagnons : Kaelen et Brann
+  heaume de prospecteur (rare, niv. 12)
+  amulette de jonc noir (rare, niv. 12)
+Compagnons : Brann et Mira
 Équipé au réveil :
+  Tête : heaume de prospecteur (rare, niv. 12)
   Torse : manteau de brume (épique, niv. 12)
-  Mains : gantelets cloutés (rare, niv. 12)
-  Bijou : sifflet en os (commun, niv. 12)
+  Mains : gants de mineur (commun, niv. 12)
+  Bijou : amulette de jonc noir (rare, niv. 12)
 
 — Le son —
 1 lecture prévue (fond continu 1)
 
 — Les avertissements —
-Catégories sans aucun son, même en repli (12) : village, vent, pluie, marais, grenouilles, feu, monture, marche-boue, hibou, loup, accept, turnin
+Catégories sans aucun son, même en repli (19) : village, vent, pluie, marais, grenouilles, grotte, gouttes, taverne, feu, pluie-toit, monture, marche-boue, fouille, minage, hibou, voix, accept, turnin, porte

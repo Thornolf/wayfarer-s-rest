@@ -69,6 +69,32 @@ test("a continuous noise bed plays from the first second to the last, and fades 
   assert.equal(bed?.duration, soundSeconds);
 });
 
+test("the noise bed is never missing: a real sound that cannot play leaves its place to generated noise", () => {
+  const bedOf = (catalog: Catalog) => {
+    const played = night(4821, { ...catalog, settings: { ...catalog.settings, noiseBed: { kind: "sound", volume: 0.1, category: "vent" } } });
+    const beds = played.cues.filter((cue) => cue.layer === "noiseBed");
+    assert.equal(beds.length, 1);
+    assert.equal(beds[0]?.at, 0);
+    assert.equal(beds[0]?.duration, played.soundSeconds);
+    return { bed: beds[0] as SoundCue, warned: played.warnings.some((warning) => warning.kind === "noNoiseBedSound" && warning.category === "vent") };
+  };
+  const generated = { source: { noise: "brown" }, category: null, volume: 0.1, loop: true };
+  const pick = ({ source, category, volume, loop }: SoundCue) => ({ source, category, volume, loop });
+
+  // No file in the category yet, or the category archived.
+  for (const catalog of [withSounds(starter, { empty: ["vent"] }), { ...sounding, soundCategories: sounding.soundCategories.map((category) => (category.id === "vent" ? { ...category, archived: true } : category)) }]) {
+    const { bed, warned } = bedOf(catalog);
+    assert.deepEqual(pick(bed), generated);
+    assert.ok(warned);
+  }
+
+  // A wind limited to a place the night never visits still makes the bed: the bed has no place.
+  const elsewhere = sounding.sounds.map((sound) => (sound.category === "vent" ? { ...sound, places: ["nulle-part"] } : sound));
+  const { bed, warned } = bedOf({ ...sounding, sounds: elsewhere });
+  assert.equal(bed.category, "vent");
+  assert.ok(!warned);
+});
+
 test("the sound ends in one fade of everything, over a rest, with an ambience still playing", () => {
   for (const seed of seeds) {
     const { cues, soundSeconds, events, finalFade } = night(seed, sounding, 30);
@@ -205,6 +231,55 @@ test("sounds that are archived, inactive or weightless never play", () => {
   assert.ok(!cues.some((cue) => cue.category === "combat"));
 });
 
+test("an archived category is silent, nothing borrows from it, and an archived ambience no longer plays", () => {
+  const archiving = (ids: readonly string[]): Catalog => ({
+    ...sounding,
+    soundCategories: sounding.soundCategories.map((category) => (ids.includes(category.id) ? { ...category, archived: true } : category)),
+  });
+  const before = seeds.flatMap((seed) => night(seed).cues);
+  const silenced = ["porte", "accept", "marche-pierre", "oiseau", "feu"];
+  for (const id of silenced) assert.ok(before.some((cue) => cue.category === id), `${id} never plays in the first place`);
+  const after = seeds.map((seed) => night(seed, archiving(silenced)));
+  assert.ok(!after.some(({ cues }) => cues.some((cue) => silenced.includes(cue.category ?? ""))));
+  assert.ok(!after.some(({ warnings }) => warnings.some((warning) => warning.kind === "emptyCategory")), "silence that was asked for is no hole");
+
+  // An archived fallback lends nothing: the category that counted on it is a hole.
+  const world = indexCatalog({ ...archiving(["marche"]), sounds: sounding.sounds.filter((sound) => sound.category !== "marche-herbe") });
+  const bank = new SoundBank(world, createRng("bank"));
+  assert.equal(bank.pick("marche-herbe", "relais-de-hautval"), null);
+  assert.deepEqual(bank.warnings, [{ kind: "emptyCategory", category: "marche-herbe" }]);
+
+  const noAmbience: Catalog = { ...sounding, ambiences: sounding.ambiences.map((ambience) => ({ ...ambience, archived: true })) };
+  const layers = new Set(seeds.flatMap((seed) => night(seed, noAmbience).cues).map((cue) => cue.layer));
+  assert.deepEqual([...layers].sort(), ["action", "noiseBed", "transition"]);
+
+  // Leaving for a place whose ambience is archived fades the one before.
+  const taverns = sounding.ambiences.filter((ambience) => sounding.places.some((place) => place.kind === "inn" && place.ambience === ambience.id)).map(({ id }) => id);
+  const noTavern: Catalog = { ...sounding, ambiences: sounding.ambiences.map((ambience) => (taverns.includes(ambience.id) ? { ...ambience, archived: true } : ambience)) };
+  const inns = new Set(sounding.places.filter((place) => place.kind === "inn").map(({ id }) => id));
+  let checked = 0;
+  for (const seed of seeds) {
+    const { cues, events, soundSeconds } = night(seed, noTavern);
+    for (const event of events.filter((candidate) => inns.has(candidate.place) && candidate.duration > 20 && candidate.at + candidate.duration < soundSeconds)) {
+      const middle = event.at + event.duration - 1;
+      assert.ok(!cues.some((cue) => cue.layer === "ambience" && cue.at <= middle && endOf(cue) > middle), `an ambience still plays at the inn at ${middle}`);
+      checked += 1;
+    }
+  }
+  assert.ok(checked > 0);
+});
+
+test("a fade-in and a fade-out never overlap, even when a sub-ambience is cut short while it comes in", () => {
+  let short = 0;
+  for (let seed = 1; seed <= 60; seed++) {
+    for (const cue of night(seed, sounding, 60).cues) {
+      assert.ok(cue.fadeIn + cue.fadeOut <= cue.duration + 0.011, `seed ${seed}: ${cue.category} at ${cue.at} fades ${cue.fadeIn} + ${cue.fadeOut} in ${cue.duration} s`);
+      if (cue.layer === "ambience" && cue.duration < 30) short += 1;
+    }
+  }
+  assert.ok(short > 0, "no short sub-ambience in sixty nights");
+});
+
 test("one-shots keep the silence of their category between two sounds, or come in bursts", () => {
   const world = indexCatalog(sounding);
   let bursts = 0;
@@ -240,7 +315,7 @@ test("one-shots obey the conditions of the ambience: an owl at night, thunder in
   }
 });
 
-test("the action of each scene plays during the scene; transitions ding at its start, the level-up at its end", () => {
+test("the action of each scene plays during the scene; transitions ding at its start, the level-up at its end and before the next ding", () => {
   const world = indexCatalog(sounding);
   const { cues, events, soundSeconds } = night(4821);
   const heard = events.filter((event) => event.at < soundSeconds);
@@ -250,14 +325,26 @@ test("the action of each scene plays during the scene; transitions ding at its s
     assert.equal(mine.length > 0, category !== undefined, `${event.scene} at ${event.at}`);
     for (const cue of mine) assert.equal(cue.category, category);
     for (const cue of mine.filter((candidate) => candidate.loop)) assert.ok(endOf(cue) <= event.at + event.duration + 0.01);
+    const afterLevelUp = heard[event.index - 1]?.gains?.levelUp ? 1 : 0;
     event.transitions.forEach((transition, n) => {
-      assert.ok(cues.some((cue) => cue.layer === "transition" && cue.category === transition && cue.at === event.at + n * 1.5), `${transition} at ${event.at}`);
+      const at = event.at + (n + afterLevelUp) * 1.5;
+      assert.ok(cues.some((cue) => cue.layer === "transition" && cue.category === transition && cue.at === at), `${transition} at ${at}`);
     });
     if (event.gains?.levelUp && event.at + event.duration < soundSeconds) {
       assert.ok(cues.some((cue) => cue.category === "levelup" && cue.at === event.at + event.duration));
     }
   }
   assert.ok(heard.some((event) => event.transitions.length > 0));
+
+  // A level is often gained as a quest is turned in: its ding never lands on the next quest's.
+  const beginner = { ...hero, level: 1 };
+  let levelUps = 0;
+  for (const seed of seeds) {
+    const transitions = generateNight({ seed, catalog: sounding, character: beginner, soundMinutes: 120, durationSeconds: 3 * HOUR }).cues.filter((cue) => cue.layer === "transition");
+    levelUps += transitions.filter((cue) => cue.category === "levelup").length;
+    transitions.forEach((cue, n) => assert.ok(n === 0 || cue.at - (transitions[n - 1]?.at ?? 0) >= 1.49, `seed ${seed}: two transitions at ${cue.at}`));
+  }
+  assert.ok(levelUps > 5, `${levelUps} level-ups heard`);
   assert.ok(cues.filter((cue) => cue.layer === "action" && !cue.loop).length > 10, "short action sounds follow each other");
 });
 

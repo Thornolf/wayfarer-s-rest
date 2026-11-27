@@ -85,11 +85,13 @@ export function siftHighlights(night: PlayedNight, world: World, rng: Rng, local
       const salience = event === lastLevelUp ? SALIENCE.levelUp : SALIENCE.earlierLevelUp;
       highlights.push({ ...moment("levelUp", event, salience), level: event.gains.level });
     }
-    if (event.questDone && quest) {
+    // A pause is told by its rest, not thanked and rewarded like a quest.
+    if (event.questDone && quest && quest.kind !== "rest") {
       const salience = companions.length > 0 ? SALIENCE.groupQuestDone : SALIENCE.questDone;
       highlights.push({ ...moment("questDone", event, salience), quest: quest.title, count: questsDone });
     }
-    if (event.kind === "rest" && quest?.kind === "rest" && !rested.has(quest.index)) {
+    // The rest of a pause is the one taken where the quest leads, not a breath caught on the way.
+    if (event.kind === "rest" && quest?.kind === "rest" && event.place === quest.place && !rested.has(quest.index)) {
       rested.add(quest.index);
       highlights.push(moment("restAt", event, SALIENCE.restAt));
     }

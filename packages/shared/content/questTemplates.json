@@ -4,7 +4,7 @@
     "aiGenerated": true,
     "kind": "hunt",
     "title": {
-      "fr": "[{monster:pl:le} {place:de}|Sus {monster:pl:a}|Trop {monster:pl:d} {place:a}]"
+      "fr": "[La chasse {monster:pl:a}|Sus {monster:pl:a}|Trop {monster:pl:d} {place:a}]"
     },
     "placeKinds": [
       "wild"
@@ -151,7 +151,7 @@
     "aiGenerated": true,
     "kind": "cave",
     "title": {
-      "fr": "[Au fond {place:de}|Ce qui remue dans {place:le}|{monster:pl:le} {place:de}]"
+      "fr": "[Au fond {place:de}|Ce qui remue dans {place:le}|Les profondeurs {place:de}]"
     },
     "placeKinds": [
       "cave"
@@ -257,7 +257,7 @@
     "aiGenerated": true,
     "kind": "hunt",
     "title": {
-      "fr": "[Remous dans {place:le}|{monster:pl:le} {place:de}|Eaux troubles {place:a}]"
+      "fr": "[Remous {place:a}|Ce qui rôde {place:a}|Eaux troubles {place:a}]"
     },
     "placeKinds": [
       "wild"
@@ -437,6 +437,7 @@
         "max": 3
       }
     },
+    "minLevel": 4,
     "minIntensity": 0.7
   },
   {

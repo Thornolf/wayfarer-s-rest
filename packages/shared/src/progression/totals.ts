@@ -2,7 +2,6 @@
 
 import type { CharacterSnapshot, ItemInstance, QuestRun, TimelineEvent } from "../generator/types";
 import type { Summary } from "../summary/types";
-import { advancePity } from "./loot";
 
 export type NightTotals = {
   xp: number;
@@ -53,12 +52,13 @@ export function nightTotals(night: CountedNight, cutAt = Infinity): NightTotals 
  */
 export function applyNight(character: CharacterSnapshot, night: CountedNight & { summary: Summary }): CharacterSnapshot {
   const totals = nightTotals(night);
+  const lastGains = [...night.events].reverse().find((event) => event.gains)?.gains;
   return {
     ...character,
     level: totals.level,
     xp: totals.levelXp,
     knownCompanions: [...new Set([...character.knownCompanions, ...totals.companions])],
-    pity: totals.items.reduce((pity, item) => advancePity(pity, item.rarity), character.pity),
+    pity: lastGains?.pity ?? character.pity,
     servedSentences: night.summary.served,
   };
 }

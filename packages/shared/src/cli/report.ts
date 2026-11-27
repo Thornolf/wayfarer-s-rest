@@ -185,7 +185,7 @@ export function renderReport(night: Night, context: ReportContext): string {
     `Butin : ${many(totals.items.length, "objet", "objets")}${byRarity.length > 0 ? ` (${byRarity.join(", ")})` : ""}`,
     ...notable.map((item) => `  ${itemLabel(item)}`),
     `Compagnons : ${totals.companions.length > 0 ? joinList(totals.companions.map((id) => nounPhrase(nameOf("companions", id)))) : "aucun"}`,
-    changed.length > 0 ? "Équipé au réveil :" : "Équipé au réveil : rien de mieux que ce qu’il portait",
+    changed.length > 0 ? "Équipé au réveil :" : "Équipé au réveil : rien de mieux que l’équipement du coucher",
     ...changed.map((slot) => `  ${ITEM_SLOTS[slot]} : ${itemLabel(worn[slot] as ItemInstance)}`),
   );
 
@@ -209,6 +209,7 @@ function warningLines(warnings: readonly NightWarning[]): string[] {
     ...(mute.length > 0 ? [`Catégories sans aucun son, même en repli (${mute.length}) : ${mute.join(", ")}`] : []),
     ...empty.filter((warning) => warning.fallback !== undefined).map((warning) => `Catégorie « ${warning.category} » sans son : repli sur « ${warning.fallback} »`),
     ...warnings.flatMap((warning) => {
+      if (warning.kind === "noNoiseBedSound") return [`Fond sonore continu : aucun son dans la catégorie « ${warning.category} », un bruit brun joue à la place`];
       if (warning.kind === "noRestQuest") return [`Aucune quête de pause dans la zone « ${warning.zone} » : la partie entendue ne finit pas par un repos`];
       if (warning.kind === "noSentence") return [`Aucune phrase du résumé ne convient au temps fort « ${HIGHLIGHT_KINDS[warning.highlight].replace(/ \(.*/, "")} »`];
       return [];

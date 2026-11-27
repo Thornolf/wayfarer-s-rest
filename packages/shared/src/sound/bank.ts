@@ -1,5 +1,6 @@
 // The sounds of the catalog, by category. Each category has a shuffle bag, so that a variant never
-// plays twice in a row; an empty category borrows from its fallback and the hole is noted.
+// plays twice in a row; an empty category borrows from its fallback and the hole is noted. An
+// archived category is silent: nothing plays for it, and nothing borrows from it.
 
 import type { NightWarning } from "../generator/types";
 import { ShuffleBag, copiesByWeight, type Rng } from "../rng";
@@ -29,13 +30,14 @@ export class SoundBank {
   }
 
   /**
-   * A sound of the category that may play at the place, never the one this category played last.
-   * Follows the fallbacks when the category has nothing, and gives null at the end of the chain.
+   * A sound of the category that may play at the place (anywhere when no place is given), never
+   * the one this category played last. Follows the fallbacks when the category has nothing, and
+   * gives null at the end of the chain.
    */
-  pick(categoryId: string, placeId: string): Variant | null {
+  pick(categoryId: string, placeId?: string): Variant | null {
     const category = this.world.byId.soundCategories.get(categoryId);
-    if (!category) return null;
-    const allowedAt = (sound: Sound) => !sound.places?.length || sound.places.includes(placeId);
+    if (!category || category.archived) return null;
+    const allowedAt = (sound: Sound) => placeId === undefined || !sound.places?.length || sound.places.includes(placeId);
 
     const seen = new Set<string>();
     for (let source: SoundCategory | undefined = category; source && !seen.has(source.id); ) {
@@ -47,7 +49,8 @@ export class SoundBank {
         const id = this.bagOf(source.id, sounds).next((candidate) => allowed.has(candidate));
         return { sound: sounds.find((sound) => sound.id === id) as Sound, category };
       }
-      source = source.fallback === undefined ? undefined : this.world.byId.soundCategories.get(source.fallback);
+      const fallback: SoundCategory | undefined = source.fallback === undefined ? undefined : this.world.byId.soundCategories.get(source.fallback);
+      source = fallback?.archived ? undefined : fallback;
     }
     this.warn(category);
     return null;

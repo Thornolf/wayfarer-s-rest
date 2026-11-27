@@ -109,6 +109,8 @@ le même code tourne dans l'app, dans l'admin et sur le serveur.
 - **Une zone par nuit.** Une quête est donnée et rendue dans une ville, une auberge ou un camp ;
   elle se fait au lieu qu'elle désigne ; l'aller et le retour passent par un lieu sauvage de la zone.
 - **La même quête n'est pas donnée deux fois de suite** tant qu'une autre est possible.
+- **Niveau minimal** : un modèle de quête peut demander un niveau (celui du coucher). Au départ, le
+  boss de zone attend le niveau 4.
 - **L'horloge du monde** : le monde a sa propre heure de départ, tirée au hasard (ou dans le moment
   demandé), et avance au rythme réel. Aube de 5 h à 8 h, jour jusqu'à 18 h, crépuscule jusqu'à 21 h,
   puis nuit. (Question encore ouverte dans le plan 2 : c'est le choix par défaut.)
@@ -118,10 +120,13 @@ le même code tourne dans l'app, dans l'admin et sur le serveur.
   valeur « silencieuse » des réglages (0,8 au départ) jusqu'au réveil. Elle pèse sur le tirage des
   scènes, écarte les quêtes trop animées (leur intensité minimale) et favorise les pauses.
 - **La fin de la partie entendue** : une quête n'est acceptée que si elle se termine avant la
-  réserve gardée pour le repos final (30 % de la minuterie, entre 3 et 10 min). Quand plus rien ne
-  tient, ou quand une pause est tirée vers la fin, vient la dernière quête : une marche calme qui
-  remplit l'attente, puis le repos à l'auberge ou au feu de camp, qui dure jusqu'à la fin du son.
-  La dernière scène entendue est toujours un repos, et elle dépasse la minuterie.
+  réserve gardée pour le repos final (30 % de la minuterie, entre 3 et 10 min). Tous les modèles
+  possibles sont essayés, en version longue puis courte. Quand plus rien ne tient, ou quand une
+  pause est tirée alors qu'il reste deux réserves au plus, vient la dernière quête : une marche
+  calme qui remplit l'attente, puis le repos à l'auberge ou au feu de camp, qui dure jusqu'à la
+  fin du son. Un peu avant (trois réserves et demie), une pause n'est plus proposée, pour ne pas en
+  entendre deux de suite. La dernière scène entendue est toujours un repos, et elle dépasse la
+  minuterie.
 - **Quête échouée** : une quête d'élite ou de boss échoue si son monstre a fait fuir le perso à
   chaque combat. Elle est rendue sans XP de quête ni « ding ».
 - **Groupes** : un modèle de quête dit sa chance d'être en groupe et le nombre de compagnons. Les
@@ -144,8 +149,12 @@ le même code tourne dans l'app, dans l'admin et sur le serveur.
   rarement pendant la partie entendue.
 - **Butin** : on tire d'abord la rareté selon le rang du monstre, puis un objet de cette rareté, qui
   prend le niveau du perso. Le gear et le groupe augmentent les chances au-dessus de « commun ».
-  Une **pitié** rattrape les longues malchances sur les rares et les épiques. Une nuit de 8 h donne
-  environ 35 objets, dont 5 rares et 1 ou 2 épiques ; un légendaire est très rare.
+  Une nuit de 8 h donne environ 37 objets, dont 6 rares et à peu près 1 épique ; un légendaire est
+  très rare.
+- **Pitié** : chaque butin qui n'est pas rare (ou pas épique) ajoute au compteur du perso la chance
+  qu'il avait de l'être : beaucoup pour un boss, presque rien pour un loup. Quand le compteur
+  dépasse 1, la chance d'un rattrapage monte, et elle est certaine à 2. Les taux réglés par rang
+  restent donc ceux qu'on observe. Le compteur se garde d'une nuit à l'autre.
 
 ### Le son
 
@@ -159,6 +168,12 @@ le même code tourne dans l'app, dans l'admin et sur le serveur.
 - **Catégorie sans son** : on suit la chaîne de repli de la catégorie ; au bout, rien ne joue pour
   elle. Dans les deux cas la nuit le signale dans ses avertissements, que la vérification de
   l'admin réutilise.
+- **Catégorie ou ambiance archivée** : elle se tait. Rien ne joue pour elle, aucune autre catégorie
+  ne lui emprunte de son, et ce silence voulu n'est pas un avertissement.
+- **Le fond continu ne manque jamais** : réglé sur « un vrai son », il prend un son de sa catégorie
+  quel que soit le lieu ; si elle n'en a aucun, un bruit brun joue à sa place et la nuit le signale.
+- **Le son du niveau gagné** joue à la fin de la scène qui l'a rapporté, et le « ding » de la quête
+  suivante attend une seconde et demie.
 - Un son a toujours une catégorie, et c'est la catégorie qui donne sa couche.
 
 ### Le résumé
@@ -168,6 +183,10 @@ le même code tourne dans l'app, dans l'admin et sur le serveur.
 - Le résumé raconte une ouverture, une clôture, et entre les deux **six temps forts au plus**, les
   plus saillants, dans l'ordre : deux du même type au maximum, et jamais deux fois le même monstre,
   le même objet ou la même quête.
+- **Une pause** est racontée par son repos, pris à l'auberge ou au camp de la quête ; elle n'a pas
+  de phrase « quête rendue ».
+- **Le moment de la journée** : les phrases suivent l'horloge du monde. Seules celles qui portent
+  une condition (aube, jour, crépuscule, nuit) nomment un moment ; les autres n'en parlent pas.
 - Les phrases sortent d'un **sac mélangé gardé dans le perso** : une phrase ne revient pas tant que
   les autres ne sont pas sorties. Une phrase peut avoir des conditions (météo, moment, issue du
   combat, en groupe, nombre de fois).

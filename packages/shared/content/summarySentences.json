@@ -78,7 +78,7 @@
     "aiGenerated": true,
     "trigger": "opening",
     "text": {
-      "fr": "Cette nuit-là, l’aventure a commencé {place:a} : {hero} y a vérifié ses lanières, puis s’est mis{hero?|e} en chemin."
+      "fr": "L’aventure a commencé {place:a} : {hero} y a vérifié ses lanières, puis s’est mis{hero?|e} en chemin."
     },
     "weight": 10
   },
@@ -96,7 +96,7 @@
     "aiGenerated": true,
     "trigger": "questDone",
     "text": {
-      "fr": "{hero} a mené à bien « {quest} », puis s’en est retourné{hero?|e} {place:a} chercher sa récompense."
+      "fr": "« {quest} » menée à bien, il ne restait qu’à retourner {place:a} chercher la récompense."
     },
     "weight": 10
   },
@@ -114,7 +114,7 @@
     "aiGenerated": true,
     "trigger": "questDone",
     "text": {
-      "fr": "De retour {place:a}, {hero} a pu annoncer que « {quest} » n’était plus qu’un souvenir."
+      "fr": "De retour {place:a}, la nouvelle a fait plaisir : « {quest} » n’était plus qu’un souvenir."
     },
     "weight": 10
   },
@@ -150,7 +150,7 @@
     "aiGenerated": true,
     "trigger": "questDone",
     "text": {
-      "fr": "En tout, {count} quêtes ont été bouclées cette nuit-là : {hero} n’a pas chômé."
+      "fr": "En tout, {count} quêtes ont été bouclées : {hero} n’a pas chômé."
     },
     "weight": 10,
     "when": {
@@ -171,7 +171,7 @@
     "aiGenerated": true,
     "trigger": "levelUp",
     "text": {
-      "fr": "Niveau {level} ! {hero} [a pris de l’assurance|a gagné en métier|a le geste plus sûr], et cela se voit."
+      "fr": "Niveau {level} ! [De l’assurance en plus|Du métier en plus|Un geste plus sûr], et cela se voit."
     },
     "weight": 10
   },
@@ -180,7 +180,7 @@
     "aiGenerated": true,
     "trigger": "levelUp",
     "text": {
-      "fr": "À force de [marcher|batailler|persévérer], {hero} a atteint le niveau {level}."
+      "fr": "À force de [marcher|batailler|persévérer], le niveau {level} a fini par venir."
     },
     "weight": 10
   },
@@ -229,7 +229,7 @@
     "aiGenerated": true,
     "trigger": "boss",
     "text": {
-      "fr": "Le grand moment de la nuit : {monster:le} vaincu{monster?|e} {place:a}, grâce à {companions}, et à [beaucoup de sang-froid|une bonne dose d’audace]."
+      "fr": "Le grand moment de l’aventure : {monster:le} vaincu{monster?|e} {place:a}, grâce à {companions}, et à [beaucoup de sang-froid|une bonne dose d’audace]."
     },
     "weight": 10,
     "when": {
@@ -291,7 +291,7 @@
     "aiGenerated": true,
     "trigger": "boss",
     "text": {
-      "fr": "Face {monster:a}, mieux valait rompre le combat. {hero} reviendra {place:a}, mieux préparé{hero?|e}."
+      "fr": "{monster:le} n’a pas bronché, et mieux valait rompre le combat. {hero} reviendra {place:a}, mieux préparé{hero?|e}."
     },
     "weight": 10,
     "when": {
@@ -325,7 +325,7 @@
     "aiGenerated": true,
     "trigger": "epicLoot",
     "text": {
-      "fr": "Au fond d’un [vieux coffre|sac abandonné|recoin oublié], {hero} a découvert {item:un}. [De quoi sourire jusqu’au matin.|Une prise rare.]"
+      "fr": "Au fond d’un [vieux coffre|sac abandonné|recoin oublié], une découverte : {item:un}. [De quoi sourire un bon moment.|Une prise rare.]"
     },
     "weight": 10
   },
@@ -334,7 +334,7 @@
     "aiGenerated": true,
     "trigger": "epicLoot",
     "text": {
-      "fr": "Le butin de la nuit tient en peu de mots : {item:un}."
+      "fr": "Une prise se passe de commentaire : {item:un}."
     },
     "weight": 10
   },
@@ -352,7 +352,7 @@
     "aiGenerated": true,
     "trigger": "epicLoot",
     "text": {
-      "fr": "Parmi les prises de la nuit, une pièce sort du lot : {item:le}."
+      "fr": "Parmi les prises, une pièce sort du lot : {item:le}."
     },
     "weight": 10
   },
@@ -361,7 +361,7 @@
     "aiGenerated": true,
     "trigger": "epicLoot",
     "text": {
-      "fr": "Quelque chose brillait {place:a}. {hero} s’est penché{hero?|e} et a ramassé {item:un}."
+      "fr": "Quelque chose brillait {place:a} : {item:un}, qu’il a suffi de ramasser."
     },
     "weight": 10
   },
@@ -370,7 +370,7 @@
     "aiGenerated": true,
     "trigger": "flee",
     "text": {
-      "fr": "{monster:un} s’est montré{monster?|e} plus coriace que prévu : {hero} a préféré filer."
+      "fr": "{monster:un} s’est montré{monster?|e} plus coriace que prévu : il a fallu filer."
     },
     "weight": 10
   },
@@ -379,7 +379,7 @@
     "aiGenerated": true,
     "trigger": "flee",
     "text": {
-      "fr": "Face {monster:a}, {hero} a dû fuir [à toutes jambes|sans se retourner]. Aucune honte à cela."
+      "fr": "Face {monster:a}, il a fallu fuir [à toutes jambes|sans se retourner]. Aucune honte à cela."
     },
     "weight": 10
   },
@@ -397,7 +397,7 @@
     "aiGenerated": true,
     "trigger": "flee",
     "text": {
-      "fr": "Devant {monster:un}, mieux valait battre en retraite. [La prudence est aussi une vertu.|Ce sera pour une autre nuit.]"
+      "fr": "Devant {monster:un}, mieux valait battre en retraite. [La prudence est aussi une vertu.|Ce sera pour une autre fois.]"
     },
     "weight": 10
   },
@@ -415,7 +415,7 @@
     "aiGenerated": true,
     "trigger": "flee",
     "text": {
-      "fr": "{hero} a tourné les talons {count} fois cette nuit ; ses jambes, au moins, sont en pleine forme."
+      "fr": "{hero} a tourné les talons {count} fois en chemin ; ses jambes, au moins, sont en pleine forme."
     },
     "weight": 10,
     "when": {
@@ -427,7 +427,7 @@
     "aiGenerated": true,
     "trigger": "companion",
     "text": {
-      "fr": "{companion} a rejoint {hero} {place:a}. « {quip} »"
+      "fr": "{companion} a rejoint l’aventure {place:a}. « {quip} »"
     },
     "weight": 10
   },
@@ -436,7 +436,7 @@
     "aiGenerated": true,
     "trigger": "companion",
     "text": {
-      "fr": "En chemin, {hero} a retrouvé {companion}, fidèle au rendez-vous, et {companion?celui-ci|celle-ci} a lancé : « {quip} »"
+      "fr": "En chemin, {hero} a croisé {companion}, et {companion?celui-ci|celle-ci} a lancé : « {quip} »"
     },
     "weight": 10
   },
@@ -463,7 +463,7 @@
     "aiGenerated": true,
     "trigger": "companion",
     "text": {
-      "fr": "Une silhouette familière {place:a} : {companion}, [toujours partant{companion?|e}|égal{companion?|e} à {companion?lui|elle}-même]. « {quip} »"
+      "fr": "Une silhouette {place:a} : {companion}, [déjà prêt{companion?|e} à partir|le sac sur l’épaule]. « {quip} »"
     },
     "weight": 10
   },
@@ -523,7 +523,7 @@
     "aiGenerated": true,
     "trigger": "weatherChange",
     "text": {
-      "fr": "Des éclairs ont zébré le ciel {place:a}. {hero} a pressé le pas."
+      "fr": "Des éclairs ont zébré le ciel {place:a}. Il a fallu presser le pas."
     },
     "weight": 10,
     "when": {
@@ -611,7 +611,7 @@
     "aiGenerated": true,
     "trigger": "restAt",
     "text": {
-      "fr": "{place:a}, {hero} a posé son sac et regardé les flammes [danser|crépiter] un long moment."
+      "fr": "{place:a}, le sac posé, un long moment à regarder les flammes [danser|crépiter]."
     },
     "weight": 10
   },
@@ -620,7 +620,7 @@
     "aiGenerated": true,
     "trigger": "restAt",
     "text": {
-      "fr": "Rien ne pressait. {hero} s’est assis{hero?|e} {place:a} et a laissé la nuit [passer|s’étirer]."
+      "fr": "Rien ne pressait. {hero} s’est assis{hero?|e} {place:a} et a laissé le temps [passer|s’étirer]."
     },
     "weight": 10
   },
@@ -638,7 +638,7 @@
     "aiGenerated": true,
     "trigger": "restAt",
     "text": {
-      "fr": "Le sommeil a fini par gagner {hero} {place:a}, [au coin du feu|la tête sur son sac]."
+      "fr": "{hero} a somnolé un moment {place:a}, [au coin du feu|la tête sur son sac]."
     },
     "weight": 10
   },
@@ -649,14 +649,19 @@
     "text": {
       "fr": "Au petit matin, {hero} se trouvait {place:a}, [fourbu{hero?|e} mais content{hero?|e}|les jambes lourdes et le cœur léger]."
     },
-    "weight": 10
+    "weight": 10,
+    "when": {
+      "daylight": [
+        "dawn"
+      ]
+    }
   },
   {
     "id": "closing-02",
     "aiGenerated": true,
     "trigger": "closing",
     "text": {
-      "fr": "La nuit s’est achevée {place:a}. Bilan : {xp} points d’expérience, et l’envie de repartir."
+      "fr": "L’aventure s’est achevée {place:a}. Bilan : {xp} points d’expérience, et l’envie de repartir."
     },
     "weight": 10
   },
@@ -667,14 +672,19 @@
     "text": {
       "fr": "Quand le jour s’est levé, {hero} était {place:a}, niveau {level}, prêt{hero?|e} pour la suite."
     },
-    "weight": 10
+    "weight": 10,
+    "when": {
+      "daylight": [
+        "dawn"
+      ]
+    }
   },
   {
     "id": "closing-04",
     "aiGenerated": true,
     "trigger": "closing",
     "text": {
-      "fr": "Voilà pour cette nuit. {hero} t’attend {place:a}, [le sac un peu plus lourd|avec quelques histoires de plus à raconter]."
+      "fr": "Voilà pour cette fois. {hero} t’attend {place:a}, [le sac un peu plus lourd|avec quelques histoires de plus à raconter]."
     },
     "weight": 10
   },
@@ -683,7 +693,7 @@
     "aiGenerated": true,
     "trigger": "closing",
     "text": {
-      "fr": "{count} quêtes, {xp} points d’expérience : une nuit bien remplie, qui s’est terminée {place:a}."
+      "fr": "{count} quêtes, {xp} points d’expérience : une aventure bien remplie, qui s’est terminée {place:a}."
     },
     "weight": 10,
     "when": {
@@ -704,7 +714,7 @@
     "aiGenerated": true,
     "trigger": "closing",
     "text": {
-      "fr": "{hero} a fini la nuit {place:a}. [Il fera bon y revenir.|La route reprendra bien assez tôt.]"
+      "fr": "{hero} a fini sa route {place:a}. [Il fera bon y revenir.|La route reprendra bien assez tôt.]"
     },
     "weight": 10
   }
