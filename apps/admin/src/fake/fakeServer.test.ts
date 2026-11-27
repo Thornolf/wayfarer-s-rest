@@ -4,7 +4,8 @@ import { mergeCatalogue, versionEtag, type Catalog } from "@wayfarers-rest/share
 import { loadStarterCatalog } from "@wayfarers-rest/shared/starter";
 import { ApiFailure, createApiClient, type ApiClient, type FailureCode } from "../api/client";
 import { draftOf } from "../api/draft";
-import { FAKE_PASSWORD, createFakeServer, type FakeOptions } from "./fakeServer";
+import { createFakeServer, type FakeOptions } from "./fakeServer";
+import { FAKE_PASSWORD } from "./password";
 
 const starter = loadStarterCatalog();
 

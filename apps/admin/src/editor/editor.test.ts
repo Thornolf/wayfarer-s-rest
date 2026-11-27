@@ -6,9 +6,11 @@ import { blankElement, blankValue } from "./blank";
 import { cellText, listColumns, MAX_COLUMNS } from "./columns";
 import { changedFields } from "./diff";
 import { formFields, optionsOf, unknownKeys, widgetOf } from "./fields";
+import { pathLabels } from "./labels";
 import { formatPath, getAt, parsePath, setAt } from "./paths";
 import { prune } from "./prune";
 import { referencesIn, usedBy } from "./references";
+import { slugify } from "./slug";
 import { textOf, titleOf } from "./titles";
 import { missingTranslations } from "./translation";
 import { errorAt, translateSchemaMessage, validate, type Translate } from "./validate";
@@ -204,4 +206,18 @@ test("keys the schema does not know are listed apart", () => {
 test("each weighted row gets its share of the total", () => {
   assert.deepEqual(weightShares([{ weight: 1 }, { weight: 3 }, {}]), [0.25, 0.75, undefined]);
   assert.deepEqual(weightShares([{ weight: 0 }]), [undefined]);
+});
+
+test("a path is told with the labels of the form", () => {
+  assert.deepEqual(pathLabels(COLLECTIONS.questTemplates.schema, "steps[2].scene"), ["Étapes", "3", "Scène"]);
+  assert.deepEqual(pathLabels(COLLECTIONS.ambiences.schema, "layers[0].when.weather"), ["Sous-ambiances", "1", "Conditions", "Météo"]);
+  assert.deepEqual(pathLabels(settingsSchema, "noiseBed.category"), ["Fond sonore continu", "Catégorie du son"]);
+  assert.deepEqual(pathLabels(COLLECTIONS.monsters.schema, "old.thing"), ["old", "thing"]);
+  assert.deepEqual(pathLabels(COLLECTIONS.monsters.schema, ""), []);
+});
+
+test("an id is proposed from a title", () => {
+  assert.equal(slugify("Forêt d’Elwynn"), "foret-d-elwynn");
+  assert.equal(slugify("  Alpha Grisecroc !"), "alpha-grisecroc");
+  assert.equal(slugify("œil"), "il");
 });

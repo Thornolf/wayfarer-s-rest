@@ -30,6 +30,7 @@ import type { z } from "zod";
 import type { Fetch } from "../api/client";
 import { formatPath } from "../editor/paths";
 import { checkDraft, issueKey, referenceIssues } from "./check";
+import { FAKE_PASSWORD } from "./password";
 import { createStore, type Side, type Store } from "./store";
 
 export type FakeOptions = {
@@ -44,7 +45,6 @@ export type FakeOptions = {
   session?: { get(): boolean; set(signedIn: boolean): void };
 };
 
-export const FAKE_PASSWORD = "wayfarer";
 const SESSION_HOURS = 12;
 
 class Refusal extends Error {

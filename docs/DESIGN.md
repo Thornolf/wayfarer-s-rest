@@ -241,6 +241,15 @@ packages/shared` les réécrit, et leur diff se relit avec le reste.
   la validation et ce qu'il faut pour dessiner les formulaires (libellé, type de champ, référence,
   aide). Les clés inconnues sont refusées.
 - Les **libellés de l'admin** sont en français, écrits dans le schéma.
+- **La pile de l'admin** : Mantine pour l'interface (thème sombre), TanStack Router (les filtres des
+  listes vivent dans l'URL), TanStack Query et TanStack Table, i18next pour ses propres textes. Pas
+  de bibliothèque de formulaires : l'état d'un formulaire tient en quelques fonctions maison, testées.
+- **Un faux serveur en mémoire**, qui suit le contrat de l'API, sert à développer l'admin sans le Pi
+  (`npm run dev:fake --workspace apps/admin`) et à ses tests. Il n'est pas embarqué dans l'admin
+  construite.
+- **Langue d'écriture** : un formulaire montre une langue à la fois, choisie par des onglets et
+  gardée d'une fiche à l'autre ; les textes qui attendent encore leur traduction sont comptés et
+  signalés, avec le français sous les yeux.
 
 ### Les sons
 
