@@ -1,0 +1,193 @@
+{
+  "app": {
+    "name": "Wayfarer’s Rest",
+    "fakeServer": "Serveur factice"
+  },
+  "common": {
+    "yes": "Oui",
+    "no": "Non",
+    "cancel": "Annuler"
+  },
+  "locales": {
+    "fr": "Français",
+    "en": "English"
+  },
+  "nav": {
+    "overview": "Vue d’ensemble",
+    "content": "Contenu",
+    "logout": "Déconnexion",
+    "menu": "Ouvrir ou fermer le menu"
+  },
+  "login": {
+    "subtitle": "L’atelier du monde : connecte-toi pour l’éditer.",
+    "password": "Mot de passe",
+    "submit": "Se connecter",
+    "wrong": "Ce n’est pas le bon mot de passe.",
+    "fakeHint": "Serveur factice : le mot de passe est « {{password}} ». Rien n’est enregistré, tout repart du monde de départ au rechargement."
+  },
+  "notFound": {
+    "title": "Cette page n’existe pas",
+    "text": "Le lien est peut-être ancien, ou l’adresse mal recopiée.",
+    "back": "Revenir à la vue d’ensemble"
+  },
+  "errors": {
+    "title": "Ça n’a pas marché",
+    "network": "Le serveur ne répond pas. Vérifie qu’il tourne et que Tailscale est connecté.",
+    "badResponse": "Le serveur a répondu quelque chose d’inattendu. L’admin et le serveur n’ont peut-être pas la même version.",
+    "badRequest": "Le serveur n’a pas compris la demande.",
+    "unauthorized": "Tu n’es plus connecté.",
+    "forbidden": "Cette action n’est pas permise.",
+    "notFound": "Introuvable : cet élément n’existe pas sur le serveur.",
+    "conflict": "Cet envoi a déjà été reçu avec un autre contenu.",
+    "publishBlocked": "Impossible de publier : le contenu a des erreurs à corriger d’abord.",
+    "versionConflict": "Le contenu a changé entre-temps.",
+    "payloadTooLarge": "C’est trop gros pour le serveur.",
+    "unsupportedMedia": "Ce fichier n’est pas un son que le serveur sait lire.",
+    "invalidContent": "Le serveur a refusé l’enregistrement : des champs ne sont pas valides.",
+    "brokenReferences": "Enregistrement refusé : il casserait des références.",
+    "rateLimited": "Trop d’essais. Attends un moment avant de recommencer.",
+    "internal": "Le serveur a rencontré une erreur."
+  },
+  "badges": {
+    "ai": "Généré par IA",
+    "archived": "Archivé",
+    "unpublished": "Pas encore publié"
+  },
+  "overview": {
+    "archived_one": "{{count}} archivé",
+    "archived_other": "{{count}} archivés",
+    "toRewrite_one": "{{count}} généré par IA, à réécrire",
+    "toRewrite_other": "{{count}} générés par IA, à réécrire"
+  },
+  "list": {
+    "title": "Nom",
+    "updatedAt": "Modifié le",
+    "create": "Nouvelle fiche",
+    "search": "Chercher…",
+    "aiOnly": "Générées par IA seulement",
+    "empty": "Aucune fiche ne correspond.",
+    "count_one": "{{count}} fiche",
+    "count_other": "{{count}} fiches",
+    "archived": {
+      "exclude": "Actives",
+      "include": "Toutes",
+      "only": "Archivées"
+    }
+  },
+  "create": {
+    "title": "Nouvelle fiche",
+    "submit": "Créer",
+    "idTaken": "Cet identifiant est déjà pris."
+  },
+  "entry": {
+    "markRewritten": "Marquer comme réécrite",
+    "archive": "Archiver",
+    "unarchive": "Désarchiver",
+    "saveFirst": "Enregistre d’abord tes modifications.",
+    "onPhone": "Sur le téléphone",
+    "neverPublished": "Jamais publiée : le téléphone ne la connaît pas encore.",
+    "upToDate": "À jour : le téléphone a cette version.",
+    "changedFields_one": "{{count}} champ diffère de la version publiée :",
+    "changedFields_other": "{{count}} champs diffèrent de la version publiée :",
+    "savedAt": "Enregistrée le {{date}}",
+    "revisions_one": "{{count}} version précédente",
+    "revisions_other": "{{count}} versions précédentes",
+    "usedBy": "Utilisée par",
+    "usedByNobody": "Personne ne pointe vers cette fiche."
+  },
+  "form": {
+    "save": "Enregistrer",
+    "saved": "Enregistré.",
+    "unsaved": "Modifications non enregistrées",
+    "fixErrors": "Corrige d’abord les champs en rouge.",
+    "leaveConfirm": "Tu as des modifications non enregistrées. Quitter quand même ?",
+    "conflictHelp": "Quelqu’un (ou un autre onglet) a enregistré avant toi. Recharge pour repartir de la dernière version : tes modifications en cours seront perdues.",
+    "reload": "Recharger",
+    "editLocale": "Langue d’écriture",
+    "missingCount_one": "{{count}} à traduire",
+    "missingCount_other": "{{count}} à traduire",
+    "toTranslate": "À traduire",
+    "frenchIs": "En français : {{text}}",
+    "slots": "Trous permis : {{slots}}",
+    "idLocked": "Il ne change plus : d’autres fiches s’en servent pour pointer ici.",
+    "unset": "Indifférent",
+    "min": "minimum",
+    "max": "maximum",
+    "rangeTo": "à",
+    "addRow": "Ajouter",
+    "removeRow": "Retirer cette ligne",
+    "moveUp": "Monter",
+    "moveDown": "Descendre",
+    "rowNumber": "N° {{number}}",
+    "removeBlock": "Retirer ce bloc",
+    "archivedOption": "{{title}} (archivé)",
+    "missingOption": "introuvable : {{id}}",
+    "missingReference": "Cette référence ne mène nulle part.",
+    "nothingFound": "Rien ne correspond",
+    "readOnlyJson": "Ce champ n’a pas d’éditeur : il est montré tel quel.",
+    "unknownKeys": "Champs que le schéma ne connaît plus",
+    "dropUnknownKeys": "Retirer ces champs"
+  },
+  "noun": {
+    "text": "Nom",
+    "plural": "Pluriel",
+    "pluralHelp": "Seulement quand ajouter un s ne suffit pas.",
+    "gender": "Genre",
+    "elided": "Élision",
+    "elidedHelp": "« l’hôtel » mais « le hibou » : à forcer quand la première lettre trompe.",
+    "elidedAuto": "D’après la première lettre",
+    "elidedYes": "Toujours (l’, d’)",
+    "elidedNo": "Jamais (le, de)",
+    "proper": "Nom propre (sans article)",
+    "isPlural": "Déjà au pluriel",
+    "preview": "Dans une phrase :"
+  },
+  "validation": {
+    "required": "Champ obligatoire",
+    "rangeOrder": "Le minimum ne peut pas dépasser le maximum.",
+    "sceneOrTable": "Une étape a soit une scène, soit une table d’événements : l’une ou l’autre, pas les deux.",
+    "subAmbienceIds": "Deux sous-ambiances ont le même identifiant.",
+    "noiseBedCategory": "Un fond sonore de type « vrai son » a besoin d’une catégorie.",
+    "monsterRank": "{monster} demande que la quête ait un monstre : choisis son rang.",
+    "unknownSlot": "Le trou {{{slot}}} n’existe pas ici.",
+    "slotWithoutForm": "{{{slot}}} n’est pas un nom : il ne prend ni article ni accord.",
+    "templateSyntax": "Gabarit mal écrit ({{detail}})."
+  },
+  "check": {
+    "kind": {
+      "duplicateId": "cet identifiant est utilisé deux fois.",
+      "missingRef": "pointe vers « {{target}} », qui n’existe pas.",
+      "archivedRef": "pointe vers « {{target}} », qui est archivé.",
+      "mismatchedRef": "pointe vers « {{target}} », qui n’est pas du bon type.",
+      "invalidItem": "ne correspond plus au schéma.",
+      "emptyCategory": "aucun son actif dans cette catégorie.",
+      "unclassifiedSound": "ce son n’est pas classé.",
+      "conversionPending": "la conversion du son n’est pas terminée.",
+      "conversionFailed": "la conversion du son a échoué.",
+      "dynamicNormalization": "le volume a dû être compressé pour être égalisé."
+    }
+  },
+  "publication": {
+    "title": "Publication",
+    "publish": "Publier",
+    "lastAt": "Dernière publication le {{date}}",
+    "never": "Rien n’a encore été publié",
+    "upToDate": "Le téléphone a tout.",
+    "pending_one": "{{count}} modification à publier",
+    "pending_other": "{{count}} modifications à publier",
+    "nothing": "Rien à publier : le téléphone reçoit déjà le contenu tel qu’il est ici.",
+    "what": "Type",
+    "item": "Fiche",
+    "change": "Changement",
+    "confirmTitle": "Publier le contenu ?",
+    "confirmText_one": "Le téléphone recevra {{count}} modification à sa prochaine synchronisation.",
+    "confirmText_other": "Le téléphone recevra {{count}} modifications à sa prochaine synchronisation.",
+    "done": "Publié.",
+    "kind": {
+      "created": "Nouveau",
+      "updated": "Modifié",
+      "archived": "Archivé",
+      "unarchived": "Désarchivé"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+/* The few rules Mantine's props do not cover. */
+
+/* A field that needs room (a list, a block, a long text) takes the whole row of its grid. */
+.wide-field {
+  grid-column: 1 / -1;
+}
+
+.entries-table tbody tr {
+  cursor: pointer;
+}
+
+.sortable-header {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.plain-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.plain-link:hover {
+  text-decoration: underline;
+}
