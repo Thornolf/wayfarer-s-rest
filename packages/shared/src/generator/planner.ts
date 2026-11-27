@@ -14,6 +14,8 @@ import type { NightWarning, StoryInput } from "./types";
 
 /** How much rest quests gain in weight as the intensity falls. */
 const REST_PULL = 2;
+/** A rest drawn when no more than this many reserves are left of the sound becomes the final rest, instead of a pause before it. */
+const REST_SETTLES = 2.5;
 /** How many templates are tried before the heard part settles for its final rest. */
 const FITTING_TRIES = 4;
 /** How many templates are tried before a catalog is declared unplayable. */
@@ -75,6 +77,8 @@ export type QuestChoice = {
   rng: Rng;
   /** Asks for a quest of this kind, when one can be played. */
   kind?: QuestKind | undefined;
+  /** Id of the template of the quest before: it is not offered twice in a row while another can be. */
+  previous?: string | undefined;
 };
 
 /** The next quest, planned. Throws when the zone has no quest that yields a single scene. */
@@ -84,7 +88,9 @@ export function chooseQuest(choice: QuestChoice): QuestPlan {
   const possible = world.active.questTemplates.filter((template) => template.weight > 0 && canHappen(world, plan.zone, template));
   const ofKind = possible.filter((template) => template.kind === choice.kind);
   const lively = possible.filter((template) => (template.minIntensity ?? 0) <= intensity);
-  const offered = ofKind.length > 0 ? ofKind : lively.length > 0 ? lively : possible;
+  const suited = ofKind.length > 0 ? ofKind : lively.length > 0 ? lively : possible;
+  const fresh = suited.filter((template) => template.id !== choice.previous);
+  const offered = fresh.length > 0 ? fresh : suited;
 
   const context = (name: string): QuestContext => ({
     world,
@@ -107,8 +113,14 @@ export function chooseQuest(choice: QuestChoice): QuestPlan {
   if (at < plan.soundSeconds && offered.length > 0) {
     const reserve = restReserve(plan.soundSeconds);
     const mustEndBy = plan.soundSeconds - reserve;
+    const finalRest = (template: QuestTemplate, name: string) =>
+      planQuest(template, { ...context(name), restUntil: plan.soundSeconds, restLead: reserve });
     for (let attempt = 0; attempt < FITTING_TRIES; attempt++) {
       const template = draw(offered, `pick-${attempt}`);
+      if (template.kind === "rest" && plan.soundSeconds - at <= REST_SETTLES * reserve) {
+        const rest = finalRest(template, `plan-${attempt}-rest`);
+        if (rest) return rest;
+      }
       for (const short of [false, true]) {
         const quest = planQuest(template, { ...context(`plan-${attempt}-${short ? "short" : "full"}`), short });
         if (quest && at + quest.duration <= mustEndBy) return quest;
@@ -116,7 +128,7 @@ export function chooseQuest(choice: QuestChoice): QuestPlan {
     }
     const rests = possible.filter((template) => template.kind === "rest");
     if (rests.length > 0) {
-      const rest = planQuest(draw(rests, "rest"), { ...context("plan-rest"), restUntil: plan.soundSeconds, restLead: reserve / 2 });
+      const rest = finalRest(draw(rests, "rest"), "plan-rest");
       if (rest) return rest;
     }
   }

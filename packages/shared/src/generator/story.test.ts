@@ -7,7 +7,7 @@ import { loadStarterCatalog } from "../starter";
 import { indexCatalog } from "../world";
 import { daylightAt, drawStartHour } from "./daylight";
 import { HEARD_END_INTENSITY, intensityAt, sceneFit } from "./intensity";
-import { planNight } from "./planner";
+import { planNight, restReserve } from "./planner";
 import { generateStory } from "./story";
 import type { StoryBeat, StoryInput } from "./types";
 import { WeatherTrack } from "./weather";
@@ -129,6 +129,31 @@ test("the last scene heard is a rest, in a rest quest that began well before the
       assert.ok(last.event.at + last.event.duration >= soundMinutes * 60, "the rest carries the final fade");
       const firstRest = beats.find((beat) => beat.quest === last.quest && beat.event.kind === "rest") as StoryBeat;
       assert.ok(soundMinutes * 60 - firstRest.event.at >= 60, `seed ${seed}: the rest starts too late`);
+    }
+  }
+});
+
+test("the way to the final rest fills the wait: the rest itself begins about one reserve before the sound ends", () => {
+  const longestScene = Math.max(...catalog.sceneTemplates.map((scene) => scene.duration.max));
+  for (const soundMinutes of [15, 30, 60, 120]) {
+    const soundSeconds = soundMinutes * 60;
+    for (const seed of seeds(25)) {
+      const beats = until(input(seed, { soundMinutes }), soundSeconds);
+      const final = (beats.at(-1) as StoryBeat).quest;
+      const rest = beats.find((beat) => beat.quest === final && beat.event.step === "do") as StoryBeat;
+      const earliest = Math.max(final.at, soundSeconds - restReserve(soundSeconds) - longestScene);
+      assert.ok(rest.event.at >= earliest, `seed ${seed}, ${soundMinutes} min: the rest begins at ${rest.event.at}, before ${earliest}`);
+    }
+  }
+});
+
+test("the same quest is not given twice in a row, but for the rest that ends the heard part", () => {
+  for (const seed of seeds(20)) {
+    const quests = [...new Set(until(input(seed), 6 * HOUR).map((beat) => beat.quest))];
+    const lastHeard = quests.filter((quest) => quest.at < 1800).at(-1);
+    for (const [index, quest] of quests.entries()) {
+      if (index === 0 || quest === lastHeard) continue;
+      assert.notEqual(quest.template, quests[index - 1]?.template, `seed ${seed}: « ${quest.title} » follows the same quest`);
     }
   }
 });

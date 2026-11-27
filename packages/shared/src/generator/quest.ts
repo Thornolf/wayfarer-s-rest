@@ -15,7 +15,7 @@ import { sceneFit } from "./intensity";
 /** Where quests are given and where the hero waits between two of them. */
 const HUB_KINDS: readonly PlaceKind[] = ["town", "inn", "camp"];
 const FIGHT_RANKS: Partial<Record<RowOutcome, MonsterRank>> = { fight: "normal", elite: "elite", boss: "boss" };
-/** A forced rest repeats its last step until the sound ends; this only guards against a broken catalog. */
+/** A final rest repeats its last steps until the sound ends; this only guards against a broken catalog. */
 const MOST_REST_SCENES = 500;
 
 export type PlannedScene = {
@@ -63,10 +63,10 @@ export type QuestContext = {
   short?: boolean;
   /**
    * Makes the quest the rest that ends the heard part: its last step only draws rest scenes and
-   * repeats until this time, and the steps before it leave it room to start well before.
+   * repeats until this time, and the step before it fills the wait until that rest is due.
    */
   restUntil?: number;
-  /** How long before `restUntil` the last step must have started. */
+  /** How long before `restUntil` the last step starts. */
   restLead?: number;
 };
 
@@ -161,15 +161,17 @@ export function planQuest(template: QuestTemplate, context: QuestContext): Quest
     const place = placeOf(step.action);
     const resting = context.restUntil !== undefined;
     const untilSoundEnds = resting && stepIndex === template.steps.length - 1;
+    // The way to the final rest is as long as the time left before it: a calm walk, not more rest.
+    const untilTheRest = resting && stepIndex === template.steps.length - 2 && step.eventTable !== undefined;
     const [fewest, most] = step.repeat ? wholeRange(step.repeat) : [1, 1];
-    const count = untilSoundEnds ? MOST_REST_SCENES : context.short || resting ? fewest : draws.int(fewest, most);
+    const count = untilSoundEnds || untilTheRest ? MOST_REST_SCENES : context.short || resting ? fewest : draws.int(fewest, most);
 
     for (let n = 0; n < count; n++) {
       if (untilSoundEnds && at >= (context.restUntil as number)) break;
       const drawn = drawScene(step, place, untilSoundEnds);
       if (!drawn) break;
       const duration = draws.int(...wholeRange(drawn.scene.duration));
-      // The steps before the final rest stop early enough for it to begin while the sound still plays.
+      // The steps before the final rest stop in time for it to begin.
       if (resting && !untilSoundEnds && at + duration > (context.restUntil as number) - (context.restLead ?? 0)) break;
 
       scenes.push({

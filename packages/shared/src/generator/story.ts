@@ -42,6 +42,7 @@ export function* generateStory(input: StoryInput): Generator<StoryBeat, never, u
   let place = plan.startPlace;
   let at = 0;
   let eventIndex = 0;
+  let previous: string | undefined;
 
   for (let questIndex = 0; ; questIndex++) {
     const quest = chooseQuest({
@@ -53,7 +54,9 @@ export function* generateStory(input: StoryInput): Generator<StoryBeat, never, u
       locale: input.locale ?? DEFAULT_LOCALE,
       rng: storyRng.fork(`quest-${questIndex}`),
       kind: questIndex === 0 ? input.settings?.questKind : undefined,
+      previous,
     });
+    previous = quest.template.id;
     const run: QuestRun = {
       index: questIndex,
       template: quest.template.id,
