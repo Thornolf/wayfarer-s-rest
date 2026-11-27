@@ -306,6 +306,10 @@ base SQLite intégrée à Node (`node:sqlite`), lancés par `tsx`, sans étape d
 - **Une écriture est refusée** si l'élément ne respecte pas le schéma, si quelqu'un d'autre l'a
   modifié entre-temps (`If-Match`), ou si elle **ajoute** à cet élément une référence vers rien ou
   vers le mauvais type d'élément. Une référence déjà cassée n'empêche pas de corriger autre chose.
+- **Une écriture qui ne change rien** ne prend pas de version : enregistrer sans rien modifier
+  n'ajoute rien à la liste « modifié depuis la dernière publication ».
+- **Un iPhone en avance sur le serveur** (serveur restauré depuis une vieille sauvegarde) reçoit
+  tout le catalogue à nouveau.
 - **Archiver n'est jamais refusé.** Ce qui pointe encore vers un élément archivé est un
   avertissement de la vérification, pas une erreur.
 - **La vérification** classe ses trouvailles : une **erreur** (référence vers rien ou vers le

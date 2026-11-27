@@ -282,3 +282,35 @@ test("the settings are edited like an item: guarded, validated, and published wi
   assert.deepEqual(sync.changes, []);
   assert.deepEqual(sync.settings, { version: version + 1, data });
 });
+
+test("a write that changes nothing takes no version", async (t) => {
+  const server = await startTestServer(t);
+  const admin = await server.signIn();
+  const monster = await someMonster(admin);
+  const params = { collection: "monsters", id: monster.id } as const;
+  const before = (await admin.ok("publication")).body;
+
+  const same = await admin.ok("putEntry", { params, headers: ifMatch(monster.version), body: { data: monster.data } });
+  assert.equal(same.status, 200);
+  assert.deepEqual(same.body.entry, monster);
+
+  const settings = (await admin.ok("getSettings")).body.settings;
+  const sameSettings = (await admin.ok("putSettings", { headers: ifMatch(settings.version), body: { data: settings.data } })).body;
+  assert.deepEqual(sameSettings.settings, settings);
+
+  assert.deepEqual((await admin.ok("publication")).body, before);
+  assert.deepEqual((await admin.ok("getEntry", { params })).body.revisions, []);
+  // The guard still applies: saving the same thing over a version that moved is a conflict.
+  assert.equal((await admin.fail("putEntry", { params, headers: ifMatch(monster.version + 1), body: { data: monster.data } })).code, "versionConflict");
+});
+
+test("a phone ahead of the server, after the server was restored from an older backup, gets everything again", async (t) => {
+  const server = await startTestServer(t);
+  const device = await server.pairDevice(await server.signIn());
+  const full = (await device.ok("catalogue")).body;
+
+  const ahead = await device.ok("catalogue", { query: { since: full.version + 10 }, headers: { "if-none-match": versionEtag(full.version + 10) } });
+  assert.equal(ahead.body.version, full.version);
+  assert.equal(ahead.body.changes.length, full.changes.length);
+  assert.deepEqual(ahead.body.settings, full.settings);
+});

@@ -1,7 +1,8 @@
 // The rules of a write to the draft: the item fits the schema of its collection, the version the
-// admin read is still the current one, and the write does not add a broken reference.
+// admin read is still the current one, and the write does not add a broken reference. A write that
+// changes nothing takes no version, so it shows nothing to publish.
 
-import { COLLECTIONS, settingsSchema, type CheckIssue, type CollectionName, type Settings } from "@wayfarers-rest/shared";
+import { COLLECTIONS, settingsSchema, stableStringify, type CheckIssue, type CollectionName, type Settings } from "@wayfarers-rest/shared";
 import type { z } from "zod";
 import { HttpError, fieldErrors } from "../http/errors";
 import { assembleCatalog, isArchived, type StoredEntry } from "./catalog";
@@ -51,6 +52,7 @@ export class Draft {
   }
 
   private write(collection: Slot, id: string, data: Record<string, unknown>, existing: StoredItem | undefined): StoredItem {
+    if (existing && stableStringify(existing.data) === stableStringify(data)) return existing;
     const others = this.store.draft().filter((item) => item.collection !== collection || item.id !== id);
     const errorsWith = (candidate: StoredItem | undefined): CheckIssue[] =>
       errorsOf(referenceIssues(assembleCatalog(candidate ? [...others, candidate] : others).catalog)).filter(

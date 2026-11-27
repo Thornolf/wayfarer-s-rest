@@ -27,7 +27,10 @@ export function catalogueRoutes(api: Api, { store }: Services): void {
   const answer = (call: Call<Routes["catalogue"]>, version: number, changedSince: (since: number) => StoredItem[]) => {
     call.reply.header("etag", versionEtag(version));
     if (etagMatches(call.headers["if-none-match"], version)) return NOT_MODIFIED;
-    return toSync(version, changedSince(call.query.since ?? 0));
+    const since = call.query.since ?? 0;
+    // A reader ahead of the server (the server was restored from an older backup) holds content
+    // this server never wrote: it gets everything again.
+    return toSync(version, changedSince(since > version ? 0 : since));
   };
 
   api.handle("catalogue", (call) => answer(call, store.publication()?.version ?? 0, (since) => store.published(since)));
