@@ -4,6 +4,7 @@
 // The starter world is not exported from here, so that the app does not bundle it: import it from
 // "@wayfarers-rest/shared/starter".
 
+export * from "./api";
 export * from "./generator/daylight";
 export * from "./generator/intensity";
 export * from "./generator/planner";
