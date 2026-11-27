@@ -290,6 +290,39 @@ packages/shared` les réécrit, et leur diff se relit avec le reste.
 - **Sur l'iPhone** : Expo Go pour développer. Plus tard, un `.ipa` construit par GitHub Actions et
   signé par SideStore avec un Apple ID gratuit.
 
+## Le serveur
+
+Les décisions prises en construisant l'étape 3. Le serveur est dans `apps/server` : Fastify 5 et la
+base SQLite intégrée à Node (`node:sqlite`), lancés par `tsx`, sans étape de build.
+
+- **Les données** vont dans un seul dossier (`DATA_DIR`) : la base `wayfarer.sqlite`, et plus tard
+  les sons. Le schéma de la base évolue par des fichiers SQL numérotés, appliqués au démarrage.
+- **Premier démarrage** : la base est vide, donc le monde de départ du dépôt y est copié **et
+  publié**. L'iPhone a ainsi un monde dès la première synchro, et la liste « modifié depuis la
+  dernière publication » ne montre que ce que le propriétaire a changé. Ensuite la base est la
+  seule source : le dépôt n'est plus relu.
+- **Chaque écriture garde sa révision** : l'admin peut montrer les versions précédentes d'un
+  élément, et le contenu publié se lit dans ces révisions, sans copie.
+- **Une écriture est refusée** si l'élément ne respecte pas le schéma, si quelqu'un d'autre l'a
+  modifié entre-temps (`If-Match`), ou si elle **ajoute** à cet élément une référence vers rien ou
+  vers le mauvais type d'élément. Une référence déjà cassée n'empêche pas de corriger autre chose.
+- **Archiver n'est jamais refusé.** Ce qui pointe encore vers un élément archivé est un
+  avertissement de la vérification, pas une erreur.
+- **La vérification** classe ses trouvailles : une **erreur** (référence vers rien ou vers le
+  mauvais type, élément qui ne respecte plus le schéma) bloque la publication ; un
+  **avertissement** (référence vers un élément archivé, catégorie de sons sans son) est seulement
+  affiché.
+- **L'admin** se connecte avec un mot de passe, dont le serveur ne connaît que l'empreinte
+  (`scrypt`). La session dure 30 jours, dans un cookie que le JavaScript ne peut pas lire. Après
+  cinq mauvais mots de passe en une minute, toute tentative est refusée pendant une minute.
+- **L'app** s'identifie par un **jeton d'appareil**, créé dans l'admin et affiché une seule fois.
+  Le serveur n'en garde que l'empreinte ; un jeton se révoque, il ne se supprime pas.
+- **Tailscale** : le serveur n'écoute que sur la machine elle-même. Le compte Tailscale de chaque
+  requête est journalisé, et un réglage permet de n'accepter qu'un seul compte.
+- **Rapports de nuit et sauvegardes du perso** : le téléphone choisit l'identifiant, donc renvoyer
+  deux fois la même chose est sans effet, et renvoyer autre chose sous le même identifiant est
+  refusé. Tous les rapports sont gardés ; pour un perso, les **30 dernières sauvegardes**.
+
 ## Ordre de construction
 
 1. **Test audio sur l'iPhone** : trois couches en même temps, écran verrouillé, pendant une heure,
